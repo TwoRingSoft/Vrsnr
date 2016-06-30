@@ -1,0 +1,5 @@
+1,4d0
+< 11c11
+< < DYLIB_CURRENT_VERSION = 1 // some comment
+< ---
+< > DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
