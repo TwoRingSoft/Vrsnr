@@ -14,6 +14,7 @@ public enum SemVerFlags: UInt8 {
     case Key
     case File
     case Numeric
+    case CurrentVersion
 
     public var long: String {
         switch self {
@@ -23,6 +24,8 @@ public enum SemVerFlags: UInt8 {
             return "file"
         case .Numeric:
             return "numeric"
+        case .CurrentVersion:
+            return "current-version"
         }
 
     }
@@ -35,6 +38,8 @@ public enum SemVerFlags: UInt8 {
             return "f"
         case .Numeric:
             return "n"
+        case .CurrentVersion:
+            return "c"
         }
     }
 }

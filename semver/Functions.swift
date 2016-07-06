@@ -27,6 +27,8 @@ func printUsage() {
     print("\t\tAdd build metadata string. See http://semver.org/#spec-item-10 for more on build metadata.")
     print("\t-\(SemVerFlags.Numeric.short), --\(SemVerFlags.Numeric.long)")
     print("\t\tTreat the version as a single integer when revisioning. COMPONENT is ignored")
+    print("\t-\(SemVerFlags.CurrentVersion.short), --\(SemVerFlags.CurrentVersion.long)")
+    print("\t\tThe current version of the project, from which the new version will be computed. Any preexisting value in --file for --key will be ignored.")
 
     print("\n\t-\(Flag.Usage.short), --\(Flag.Usage.long)")
     print("\t\tPrint this usage information.")
@@ -121,4 +123,13 @@ func checkForDebugMode() {
         print("\nArguments:")
         print("debug mode enabled".s.Bold)
     }
+}
+
+func versionFromCommandLine() -> String? {
+    var version = Args.parsed.flags[SemVerFlags.CurrentVersion.long]
+    if version == nil {
+        version = Args.parsed.flags[SemVerFlags.CurrentVersion.short]
+    }
+
+    return version
 }
