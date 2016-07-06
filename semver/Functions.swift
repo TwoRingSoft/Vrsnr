@@ -9,19 +9,34 @@
 import Foundation
 
 func printUsage() {
-    print("usage: semver COMPONENT FLAGS".s.Bold)
+    print("usage: semver COMPONENT FLAGS [OPTIONS]".s.Bold)
+
     print("\nCOMPONENT".s.Bold)
     print("\n\tThe semantic version component to revision. Either “major”, “minor” or “patch”.")
+
     print("\nFLAGS".s.Bold)
     print("\n\t-\(SemVerFlags.File.short), --\(SemVerFlags.File.long) <path>")
     print("\t\tPath to the file that contains the version data.")
     print("\t-\(SemVerFlags.Key.short), --\(SemVerFlags.Key.long) <key>")
     print("\t\tThe key that the version info is mapped to.")
+
+    print("\nOPTIONS".s.Bold)
+    print("\t-\(VersionSuffix.PrereleaseIdentifier.short), --\(VersionSuffix.PrereleaseIdentifier.long)")
+    print("\t\tAdd a prerelease identifier. See http://semver.org/#spec-item-9 for more on prerelease identifiers.")
+    print("\t-\(VersionSuffix.BuildMetadata.short), --\(VersionSuffix.BuildMetadata.long)")
+    print("\t\tAdd build metadata string. See http://semver.org/#spec-item-10 for more on build metadata.")
     print("\t-\(SemVerFlags.Numeric.short), --\(SemVerFlags.Numeric.long)")
-    print("\t\tTreat the version as a single integer when revisioning. (Optional.)")
-    print("\n\nsemver -\(Flag.Usage.short)/--\(Flag.Usage.long) prints this usage information")
-    print("semver -\(Flag.Version.short)/--\(Flag.Version.long) prints version information")
-    print("\nContact two.ring.soft+semver@gmail.com with questions or suggestions.".s.Bold)
+    print("\t\tTreat the version as a single integer when revisioning. COMPONENT is ignored")
+
+    print("\n\t-\(Flag.Usage.short), --\(Flag.Usage.long)")
+    print("\t\tPrint this usage information.")
+    print("\t-\(Flag.Version.short), --\(Flag.Version.long)")
+    print("\t\tPrint version information for this application.")
+
+    print("\n\nFor questions or suggestions, email two.ring.soft+semver@gmail.com or visit https://github.com/TwoRingSoft/semver.".s.Bold)
+
+    print()
+    printVersion()
 }
 
 func getVersionSuffix(type: VersionSuffix) -> String? {

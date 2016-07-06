@@ -1,16 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "29396BC6D46F9418BAB6481DB558039FA7E8BD33",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "49B34AC35A8309779AF64E132E141200D6EDD75F",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "29396BC6D46F9418BAB6481DB558039FA7E8BD33" : 0,
+    "49B34AC35A8309779AF64E132E141200D6EDD75F" : 0,
     "FC9ACEF291C48077CC5B5F5EB26EDA892DFCDA8D" : 0,
     "5FEF2558B791B9FF11FEB6DF44D06AAED47D1BEE" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "09960B54-670D-4E4C-8AA4-A3490BD99820",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "29396BC6D46F9418BAB6481DB558039FA7E8BD33" : "SemVer\/",
+    "49B34AC35A8309779AF64E132E141200D6EDD75F" : "SemVer\/",
     "FC9ACEF291C48077CC5B5F5EB26EDA892DFCDA8D" : "SemVer\/Swiftline\/",
     "5FEF2558B791B9FF11FEB6DF44D06AAED47D1BEE" : "SemVer\/FABConfig\/"
   },
@@ -21,7 +21,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:amcknight2718\/bumpr.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "29396BC6D46F9418BAB6481DB558039FA7E8BD33"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49B34AC35A8309779AF64E132E141200D6EDD75F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/twitter-fabric\/FABConfig.git",

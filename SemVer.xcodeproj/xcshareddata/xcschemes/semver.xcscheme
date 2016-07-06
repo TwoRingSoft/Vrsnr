@@ -68,7 +68,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "semver"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "major"
@@ -80,7 +80,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "patch"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.plist&quot;"
@@ -88,11 +88,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.xcconfig&quot;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key CURRENT_PROJECT_VERSION"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key CFBundleShortVersionString"
@@ -108,11 +108,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--identifier some.prerelease.identifier"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--metadata some.metadata"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
