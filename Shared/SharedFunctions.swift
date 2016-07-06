@@ -30,30 +30,21 @@ func replaceVersionString(original: String, new: String, key: String, file: File
 }
 
 func getPrereleaseIdentifierAndBuildMetadata(string: String) -> (prereleaseIdentifier: String?, buildMetadata: String?) {
-
-    let hasPrereleaseIdentifier = string.containsString("-")
-    let hasBuildMetadata = string.containsString("+")
-
-    if !(hasPrereleaseIdentifier || hasBuildMetadata) {
-        return (nil, nil)
-    }
-
-    let definitionComponents = string.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "-+"))
-
     var metadata: String?
-    if definitionComponents.count > 2 {
-        metadata = definitionComponents[2]
+    var prereleaseID: String?
+
+    var remainingString = string
+    if string.containsString("+") {
+        let components = string.componentsSeparatedByString("+")
+        metadata = components.last
+        remainingString = components.first!
     }
 
-    var prereleaseID: String?
-    if definitionComponents.count > 1 {
-        // check to see if metadata exists with no prerelease identifier
-        if hasBuildMetadata && !hasPrereleaseIdentifier {
-            metadata = definitionComponents[1]
-        } else if hasPrereleaseIdentifier {
-            prereleaseID = definitionComponents[1]
-        }
+    if remainingString.containsString("-") {
+        let firstHyphenIdx = remainingString.rangeOfString("-")!
+        prereleaseID = remainingString.substringFromIndex(firstHyphenIdx.startIndex.advancedBy(1))
     }
+
 
     return (prereleaseID, metadata)
 }
