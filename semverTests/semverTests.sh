@@ -50,24 +50,21 @@ function runTest() {
 
 }
 
-# plist tests
-runTest "plist-semver-major" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "major"       ""
-runTest "plist-semver-minor" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "minor"       ""
-runTest "plist-semver-patch" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "patch"       ""
-runTest "plist-numerical"    "semverTests/Fixtures/Sample.plist" "CFBundleVersion"            "--numeric"   ""
+function runTestsForType() {
+    SMVR_FILE_TYPE="${1}"
+    SMVR_FILE_SEMVER_KEY="${2}"
+    SMVR_FILE_NUMERIC_KEY="${3}"
 
-runTest "plist-semver-major-try" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "major"       "--try"
-runTest "plist-semver-minor-try" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "minor"       "--try"
-runTest "plist-semver-patch-try" "semverTests/Fixtures/Sample.plist" "CFBundleShortVersionString" "patch"       "--try"
-runTest "plist-numerical-try"    "semverTests/Fixtures/Sample.plist" "CFBundleVersion"            "--numeric"   "--try"
+    runTest "${SMVR_FILE_TYPE}-semver-major" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     ""
+    runTest "${SMVR_FILE_TYPE}-semver-minor" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     ""
+    runTest "${SMVR_FILE_TYPE}-semver-patch" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     ""
+    runTest "${SMVR_FILE_TYPE}-numerical"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" ""
 
-# xcconfig tests
-runTest "xcconfig-semver-major" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "major"        ""
-runTest "xcconfig-semver-minor" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "minor"        ""
-runTest "xcconfig-semver-patch" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "patch"        ""
-runTest "xcconfig-numerical"    "semverTests/Fixtures/Sample.xcconfig" "DYLIB_CURRENT_VERSION"   "--numeric"    ""
+    runTest "${SMVR_FILE_TYPE}-semver-major-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "--try"
+    runTest "${SMVR_FILE_TYPE}-semver-minor-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "--try"
+    runTest "${SMVR_FILE_TYPE}-semver-patch-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "--try"
+    runTest "${SMVR_FILE_TYPE}-numerical-try"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "--try"
+}
 
-runTest "xcconfig-semver-major-try" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "major"        "--try"
-runTest "xcconfig-semver-minor-try" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "minor"        "--try"
-runTest "xcconfig-semver-patch-try" "semverTests/Fixtures/Sample.xcconfig" "CURRENT_PROJECT_VERSION" "patch"        "--try"
-runTest "xcconfig-numerical-try"    "semverTests/Fixtures/Sample.xcconfig" "DYLIB_CURRENT_VERSION"   "--numeric"    "--try"
+runTestsForType "plist" "CFBundleShortVersionString" "CFBundleVersion"
+runTestsForType "xcconfig" "CURRENT_PROJECT_VERSION" "DYLIB_CURRENT_VERSION"
