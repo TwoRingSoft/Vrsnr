@@ -1,0 +1,2 @@
+- Added a "--try" option to only output what the tool will do, without actually modifying any files.
+- Added a "--current-version" option to override whatever preexisting version info may be found at the specified --file/--key pair.
