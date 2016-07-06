@@ -1,5 +1,0 @@
-1,4d0
-< 9c9
-< < CURRENT_PROJECT_VERSION = 0.1.0-some.prerelease.identifier+some.metadata // some comment
-< ---
-< > CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
