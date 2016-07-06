@@ -67,16 +67,20 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "semver"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
             argument = "major"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "minor"
+            argument = "--current-version 0.0.0"
             isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "minor"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--try"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "patch"
@@ -84,7 +88,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.plist&quot;"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.xcconfig&quot;"
@@ -96,7 +100,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key CFBundleShortVersionString"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key DYLIB_CURRENT_VERSION"

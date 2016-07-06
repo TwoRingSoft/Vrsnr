@@ -31,10 +31,24 @@ function runTest() {
     cp "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}"
 
     # perform the SMVR
-    eval "${SMVR_LOCATION}/semver ${SMVR_TEST_SEMVER_COMPONENT} --file ${SMVR_TEST_FILE} --key ${SMVR_TEST_KEY} ${SMVR_TEST_OPTIONS}"
+    SMVR_CMD="semver ${SMVR_TEST_SEMVER_COMPONENT} --file ${SMVR_TEST_FILE} --key ${SMVR_TEST_KEY} ${SMVR_TEST_OPTIONS}"
+    echo $SMVR_CMD > "${SMVR_TEST_RESULTS_FILE}"
+    eval "${SMVR_LOCATION}/${SMVR_CMD}"
+
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    echo "Before:" >> "${SMVR_TEST_RESULTS_FILE}"
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    cat "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
+
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    echo "After:" >> "${SMVR_TEST_RESULTS_FILE}"
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    cat "${SMVR_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
 
     # compare the modified file to copy of original
-    diff "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}" > "${SMVR_TEST_RESULTS_FILE}"
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    echo "Difference:" >> "${SMVR_TEST_RESULTS_FILE}"
+    diff "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
 
     # compare new results to baseline results; they should be identical
     diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}"
@@ -50,21 +64,47 @@ function runTest() {
 
 }
 
-function runTestsForType() {
+function runTestFlavor() {
+    SMVR_TEST_FLAVOR="${1}"
+    SMVR_TEST_FLAVOR_OPTIONS="${2}"
+
+    if [[ -z "${SMVR_TEST_FLAVOR}" ]]; then
+        SMVR_FLAVOR_SUFFIX=""
+    else
+        SMVR_FLAVOR_SUFFIX="-${SMVR_TEST_FLAVOR}"
+    fi
+
+    runTest "${SMVR_FILE_TYPE}-semver-major${SMVR_FLAVOR_SUFFIX}" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "${SMVR_TEST_FLAVOR_OPTIONS}"
+    runTest "${SMVR_FILE_TYPE}-semver-minor${SMVR_FLAVOR_SUFFIX}" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "${SMVR_TEST_FLAVOR_OPTIONS}"
+    runTest "${SMVR_FILE_TYPE}-semver-patch${SMVR_FLAVOR_SUFFIX}" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "${SMVR_TEST_FLAVOR_OPTIONS}"
+    runTest "${SMVR_FILE_TYPE}-numerical${SMVR_FLAVOR_SUFFIX}"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "${SMVR_TEST_FLAVOR_OPTIONS}"
+
+    runTest "${SMVR_FILE_TYPE}-semver-major${SMVR_FLAVOR_SUFFIX}-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "${SMVR_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${SMVR_FILE_TYPE}-semver-minor${SMVR_FLAVOR_SUFFIX}-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "${SMVR_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${SMVR_FILE_TYPE}-semver-patch${SMVR_FLAVOR_SUFFIX}-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "${SMVR_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${SMVR_FILE_TYPE}-numerical${SMVR_FLAVOR_SUFFIX}-try"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "${SMVR_TEST_FLAVOR_OPTIONS} --try"
+
+    runTest "${SMVR_FILE_TYPE}-semver-major${SMVR_FLAVOR_SUFFIX}-current-version-override" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${SMVR_FILE_TYPE}-semver-minor${SMVR_FLAVOR_SUFFIX}-current-version-override" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${SMVR_FILE_TYPE}-semver-patch${SMVR_FLAVOR_SUFFIX}-current-version-override" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${SMVR_FILE_TYPE}-numerical${SMVR_FLAVOR_SUFFIX}-current-version-override"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1"
+
+    runTest "${SMVR_FILE_TYPE}-semver-major${SMVR_FLAVOR_SUFFIX}-current-version-override-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${SMVR_FILE_TYPE}-semver-minor${SMVR_FLAVOR_SUFFIX}-current-version-override-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${SMVR_FILE_TYPE}-semver-patch${SMVR_FLAVOR_SUFFIX}-current-version-override-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${SMVR_FILE_TYPE}-numerical${SMVR_FLAVOR_SUFFIX}-current-version-override-try"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "${SMVR_TEST_FLAVOR_OPTIONS} --current-version 1 --try"
+}
+
+function runTestsForFileType() {
     SMVR_FILE_TYPE="${1}"
     SMVR_FILE_SEMVER_KEY="${2}"
     SMVR_FILE_NUMERIC_KEY="${3}"
 
-    runTest "${SMVR_FILE_TYPE}-semver-major" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     ""
-    runTest "${SMVR_FILE_TYPE}-semver-minor" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     ""
-    runTest "${SMVR_FILE_TYPE}-semver-patch" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     ""
-    runTest "${SMVR_FILE_TYPE}-numerical"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" ""
-
-    runTest "${SMVR_FILE_TYPE}-semver-major-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "major"     "--try"
-    runTest "${SMVR_FILE_TYPE}-semver-minor-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "minor"     "--try"
-    runTest "${SMVR_FILE_TYPE}-semver-patch-try" "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_SEMVER_KEY}"  "patch"     "--try"
-    runTest "${SMVR_FILE_TYPE}-numerical-try"    "semverTests/Fixtures/Sample.${SMVR_FILE_TYPE}" "${SMVR_FILE_NUMERIC_KEY}" "--numeric" "--try"
+    runTestFlavor "" ""
+    runTestFlavor "metadata" "--metadata some.meta-data.123"
+    runTestFlavor "identifier" "--identifier some.prerelease-identifier.123"
+    runTestFlavor "identifier-metadata" "--identifier some.prerelease-identifier.123 --metadata some.meta-data.123"
 }
 
-runTestsForType "plist" "CFBundleShortVersionString" "CFBundleVersion"
-runTestsForType "xcconfig" "CURRENT_PROJECT_VERSION" "DYLIB_CURRENT_VERSION"
+runTestsForFileType "plist" "CFBundleShortVersionString" "CFBundleVersion"
+runTestsForFileType "xcconfig" "CURRENT_PROJECT_VERSION" "DYLIB_CURRENT_VERSION"
