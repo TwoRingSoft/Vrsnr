@@ -14,26 +14,27 @@ public struct NumericVersion {
     let prereleaseIdentifier: String?
     let buildMetadata: String?
 
-    public init(version: UInt, prereleaseIdentifier: String?, buildMetadata: String?) {
-
+    public init(version: UInt, prereleaseIdentifier: String? = nil, buildMetadata: String? = nil) {
         self.version = version
-        self.prereleaseIdentifier = prereleaseIdentifier
-        self.buildMetadata = buildMetadata
-    }
-
-    public init(byIncrementing oldVersion: NumericVersion, prereleaseIdentifier: String? = nil, buildMetadata: String? = nil) {
-
-        self.version = oldVersion.version + 1
         self.prereleaseIdentifier = prereleaseIdentifier
         self.buildMetadata = buildMetadata
     }
 
 }
 
-extension NumericVersion {
-    
-    public static func parseFromString(string: String) throws -> NumericVersion {
+extension NumericVersion: Version {
 
+    public typealias T = NumericVersion
+
+    public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> NumericVersion {
+        return NumericVersion(version: self.version + 1, prereleaseIdentifier: prereleaseIdentifier, buildMetadata: buildMetadata)
+    }
+
+    public func commonKeys() -> [String] {
+        return [ "DYLIB_CURRENT_VERSION", "CFBundleVersion" ]
+    }
+
+    public static func parseFromString(string: String) throws -> NumericVersion {
         if string == "$(DYLIB_CURRENT_VERSION)" {
             throw NSError(domain: errorDomain, code: ExitCode.DynamicVersionFound.valueAsInt(), userInfo: [NSLocalizedDescriptionKey:"Dynamic value found in \(file). Rerun this script pointed at the file that defines DYLIB_CURRENT_VERSION."])
         } else if string == "" {
@@ -54,13 +55,12 @@ extension NumericVersion {
 
         return NumericVersion(version: versionNumber.unsignedIntegerValue, prereleaseIdentifier: suffixes.prereleaseIdentifier, buildMetadata: suffixes.buildMetadata)
     }
-
+    
 }
 
 extension NumericVersion: CustomStringConvertible {
 
     public var description: String {
-
         var string = "\(version)"
         if let prereleaseID = prereleaseIdentifier {
             string.appendContentsOf("-\(prereleaseID)")

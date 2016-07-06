@@ -8,32 +8,9 @@
 
 import Foundation
 
-public enum VersionSuffix: UInt8 {
-    
-    case BuildMetadata
-    case PrereleaseIdentifier
+public typealias SemverBumpOptions = VersionBumpOptions
 
-    public var long: String {
-        switch self {
-        case .BuildMetadata:
-            return "metadata"
-        case .PrereleaseIdentifier:
-            return "identifier"
-        }
-    }
-
-    public var short: String {
-        switch self {
-        case .BuildMetadata:
-            return "m"
-        case .PrereleaseIdentifier:
-            return "i"
-        }
-    }
-
-}
-
-public enum SemverRevision {
+public enum SemverRevision: SemverBumpOptions {
 
     case Major
     case Minor
@@ -69,30 +46,24 @@ public struct SemanticVersion {
         self.prereleaseIdentifier = prereleaseIdentifier
     }
 
-    public init(originalVersion: SemanticVersion, incrementing revisionComponent: SemverRevision, buildMetadata: String? = nil, prereleaseIdentifier: String? = nil) {
-        major = originalVersion.major + (revisionComponent == SemverRevision.Major ? 1 : 0)
-        minor = originalVersion.minor + (revisionComponent == SemverRevision.Minor ? 1 : 0)
-        patch = originalVersion.patch + (revisionComponent == SemverRevision.Patch ? 1 : 0)
-
-        if buildMetadata == nil {
-            self.buildMetadata = originalVersion.buildMetadata
-        } else {
-            self.buildMetadata = buildMetadata
-        }
-
-        if prereleaseIdentifier == nil {
-            self.prereleaseIdentifier = originalVersion.prereleaseIdentifier
-        } else {
-            self.prereleaseIdentifier = prereleaseIdentifier
-        }
-    }
-
 }
 
-extension SemanticVersion {
+extension SemanticVersion: Version {
+
+    public typealias T = SemanticVersion
+
+    public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
+        let major = self.major + (options == SemverRevision.Major.rawValue ? 1 : 0)
+        let minor = self.minor + (options == SemverRevision.Minor.rawValue ? 1 : 0)
+        let patch = self.patch + (options == SemverRevision.Patch.rawValue ? 1 : 0)
+        return SemanticVersion(major: major, minor: minor, patch: patch, buildMetadata: buildMetadata, prereleaseIdentifier: prereleaseIdentifier)
+    }
+
+    public func commonKeys() -> [String] {
+        return [ "CURRENT_PROJECT_VERSION", "CFBundleShortVersionString" ]
+    }
 
     public static func parseFromString(string: String) throws -> SemanticVersion {
-
         if string == "$(CURRENT_PROJECT_VERSION)" {
             throw NSError(domain: errorDomain, code: Int(ExitCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found in \(file). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
         }

@@ -64,6 +64,8 @@
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D231D24AF750068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
 		49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
+		49EF1D2A1D2C8B5A0068AC4F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D291D2C8B5A0068AC4F /* Version.swift */; };
+		49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D291D2C8B5A0068AC4F /* Version.swift */; };
 		49F046301D235DE3005EE299 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49F046311D235E02005EE299 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49F046331D235E30005EE299 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
@@ -158,6 +160,7 @@
 		49EF1D251D2601420068AC4F /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = Config/Project.xcconfig; sourceTree = "<group>"; };
 		49EF1D261D2601C90068AC4F /* FABConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FABConfig; sourceTree = "<group>"; };
 		49EF1D281D2601EC0068AC4F /* semver.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = semver.xcconfig; path = Config/semver.xcconfig; sourceTree = "<group>"; };
+		49EF1D291D2C8B5A0068AC4F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
 		49F046611D238253005EE299 /* semverTests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = semverTests.sh; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 				49F0462F1D235DE3005EE299 /* File.swift */,
 				49F046321D235E30005EE299 /* SemanticVersion.swift */,
 				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
+				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -482,6 +486,7 @@
 				49F046301D235DE3005EE299 /* File.swift in Sources */,
 				49A0F27E1D20D7F3007C41AE /* ViewController.m in Sources */,
 				49A0F27B1D20D7F3007C41AE /* main.m in Sources */,
+				49EF1D2A1D2C8B5A0068AC4F /* Version.swift in Sources */,
 				49EF1D231D24AF750068AC4F /* NumericVersion.swift in Sources */,
 				49A0F2781D20D7F3007C41AE /* AppDelegate.m in Sources */,
 			);
@@ -523,6 +528,7 @@
 				49A0F3981D20FE97007C41AE /* Runner.swift in Sources */,
 				49A0F3881D20FE97007C41AE /* Args.swift in Sources */,
 				49A0F38E1D20FE97007C41AE /* Choose.swift in Sources */,
+				49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */,
 				49DDBDA91D22407B00CF32BA /* SharedFunctions.swift in Sources */,
 				49A0F3941D20FE97007C41AE /* ProcessInfo.swift in Sources */,
 				49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */,

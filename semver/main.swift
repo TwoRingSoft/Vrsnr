@@ -43,11 +43,11 @@ var new: String
 if isNumeric() {
     let originalVersion = try! file.getNumericVersionForKey(key)
     original = originalVersion.description
-    new = NumericVersion(byIncrementing: originalVersion, prereleaseIdentifier: identifier, buildMetadata: metadata).description
+    new = originalVersion.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata).description
 } else {
     let originalVersion = try! file.getSemanticVersionForKey(key)
     original = originalVersion.description
-    new = SemanticVersion(originalVersion: originalVersion, incrementing: getRevType(), buildMetadata: metadata, prereleaseIdentifier: identifier).description
+    new = originalVersion.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata).description
 }
 
 try! replaceVersionString(original, new: new, key: key, file: file)

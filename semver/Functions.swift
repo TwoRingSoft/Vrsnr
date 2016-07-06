@@ -47,14 +47,14 @@ func getVersionSuffix(type: VersionSuffix) -> String? {
     return value
 }
 
-func getRevType() -> SemverRevision {
-    var revType: SemverRevision
+func getRevType() -> VersionBumpOptions {
+    var revType: VersionBumpOptions
     if Args.parsed.parameters.contains(SemverRevision.Major.name) {
-        revType = .Major
+        revType = SemverRevision.Major.rawValue
     } else if Args.parsed.parameters.contains(SemverRevision.Minor.name) {
-        revType = .Minor
+        revType = SemverRevision.Minor.rawValue
     } else if Args.parsed.parameters.contains(SemverRevision.Patch.name) {
-        revType = .Patch
+        revType = SemverRevision.Patch.rawValue
     } else {
         printUsage()
         exit(ExitCode.MissingFlag.rawValue)
