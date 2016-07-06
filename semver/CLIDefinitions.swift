@@ -34,6 +34,7 @@ enum Flag {
     case Usage
     case Version
     case Debug
+    case DryRun
 
     var short: String {
         switch self {
@@ -43,6 +44,8 @@ enum Flag {
             return "v"
         case .Debug:
             return "d"
+        case .DryRun:
+            return "t"
         }
     }
 
@@ -54,6 +57,8 @@ enum Flag {
             return "version"
         case .Debug:
             return "debug"
+        case .DryRun:
+            return "try"
         }
     }
 }

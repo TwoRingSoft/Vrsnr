@@ -63,7 +63,9 @@ if isNumeric() {
     new = originalVersion.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata).description
 }
 
-try! replaceVersionString(original, new: new, key: key, file: file)
+if !isDryRun() {
+    try! replaceVersionString(original, new: new, key: key, file: file)
+}
 print("Updated \(key) from \(original) to \(new) in \(path)")
 
 

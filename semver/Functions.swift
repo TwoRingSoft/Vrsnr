@@ -27,6 +27,8 @@ func printUsage() {
     print("\t\tAdd build metadata string. See http://semver.org/#spec-item-10 for more on build metadata.")
     print("\t-\(SemVerFlags.Numeric.short), --\(SemVerFlags.Numeric.long)")
     print("\t\tTreat the version as a single integer when revisioning. COMPONENT is ignored")
+    print("\t-\(Flag.DryRun.short), --\(Flag.DryRun.long)")
+    print("\t\tInstead of modifying the specified file, only output the new version that is computed from the provided options.")
     print("\t-\(SemVerFlags.CurrentVersion.short), --\(SemVerFlags.CurrentVersion.long)")
     print("\t\tThe current version of the project, from which the new version will be computed. Any preexisting value in --file for --key will be ignored.")
 
@@ -132,4 +134,8 @@ func versionFromCommandLine() -> String? {
     }
 
     return version
+}
+
+func isDryRun() -> Bool {
+    return Args.parsed.flags.keys.contains(Flag.DryRun.long) || Args.parsed.flags.keys.contains(Flag.DryRun.short)
 }
