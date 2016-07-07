@@ -91,17 +91,17 @@
 			remoteGlobalIDString = 49A0F2721D20D7F3007C41AE;
 			remoteInfo = SemVer.app;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		49DDBCE31D22206C00CF32BA /* Embed Frameworks */ = {
-		49F0465E1D238231005EE299 /* PBXContainerItemProxy */ = {
+		49EF1D401D2E0EE10068AC4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49A0F26B1D20D7F3007C41AE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 49A0F29B1D20D808007C41AE;
 			remoteInfo = semver;
 		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49DDBCE31D22206C00CF32BA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -206,13 +206,13 @@
 		49A0F26A1D20D7F3007C41AE = {
 			isa = PBXGroup;
 			children = (
-				49EF1D271D2601CE0068AC4F /* Config */,
 				49DDBD991D223F0B00CF32BA /* AppKit.framework */,
-				49A0F2751D20D7F3007C41AE /* SemVer.app */,
-				49DDBDA01D22403600CF32BA /* SemVerTests */,
-				49A0F29D1D20D808007C41AE /* semver */,
-				49F046621D2382D1005EE299 /* SemVerIntegrations */,
+				49EF1D271D2601CE0068AC4F /* Config */,
 				49A0F2741D20D7F3007C41AE /* Products */,
+				49A0F29D1D20D808007C41AE /* semver */,
+				49A0F2751D20D7F3007C41AE /* SemVer.app */,
+				49F046621D2382D1005EE299 /* SemVerIntegrations */,
+				49DDBDA01D22403600CF32BA /* SemVerTests */,
 				49A0F3611D20E9F2007C41AE /* Shared */,
 			);
 			sourceTree = "<group>";
@@ -231,12 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				49A0F2761D20D7F3007C41AE /* AppDelegate.h */,
-				49A0F2771D20D7F3007C41AE /* AppDelegate.m */,
 				49A0F27C1D20D7F3007C41AE /* ViewController.h */,
+				49A0F2771D20D7F3007C41AE /* AppDelegate.m */,
 				49A0F27D1D20D7F3007C41AE /* ViewController.m */,
-				49A0F27F1D20D7F3007C41AE /* Assets.xcassets */,
-				49A0F2811D20D7F4007C41AE /* Main.storyboard */,
-				49A0F2841D20D7F4007C41AE /* Info.plist */,
 				49A0F2791D20D7F3007C41AE /* Supporting Files */,
 			);
 			name = SemVer.app;
@@ -246,8 +243,11 @@
 		49A0F2791D20D7F3007C41AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				49A0F3641D20F8DD007C41AE /* SemVer.app-Bridging-Header.h */,
+				49A0F27F1D20D7F3007C41AE /* Assets.xcassets */,
+				49A0F2841D20D7F4007C41AE /* Info.plist */,
 				49A0F27A1D20D7F3007C41AE /* main.m */,
+				49A0F2811D20D7F4007C41AE /* Main.storyboard */,
+				49A0F3641D20F8DD007C41AE /* SemVer.app-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -255,13 +255,13 @@
 		49A0F29D1D20D808007C41AE /* semver */ = {
 			isa = PBXGroup;
 			children = (
-				49A0F3681D20FE87007C41AE /* Swiftline */,
-				49A0F35E1D20E48F007C41AE /* SemVerVersions.h */,
-				49A0F35F1D20E48F007C41AE /* SemVerVersions.m */,
-				49A0F29E1D20D808007C41AE /* main.swift */,
 				49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */,
 				49A0F3591D20DF56007C41AE /* Functions.swift */,
+				49A0F29E1D20D808007C41AE /* main.swift */,
 				49A0F35D1D20E48E007C41AE /* semver-Bridging-Header.h */,
+				49A0F35E1D20E48F007C41AE /* SemVerVersions.h */,
+				49A0F35F1D20E48F007C41AE /* SemVerVersions.m */,
+				49A0F3681D20FE87007C41AE /* Swiftline */,
 			);
 			path = semver;
 			sourceTree = "<group>";
@@ -269,13 +269,13 @@
 		49A0F3611D20E9F2007C41AE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */,
-				49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */,
-				49F0462F1D235DE3005EE299 /* File.swift */,
-				49F046321D235E30005EE299 /* SemanticVersion.swift */,
-				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
-				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
 				49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */,
+				49F0462F1D235DE3005EE299 /* File.swift */,
+				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
+				49F046321D235E30005EE299 /* SemanticVersion.swift */,
+				49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */,
+				49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */,
+				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -328,8 +328,8 @@
 		49DDBDA01D22403600CF32BA /* SemVerTests */ = {
 			isa = PBXGroup;
 			children = (
-				49DDBDA11D22403600CF32BA /* SemVerTests.swift */,
 				49DDBDA31D22403600CF32BA /* Info.plist */,
+				49DDBDA11D22403600CF32BA /* SemVerTests.swift */,
 			);
 			path = SemVerTests;
 			sourceTree = "<group>";
@@ -347,8 +347,8 @@
 		49F046621D2382D1005EE299 /* SemVerIntegrations */ = {
 			isa = PBXGroup;
 			children = (
-				49F046611D238253005EE299 /* SemVerIntegrations.sh */,
 				49DDBD211D22213400CF32BA /* Fixtures */,
+				49F046611D238253005EE299 /* SemVerIntegrations.sh */,
 			);
 			path = SemVerIntegrations;
 			sourceTree = "<group>";
@@ -579,7 +579,7 @@
 		49F0465F1D238231005EE299 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 49A0F29B1D20D808007C41AE /* semver */;
-			targetProxy = 49F0465E1D238231005EE299 /* PBXContainerItemProxy */;
+			targetProxy = 49EF1D401D2E0EE10068AC4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
