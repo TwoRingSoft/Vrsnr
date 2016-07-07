@@ -9,27 +9,6 @@
 import AppKit
 import Foundation
 
-enum ExitCode: Int32 {
-    case Normal = 0
-
-    case MissingFlag
-
-    case CouldNotParseVersion
-    case CouldNotReadFile
-    case UnwritableFile
-    case UnsupportedFileType
-    case MalformedVersionValue
-    case NoVersionFoundInFile
-    case DynamicVersionFound
-    case NSNumberFormatterCouldNotParse
-
-    case UnknownError
-
-    func valueAsInt() -> Int {
-        return Int(self.rawValue)
-    }
-}
-
 enum Flag {
     case Usage
     case Version

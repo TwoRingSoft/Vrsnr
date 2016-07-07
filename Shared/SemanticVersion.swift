@@ -63,19 +63,19 @@ extension SemanticVersion: Version {
         return [ "CURRENT_PROJECT_VERSION", "CFBundleShortVersionString" ]
     }
 
-    public static func parseFromString(string: String) throws -> SemanticVersion {
+    public static func parseFromString(file: File, string: String) throws -> SemanticVersion {
         if string == "$(CURRENT_PROJECT_VERSION)" {
-            throw NSError(domain: errorDomain, code: Int(ExitCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found in \(file). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found in \(file.path). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
         }
 
         let definitionComponents = string.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "-+"))
         if definitionComponents.count < 1 || definitionComponents.count > 3 {
-            throw NSError(domain: errorDomain, code: ExitCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may  contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: ErrorCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may  contain '-' or '+' characters."])
         }
 
         let versionComponents = definitionComponents[0].componentsSeparatedByString(".")
         if versionComponents.count != 3 {
-            throw NSError(domain: errorDomain, code: Int(ExitCode.MalformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.MalformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
         }
 
         let numberFormatter = NSNumberFormatter()
@@ -85,7 +85,7 @@ extension SemanticVersion: Version {
             let minor = numberFormatter.numberFromString(versionComponents[1])?.unsignedIntegerValue,
             let patch = numberFormatter.numberFromString(versionComponents[2])?.unsignedIntegerValue
             else {
-                throw NSError(domain: errorDomain, code: ExitCode.NSNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
+                throw NSError(domain: errorDomain, code: ErrorCode.NSNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
         }
 
         let suffixes = getPrereleaseIdentifierAndBuildMetadata(string)

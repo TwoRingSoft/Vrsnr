@@ -46,18 +46,18 @@ var new: String
 if isNumeric() {
     let originalVersion: NumericVersion
     if versionString == nil {
-        originalVersion = try! file.getNumericVersionForKey(key)
+        originalVersion = try! file.getNumericVersionForKey(file, key: key)
     } else {
-        originalVersion = try! NumericVersion.parseFromString(versionString!)
+        originalVersion = try! NumericVersion.parseFromString(file, string: versionString!)
     }
     original = originalVersion.description
     new = originalVersion.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata).description
 } else {
     let originalVersion: SemanticVersion
     if versionString == nil {
-        originalVersion = try! file.getSemanticVersionForKey(key)
+        originalVersion = try! file.getSemanticVersionForKey(file, key: key)
     } else {
-        originalVersion = try! SemanticVersion.parseFromString(versionString!)
+        originalVersion = try! SemanticVersion.parseFromString(file, string: versionString!)
     }
     original = originalVersion.description
     new = originalVersion.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata).description

@@ -61,7 +61,7 @@ func getRevType() -> VersionBumpOptions {
         revType = SemverRevision.Patch.rawValue
     } else {
         printUsage()
-        exit(ExitCode.MissingFlag.rawValue)
+        exit(ErrorCode.MissingFlag.rawValue)
     }
     return revType
 }
@@ -73,7 +73,7 @@ func getValue(flag: SemVerFlags) -> String {
     }
     guard let value = optional else {
         printUsage()
-        exit(ExitCode.MissingFlag.rawValue)
+        exit(ErrorCode.MissingFlag.rawValue)
     }
     return value
 }
@@ -101,7 +101,7 @@ func checkForHelp() {
     // see if user wants usage printed by providing -h/--help
     if flags.keys.contains(Flag.Usage.short) || flags.keys.contains(Flag.Usage.long) {
         printUsage()
-        exit(ExitCode.Normal.rawValue)
+        exit(ErrorCode.Normal.rawValue)
     }
 }
 
@@ -111,7 +111,7 @@ func checkForVersion() {
     // see if user wants usage printed by providing -v/--version
     if flags.keys.contains(Flag.Version.short) || flags.keys.contains(Flag.Version.long) {
         printVersion()
-        exit(ExitCode.Normal.rawValue)
+        exit(ErrorCode.Normal.rawValue)
     }
 }
 

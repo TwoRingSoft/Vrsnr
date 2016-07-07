@@ -46,6 +46,6 @@ public protocol Version: CustomStringConvertible {
     func commonKeys() -> [String]
 
     /// Try to parse a version from a String, or throw an error describing why it can't be done.
-    static func parseFromString(string: String) throws -> T
+    static func parseFromString(file: File, string: String) throws -> T
 
 }

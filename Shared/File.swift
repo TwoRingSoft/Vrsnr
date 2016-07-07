@@ -48,7 +48,7 @@ public struct File {
             errorPtr.memory = error.memory
             return nil
         } else {
-            errorPtr.memory = NSError(domain: errorDomain, code: 8, userInfo: [NSLocalizedDescriptionKey: "Encountered unsupported file type: \(file)"])
+            errorPtr.memory = NSError(domain: errorDomain, code: 8, userInfo: [NSLocalizedDescriptionKey: "Encountered unsupported file type: \(path)"])
             return nil
         }
 
@@ -72,16 +72,16 @@ extension File {
 
     // MARK: extracting version value strings from files, both semver and numeric
 
-    public func getSemanticVersionForKey(key: String) throws -> SemanticVersion {
+    public func getSemanticVersionForKey(file: File, key: String) throws -> SemanticVersion {
 
-        let versionString = try! getVersionStringForKey(key)
-        return try! SemanticVersion.parseFromString(versionString)
+        let versionString = try! getVersionStringForKey(file, key: key)
+        return try! SemanticVersion.parseFromString(file, string: versionString)
     }
 
-    public func getNumericVersionForKey(key: String) throws -> NumericVersion {
+    public func getNumericVersionForKey(file: File, key: String) throws -> NumericVersion {
 
-        let versionString = try! getVersionStringForKey(key)
-        return try! NumericVersion.parseFromString(versionString)
+        let versionString = try! getVersionStringForKey(file, key: key)
+        return try! NumericVersion.parseFromString(file, string: versionString)
     }
 
 }
@@ -90,18 +90,18 @@ extension File {
 
     // MARK: filetype specific version string extraction methods
 
-    private func getVersionStringForKey(key: String) throws -> String {
+    private func getVersionStringForKey(file: File, key: String) throws -> String {
 
         var valueStringLineOpt: String?
         switch(file.type) {
         case FileType.Plist:
             valueStringLineOpt = versionStringForKey_Plist(key)
         case FileType.XCConfig:
-            valueStringLineOpt = versionStringForKey_Xcconfig(key)
+            valueStringLineOpt = versionStringForKey_Xcconfig(file, key: key)
         }
 
         guard let valueStringLine = valueStringLineOpt else {
-            throw NSError(domain: errorDomain, code: ExitCode.CouldNotReadFile.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not read data from \(file)."])
+            throw NSError(domain: errorDomain, code: ErrorCode.CouldNotReadFile.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not read data from \(file)."])
         }
 
         return valueStringLine
@@ -113,7 +113,7 @@ extension File {
         return data?[key] as? String
     }
 
-    private func versionStringForKey_Xcconfig(key: String) -> String? {
+    private func versionStringForKey_Xcconfig(file: File, key: String) -> String? {
 
         let data = try! NSString(contentsOfFile: file.path, encoding: NSUTF8StringEncoding)
 
