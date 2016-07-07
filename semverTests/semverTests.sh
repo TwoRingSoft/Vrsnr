@@ -27,13 +27,20 @@ function runTest() {
 
     SMVR_TEST_BASELINE_DELTA_REPORT="${SMVR_TEST_RESULTS_DIR}/${SMVR_TEST_NAME}.baseline-diff"
 
+    echo "|---------------------------------------------------------"
+
     # make copy of original file
     cp "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}"
 
     # perform the SMVR
     SMVR_CMD="semver ${SMVR_TEST_SEMVER_COMPONENT} --file ${SMVR_TEST_FILE} --key ${SMVR_TEST_KEY} ${SMVR_TEST_OPTIONS}"
+    echo "|"
+    echo "| ${SMVR_TEST_NAME}"
+    echo "|"
+    echo "| ${SMVR_CMD}"
+    echo "|"
     echo $SMVR_CMD > "${SMVR_TEST_RESULTS_FILE}"
-    eval "${SMVR_LOCATION}/${SMVR_CMD}"
+    eval "${SMVR_LOCATION}/${SMVR_CMD}" | awk '{print "| " $0}'
 
     echo >> "${SMVR_TEST_RESULTS_FILE}"
     echo "Before:" >> "${SMVR_TEST_RESULTS_FILE}"
@@ -50,13 +57,27 @@ function runTest() {
     echo "Difference:" >> "${SMVR_TEST_RESULTS_FILE}"
     diff "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
 
+    echo "|"
+    if [[ $? -eq 0 ]]; then
+        echo "| Passed :D"
+    else
+        echo "| Failed D:"
+        echo "|"
+    fi
+
     # compare new results to baseline results; they should be identical
-    diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}"
+    diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
     if [[ $? == 0 ]]; then
         rm "${SMVR_TEST_RESULTS_FILE}" # don't save results output for cases that pass
     else
         diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" > "${SMVR_TEST_BASELINE_DELTA_REPORT}"
     fi
+
+    echo "|"
+    echo "|---------------------------------------------------------"
+    echo
+    echo
+    echo
 
     # reset the file back to its original state
     rm "${SMVR_TEST_FILE}"
@@ -100,10 +121,20 @@ function runTestsForFileType() {
     SMVR_FILE_SEMVER_KEY="${2}"
     SMVR_FILE_NUMERIC_KEY="${3}"
 
+    if [[ $SMVR_TRAVIS_BUILD -eq 1 ]]; then
+        echo "travis_fold:start:${SMVR_FILE_TYPE}"
+        echo "${SMVR_FILE_TYPE} tests:"
+        echo
+    fi
+
     runTestFlavor "" ""
     runTestFlavor "metadata" "--metadata some.meta-data.123"
     runTestFlavor "identifier" "--identifier some.prerelease-identifier.123"
     runTestFlavor "identifier-metadata" "--identifier some.prerelease-identifier.123 --metadata some.meta-data.123"
+
+    if [[ $SMVR_TRAVIS_BUILD -eq 1 ]]; then
+        echo "travis_fold:end:${SMVR_FILE_TYPE}"
+    fi
 }
 
 runTestsForFileType "plist" "CFBundleShortVersionString" "CFBundleVersion"
