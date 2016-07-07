@@ -4,12 +4,22 @@
 
 A command line tool for managing semantic versioning, with support for plain integer version numbers as well. Adheres to the semver rules laid out at [semver.org](http://semver.org).
 
+## Installation
+
+```
+brew tap tworingsoft/formulae
+brew install semver
+```
 ## Example
 
 ```
 semver major --file ~/MyProject/Config.xcconfig --key CURRENT_PROJECT_VERSION
 semver --numeric --file ~/MyProject/Config.xcconfig --key DYLIB_CURRENT_VERSION
 ```
+
+## Building & Testing
+
+The command line application is built with the `semver` target and Mac app with `SemVer.app`. Unit tests are run via `SemVerTests` and integration tests via `SemVerIntegrations`. Travis runs both test schemes using Scripts/test.sh.
 
 ## Supported formats
 
@@ -24,8 +34,13 @@ Bugfixes, new file type support, and new feature requests are welcomed. To submi
 
 - open an issue
 - fork the repo
+- make changes and test
 - open a PR linking to the issue
 
 ## Future work
 
-- Defaults for semver/numeric keys per filetype.
+- Defaults for semver/numeric keys per filetype
+- More filetypes
+- Git tagging
+- Caching
+- Mac app front end
