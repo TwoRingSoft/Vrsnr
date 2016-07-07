@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#  semverTests.sh
+#  SemVerIntegrations.sh
 #  semver
 #
 #  Created by Andrew McKnight on 6/29/16.

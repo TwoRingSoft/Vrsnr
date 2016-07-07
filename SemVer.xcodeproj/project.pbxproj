@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		49F0465A1D238228005EE299 /* semverTests */ = {
+		49F0465A1D238228005EE299 /* SemVerIntegrations */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "semverTests" */;
+			buildConfigurationList = 49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "SemVerIntegrations" */;
 			buildPhases = (
 				49F046601D238235005EE299 /* ShellScript */,
 			);
 			dependencies = (
 				49F0465F1D238231005EE299 /* PBXTargetDependency */,
 			);
-			name = semverTests;
+			name = SemVerIntegrations;
 			productName = semverTests;
 		};
 /* End PBXAggregateTarget section */
@@ -163,7 +163,7 @@
 		49EF1D291D2C8B5A0068AC4F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
-		49F046611D238253005EE299 /* semverTests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = semverTests.sh; sourceTree = "<group>"; };
+		49F046611D238253005EE299 /* SemVerIntegrations.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SemVerIntegrations.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +197,9 @@
 				49EF1D271D2601CE0068AC4F /* Config */,
 				49DDBD991D223F0B00CF32BA /* AppKit.framework */,
 				49A0F2751D20D7F3007C41AE /* SemVer.app */,
-				49DDBDA01D22403600CF32BA /* SemVer.app Tests */,
+				49DDBDA01D22403600CF32BA /* SemVerTests */,
 				49A0F29D1D20D808007C41AE /* semver */,
-				49F046621D2382D1005EE299 /* semverTests */,
+				49F046621D2382D1005EE299 /* SemVerIntegrations */,
 				49A0F2741D20D7F3007C41AE /* Products */,
 				49A0F3611D20E9F2007C41AE /* Shared */,
 			);
@@ -312,14 +312,13 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
-		49DDBDA01D22403600CF32BA /* SemVer.app Tests */ = {
+		49DDBDA01D22403600CF32BA /* SemVerTests */ = {
 			isa = PBXGroup;
 			children = (
 				49DDBDA11D22403600CF32BA /* SemVerTests.swift */,
 				49DDBDA31D22403600CF32BA /* Info.plist */,
 			);
-			name = "SemVer.app Tests";
-			path = "SemVer-appTests";
+			path = SemVerTests;
 			sourceTree = "<group>";
 		};
 		49EF1D271D2601CE0068AC4F /* Config */ = {
@@ -332,13 +331,13 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		49F046621D2382D1005EE299 /* semverTests */ = {
+		49F046621D2382D1005EE299 /* SemVerIntegrations */ = {
 			isa = PBXGroup;
 			children = (
-				49F046611D238253005EE299 /* semverTests.sh */,
+				49F046611D238253005EE299 /* SemVerIntegrations.sh */,
 				49DDBD211D22213400CF32BA /* Fixtures */,
 			);
-			path = semverTests;
+			path = SemVerIntegrations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +436,7 @@
 				49A0F2721D20D7F3007C41AE /* SemVer.app */,
 				49A0F29B1D20D808007C41AE /* semver */,
 				49DDBD9E1D22403600CF32BA /* SemVerTests */,
-				49F0465A1D238228005EE299 /* semverTests */,
+				49F0465A1D238228005EE299 /* SemVerIntegrations */,
 			);
 		};
 /* End PBXProject section */
@@ -711,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "semverTests" */ = {
+		49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "SemVerIntegrations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49F0465C1D238228005EE299 /* Debug */,

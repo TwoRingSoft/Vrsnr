@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49F0465A1D238228005EE299"
-               BuildableName = "semverTests"
-               BlueprintName = "semverTests"
+               BuildableName = "SemVerIntegrations"
+               BlueprintName = "SemVerIntegrations"
                ReferencedContainer = "container:SemVer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49F0465A1D238228005EE299"
-            BuildableName = "semverTests"
-            BlueprintName = "semverTests"
+            BuildableName = "SemVerIntegrations"
+            BlueprintName = "SemVerIntegrations"
             ReferencedContainer = "container:SemVer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49F0465A1D238228005EE299"
-            BuildableName = "semverTests"
-            BlueprintName = "semverTests"
+            BuildableName = "SemVerIntegrations"
+            BlueprintName = "SemVerIntegrations"
             ReferencedContainer = "container:SemVer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
