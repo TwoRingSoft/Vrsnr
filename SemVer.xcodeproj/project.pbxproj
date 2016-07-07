@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "SemVerIntegrations" */;
 			buildPhases = (
-				49F046601D238235005EE299 /* ShellScript */,
+				49F046601D238235005EE299 /* Run Integration Tests */,
 			);
 			dependencies = (
 				49F0465F1D238231005EE299 /* PBXTargetDependency */,
@@ -474,17 +474,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49F046601D238235005EE299 /* ShellScript */ = {
+		49F046601D238235005EE299 /* Run Integration Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Integration Tests";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/bin/sh semverTests/semverTests.sh \"${BUILT_PRODUCTS_DIR}\"";
+			shellPath = "/bin/sh SemVerIntegrations/SemVerIntegrations.sh \"${BUILT_PRODUCTS_DIR}\"";
 			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
