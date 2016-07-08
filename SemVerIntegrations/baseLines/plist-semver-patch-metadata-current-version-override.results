@@ -1,4 +1,5 @@
-semver patch --file semverTests/Fixtures/Sample.plist --key CFBundleShortVersionString --metadata some.meta-data.123 --current-version 1.2.3
+semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --metadata some.meta-data.123 --current-version 1.2.3
+Updated CFBundleShortVersionString from 0.0.0 to 0.0.1+some.meta-data.123 in SemVerIntegrations/Fixtures/Sample.plist
 
 Before:
 
@@ -28,14 +29,15 @@ After:
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.4+some.meta-data.123</string>
+	<string>0.0.1+some.meta-data.123</string>
 	<key>CFBundleVersion</key>
 	<string>0</string>
 </dict>
 </plist>
 
 Difference:
+
 10c10
-< 	<string>1.2.4+some.meta-data.123</string>
+< 	<string>0.0.1+some.meta-data.123</string>
 ---
 > 	<string>0.0.0</string>

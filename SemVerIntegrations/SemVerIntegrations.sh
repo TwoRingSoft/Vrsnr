@@ -10,6 +10,19 @@
 
 SMVR_LOCATION="${1}" # path to the 'semver' executable to use
 
+function startTestCaseOutput() {
+    echo "|---------------------------------------------------------"
+    echo "|"
+}
+
+function endTestCaseOutput() {
+    echo "|"
+    echo "|---------------------------------------------------------"
+    echo
+    echo
+    echo
+}
+
 function runTest() {
     SMVR_TEST_NAME="${1}"
     SMVR_TEST_FILE="${2}"
@@ -25,27 +38,26 @@ function runTest() {
     SMVR_TEST_RESULTS_FILE="${SMVR_TEST_RESULTS_DIR}/${SMVR_TEST_NAME}.results"
     SMVR_TEST_BASELINE_RESULTS_FILE="SemVerIntegrations/baseLines/${SMVR_TEST_NAME}.results"
 
-    SMVR_TEST_BASELINE_DELTA_REPORT="${SMVR_TEST_RESULTS_DIR}/${SMVR_TEST_NAME}.baseline-diff"
-
-    echo "|---------------------------------------------------------"
+    startTestCaseOutput
 
     # make copy of original file
     cp "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}"
 
     # perform the SMVR
     SMVR_CMD="semver ${SMVR_TEST_SEMVER_COMPONENT} --file ${SMVR_TEST_FILE} --key ${SMVR_TEST_KEY} ${SMVR_TEST_OPTIONS}"
-    echo "|"
+
     echo "| ${SMVR_TEST_NAME}"
     echo "|"
     echo "| ${SMVR_CMD}"
     echo "|"
     echo $SMVR_CMD > "${SMVR_TEST_RESULTS_FILE}"
-    eval "${SMVR_LOCATION}/${SMVR_CMD}" | awk '{print "| " $0}'
+    eval "${SMVR_LOCATION}/${SMVR_CMD}" | tee -a "${SMVR_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
 
-    echo >> "${SMVR_TEST_RESULTS_FILE}"
-    echo "Before:" >> "${SMVR_TEST_RESULTS_FILE}"
-    echo >> "${SMVR_TEST_RESULTS_FILE}"
-    cat "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
+	writeTestStageResult "Before" "$(cat "${SMVR_BACKUP_TEST_FILE}")"
+    # echo >> "${SMVR_TEST_RESULTS_FILE}"
+    # echo "Before:" >> "${SMVR_TEST_RESULTS_FILE}"
+    # echo >> "${SMVR_TEST_RESULTS_FILE}"
+    # cat "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
 
     echo >> "${SMVR_TEST_RESULTS_FILE}"
     echo "After:" >> "${SMVR_TEST_RESULTS_FILE}"
@@ -55,34 +67,37 @@ function runTest() {
     # compare the modified file to copy of original
     echo >> "${SMVR_TEST_RESULTS_FILE}"
     echo "Difference:" >> "${SMVR_TEST_RESULTS_FILE}"
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
     diff "${SMVR_TEST_FILE}" "${SMVR_BACKUP_TEST_FILE}" >> "${SMVR_TEST_RESULTS_FILE}"
 
-    echo "|"
-    if [[ $? -eq 0 ]]; then
-        echo "| Passed :D"
-    else
-        echo "| Failed D:"
-        echo "|"
-    fi
-
     # compare new results to baseline results; they should be identical
-    diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
+    diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" > /dev/null
     if [[ $? == 0 ]]; then
+	    echo "|"
+        echo "| Passed :D"
         rm "${SMVR_TEST_RESULTS_FILE}" # don't save results output for cases that pass
     else
-        diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" > "${SMVR_TEST_BASELINE_DELTA_REPORT}"
+        diff "${SMVR_TEST_BASELINE_RESULTS_FILE}" "${SMVR_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
+		SMVR_FAILED=1
+	    echo "|"
+        echo "| Failed D:"
     fi
 
-    echo "|"
-    echo "|---------------------------------------------------------"
-    echo
-    echo
-    echo
+    endTestCaseOutput
 
     # reset the file back to its original state
     rm "${SMVR_TEST_FILE}"
     mv "${SMVR_BACKUP_TEST_FILE}" "${SMVR_TEST_FILE}"
+}
 
+function writeTestStageResult() {
+	SMVR_STAGE_NAME="${1}"
+	SMVR_STAGE_RESULTS="${2}"
+	
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    echo "${SMVR_STAGE_NAME}:" >> "${SMVR_TEST_RESULTS_FILE}"
+    echo >> "${SMVR_TEST_RESULTS_FILE}"
+    echo "${SMVR_STAGE_RESULTS}" >> "${SMVR_TEST_RESULTS_FILE}"
 }
 
 function runTestFlavor() {
@@ -139,5 +154,17 @@ function runTestsForFileType() {
     fi
 }
 
+function runOtherTest() {
+	SMVR_ARGUMENTS="${1}"
+	SMVR_COMMAND="semver ${SMVR_ARGUMENTS}"
+	echo
+}
+
 runTestsForFileType "plist" "CFBundleShortVersionString" "CFBundleVersion"
 runTestsForFileType "xcconfig" "CURRENT_PROJECT_VERSION" "DYLIB_CURRENT_VERSION"
+
+
+
+if [[ SMVR_FAILED -eq 1 ]]; then
+	exit 1
+fi

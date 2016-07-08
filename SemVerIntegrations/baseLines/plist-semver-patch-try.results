@@ -1,4 +1,5 @@
-semver patch --file semverTests/Fixtures/Sample.plist --key CFBundleShortVersionString --try
+semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --try
+0.0.1
 
 Before:
 
@@ -35,3 +36,4 @@ After:
 </plist>
 
 Difference:
+
