@@ -1,0 +1,1 @@
+- Taught `semver` to accept just `--try` and `--current-version` options to essentially calculate the next version and see what it will output.

@@ -1,4 +1,5 @@
-semver --numeric --file semverTests/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --identifier some.prerelease-identifier.123
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --identifier some.prerelease-identifier.123
+Updated DYLIB_CURRENT_VERSION from 0-some.prerelease.identifier+some.metadata to 1-some.prerelease-identifier.123 in SemVerIntegrations/Fixtures/Sample.xcconfig
 
 Before:
 
@@ -29,6 +30,7 @@ CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some
 DYLIB_CURRENT_VERSION = 1-some.prerelease-identifier.123 // some comment
 
 Difference:
+
 11c11
 < DYLIB_CURRENT_VERSION = 1-some.prerelease-identifier.123 // some comment
 ---

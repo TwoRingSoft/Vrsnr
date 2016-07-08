@@ -75,13 +75,13 @@ extension File {
     public func getSemanticVersionForKey(file: File, key: String) throws -> SemanticVersion {
 
         let versionString = try! getVersionStringForKey(file, key: key)
-        return try! SemanticVersion.parseFromString(file, string: versionString)
+        return try! SemanticVersion.parseFromString(versionString)
     }
 
     public func getNumericVersionForKey(file: File, key: String) throws -> NumericVersion {
 
         let versionString = try! getVersionStringForKey(file, key: key)
-        return try! NumericVersion.parseFromString(file, string: versionString)
+        return try! NumericVersion.parseFromString(versionString)
     }
 
 }

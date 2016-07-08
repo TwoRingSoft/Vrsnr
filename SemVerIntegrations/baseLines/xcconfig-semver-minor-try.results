@@ -1,4 +1,5 @@
-semver minor --file semverTests/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --try
+semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --try
+0.1.0
 
 Before:
 
@@ -29,3 +30,4 @@ CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some
 DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
 
 Difference:
+

@@ -1,4 +1,5 @@
-semver --numeric --file semverTests/Fixtures/Sample.plist --key CFBundleVersion --current-version 1
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleVersion --current-version 1
+Updated CFBundleVersion from 0 to 1 in SemVerIntegrations/Fixtures/Sample.plist
 
 Before:
 
@@ -30,12 +31,13 @@ After:
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>1</string>
 </dict>
 </plist>
 
 Difference:
+
 12c12
-< 	<string>2</string>
+< 	<string>1</string>
 ---
 > 	<string>0</string>

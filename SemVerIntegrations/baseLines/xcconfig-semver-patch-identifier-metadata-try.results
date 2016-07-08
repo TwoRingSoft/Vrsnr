@@ -1,4 +1,5 @@
-semver patch --file semverTests/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --try
+semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --try
+0.0.1-some.prerelease-identifier.123+some.meta-data.123
 
 Before:
 
@@ -29,3 +30,4 @@ CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some
 DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
 
 Difference:
+

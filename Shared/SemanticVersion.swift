@@ -63,9 +63,9 @@ extension SemanticVersion: Version {
         return [ "CURRENT_PROJECT_VERSION", "CFBundleShortVersionString" ]
     }
 
-    public static func parseFromString(file: File, string: String) throws -> SemanticVersion {
+    public static func parseFromString(string: String) throws -> SemanticVersion {
         if string == "$(CURRENT_PROJECT_VERSION)" {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found in \(file.path). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found: \(string). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
         }
 
         let definitionComponents = string.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "-+"))

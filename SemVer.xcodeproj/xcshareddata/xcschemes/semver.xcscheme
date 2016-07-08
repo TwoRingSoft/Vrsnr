@@ -72,7 +72,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--current-version 0.0.0"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "minor"
@@ -87,11 +87,11 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.plist&quot;"
-            isEnabled = "YES">
+            argument = "--file &quot;${SOURCE_ROOT}/SemVerIntegrations/Fixtures/Sample.plist&quot;"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--file &quot;${SOURCE_ROOT}/semverTests/Fixtures/Sample.xcconfig&quot;"
+            argument = "--file &quot;${SOURCE_ROOT}/SemVerIntegrations/Fixtures/Sample.xcconfig&quot;"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -100,7 +100,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key CFBundleShortVersionString"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key DYLIB_CURRENT_VERSION"
@@ -112,7 +112,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--identifier some.prerelease.identifier"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--metadata some.metadata"
