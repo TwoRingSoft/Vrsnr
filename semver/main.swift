@@ -30,13 +30,17 @@ checkForVersion()
 
 // see if user provided current version via command line argument; if so, ignore file/key later
 let versionString = versionFromCommandLine()
+let dryRun = isDryRun()
 
-// get path to file containing source definition
-let path = getValue(SemVerFlags.File)
-let file = try! File(path: path)
-
-// get key for version number value (required)
-let key = getValue(SemVerFlags.Key)
+// get path to file containing source definition if we are reading or writing files
+var path: String?
+var file: File?
+var key: String?
+if !(dryRun && versionString != nil) {
+    path = getValue(SemVerFlags.File)
+    file = try! File(path: path!)
+    key = getValue(SemVerFlags.Key)
+}
 
 var identifier = getVersionSuffix(.PrereleaseIdentifier)
 var metadata = getVersionSuffix(.BuildMetadata)
@@ -45,28 +49,27 @@ var original: String
 var new: String
 if isNumeric() {
     let originalVersion: NumericVersion
-    if versionString == nil {
-        originalVersion = try! file.getNumericVersionForKey(file, key: key)
+    if let providedFile = file, let providedKey = key {
+        originalVersion = try! providedFile.getNumericVersionForKey(providedFile, key: providedKey)
     } else {
-        originalVersion = try! NumericVersion.parseFromString(file, string: versionString!)
+        originalVersion = try! NumericVersion.parseFromString(versionString!)
     }
     original = originalVersion.description
     new = originalVersion.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata).description
 } else {
     let originalVersion: SemanticVersion
-    if versionString == nil {
-        originalVersion = try! file.getSemanticVersionForKey(file, key: key)
+    if let providedFile = file, let providedKey = key {
+        originalVersion = try! providedFile.getSemanticVersionForKey(providedFile, key: providedKey)
     } else {
-        originalVersion = try! SemanticVersion.parseFromString(file, string: versionString!)
+        originalVersion = try! SemanticVersion.parseFromString(versionString!)
     }
     original = originalVersion.description
     new = originalVersion.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata).description
 }
 
-if !isDryRun() {
-    try! replaceVersionString(original, new: new, key: key, file: file)
+if isDryRun() {
+    print("\(new)")
+} else {
+    try! replaceVersionString(original, new: new, key: key!, file: file!)
+    print("Updated \(key) from \(original) to \(new) in \(path)")
 }
-print("Updated \(key) from \(original) to \(new) in \(path)")
-
-
-

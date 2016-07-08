@@ -34,9 +34,9 @@ extension NumericVersion: Version {
         return [ "DYLIB_CURRENT_VERSION", "CFBundleVersion" ]
     }
 
-    public static func parseFromString(file: File, string: String) throws -> NumericVersion {
+    public static func parseFromString(string: String) throws -> NumericVersion {
         if string == "$(DYLIB_CURRENT_VERSION)" {
-            throw NSError(domain: errorDomain, code: ErrorCode.DynamicVersionFound.valueAsInt(), userInfo: [NSLocalizedDescriptionKey:"Dynamic value found in \(file.path). Rerun this script pointed at the file that defines DYLIB_CURRENT_VERSION."])
+            throw NSError(domain: errorDomain, code: ErrorCode.DynamicVersionFound.valueAsInt(), userInfo: [NSLocalizedDescriptionKey:"Dynamic value found: \(string). Rerun this script pointed at the file that defines DYLIB_CURRENT_VERSION."])
         } else if string == "" {
             throw NSError(domain: errorDomain, code: ErrorCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Key was found but definition is blank."])
         }
