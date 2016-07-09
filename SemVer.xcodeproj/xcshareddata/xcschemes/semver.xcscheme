@@ -63,8 +63,8 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "numeric"
-            isEnabled = "NO">
+            argument = "--numeric"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "major"
@@ -72,15 +72,19 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--current-version 0.0.0"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "minor"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--try"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--read"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "patch"
@@ -111,8 +115,12 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--identifier some.prerelease.identifier"
+            argument = "--current-version 0"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--identifier some.prerelease.identifier"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--metadata some.metadata"

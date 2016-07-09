@@ -21,6 +21,8 @@ func printUsage() {
     print("\t\tThe key that the version info is mapped to.")
 
     print("\nOPTIONS".s.Bold)
+    print("\t-\(SemVerFlags.ReadFromFile.short), --\(SemVerFlags.ReadFromFile.short)")
+    print("\t\tRead the version from the file and print it. Ignores 'major', 'minor', 'patch', and --numeric, as well as --try option.")
     print("\t-\(VersionSuffix.PrereleaseIdentifier.short), --\(VersionSuffix.PrereleaseIdentifier.long)")
     print("\t\tAdd a prerelease identifier. See http://semver.org/#spec-item-9 for more on prerelease identifiers.")
     print("\t-\(VersionSuffix.BuildMetadata.short), --\(VersionSuffix.BuildMetadata.long)")
@@ -119,8 +121,6 @@ func checkForDebugMode() {
     let flags = Args.parsed.flags
 
     if flags.keys.contains(Flag.Debug.short) || flags.keys.contains(Flag.Debug.long) {
-//        CLSLogging.sharedInstance().logLevel = .Debug
-
         printVersion()
         print("\nArguments:")
         print("debug mode enabled".s.Bold)
@@ -134,6 +134,10 @@ func versionFromCommandLine() -> String? {
     }
 
     return version
+}
+
+func isRead() -> Bool {
+    return Args.parsed.flags.keys.contains(SemVerFlags.ReadFromFile.long) || Args.parsed.flags.keys.contains(SemVerFlags.ReadFromFile.short)
 }
 
 func isDryRun() -> Bool {
