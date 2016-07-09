@@ -134,6 +134,7 @@ function runTestsForFileType() {
     fi
 
     runTestFlavor "" ""
+    runTestFlavor "read" "--read"
     runTestFlavor "metadata" "--metadata some.meta-data.123"
     runTestFlavor "identifier" "--identifier some.prerelease-identifier.123"
     runTestFlavor "identifier-metadata" "--identifier some.prerelease-identifier.123 --metadata some.meta-data.123"

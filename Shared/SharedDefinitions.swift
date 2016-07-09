@@ -15,6 +15,7 @@ public enum SemVerFlags: UInt8 {
     case File
     case Numeric
     case CurrentVersion
+    case ReadFromFile
 
     public var long: String {
         switch self {
@@ -26,6 +27,8 @@ public enum SemVerFlags: UInt8 {
             return "numeric"
         case .CurrentVersion:
             return "current-version"
+        case .ReadFromFile:
+            return "read"
         }
 
     }
@@ -40,6 +43,8 @@ public enum SemVerFlags: UInt8 {
             return "n"
         case .CurrentVersion:
             return "c"
+        case .ReadFromFile:
+            return "r"
         }
     }
 }
