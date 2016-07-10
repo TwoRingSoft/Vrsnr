@@ -1,0 +1,37 @@
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION
+Updated DYLIB_CURRENT_VERSION from 0-some.prerelease.identifier+some.metadata to 1 in SemVerIntegrations/Fixtures/Sample.xcconfig
+
+Before:
+
+//
+//  Sample.xcconfig
+//  SemVer
+//
+//  Created by Andrew McKnight on 6/27/16.
+//  Copyright © 2016 Two Ring Software. All rights reserved.
+//
+
+CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
+
+DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
+
+After:
+
+//
+//  Sample.xcconfig
+//  SemVer
+//
+//  Created by Andrew McKnight on 6/27/16.
+//  Copyright © 2016 Two Ring Software. All rights reserved.
+//
+
+CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
+
+DYLIB_CURRENT_VERSION = 1 // some comment
+
+Difference:
+
+11c11
+< DYLIB_CURRENT_VERSION = 1 // some comment
+---
+> DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment

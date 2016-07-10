@@ -10,7 +10,14 @@ import Foundation
 
 public typealias VersionBumpOptions = UInt8
 
-public enum VersionSuffix: UInt8 {
+public enum VersionType {
+
+    case Numeric
+    case Semantic
+    
+}
+
+public enum VersionSuffix: UInt8, CommandLineOption {
 
     case BuildMetadata
     case PrereleaseIdentifier
@@ -37,15 +44,33 @@ public enum VersionSuffix: UInt8 {
 
 public protocol Version: CustomStringConvertible {
 
-    associatedtype T
+    static var statictype: VersionType { get }
+    var type: VersionType { get }
 
     /// Return a new version representing the next version after this one, according to any options passed in
-    func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> T
-
-    /// Commonly used keys used by different toolchains, e.g. `CURRENT_PROJECT_VERSION` for .xcconfigs or `CFBundleShortVersionString` for .plists
-    func commonKeys() -> [String]
+    func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> Self
 
     /// Try to parse a version from a String, or throw an error describing why it can't be done.
-    static func parseFromString(string: String) throws -> T
+    static func parseFromString(string: String) throws -> Self
 
+}
+
+func getPrereleaseIdentifierAndBuildMetadata(string: String) -> (prereleaseIdentifier: String?, buildMetadata: String?) {
+    var metadata: String?
+    var prereleaseID: String?
+
+    var remainingString = string
+    if string.containsString("+") {
+        let components = string.componentsSeparatedByString("+")
+        metadata = components.last
+        remainingString = components.first!
+    }
+
+    if remainingString.containsString("-") {
+        let firstHyphenIdx = remainingString.rangeOfString("-")!
+        prereleaseID = remainingString.substringFromIndex(firstHyphenIdx.startIndex.advancedBy(1))
+    }
+
+
+    return (prereleaseID, metadata)
 }

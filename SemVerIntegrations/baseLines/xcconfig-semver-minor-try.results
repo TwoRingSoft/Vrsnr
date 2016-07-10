@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --try
+semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --try
 0.1.0
 
 Before:

@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --current-version 1 --try
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --current-version 1 --try
 2-some.prerelease-identifier.123+some.meta-data.123
 
 Before:

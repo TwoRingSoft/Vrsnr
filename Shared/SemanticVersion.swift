@@ -50,17 +50,23 @@ public struct SemanticVersion {
 
 extension SemanticVersion: Version {
 
-    public typealias T = SemanticVersion
+    public static var statictype: VersionType {
+        get {
+            return .Semantic
+        }
+    }
+
+    public var type: VersionType {
+        get {
+            return .Semantic
+        }
+    }
 
     public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
         let major = self.major + (options == SemverRevision.Major.rawValue ? 1 : 0)
         let minor = self.minor + (options == SemverRevision.Minor.rawValue ? 1 : 0)
         let patch = self.patch + (options == SemverRevision.Patch.rawValue ? 1 : 0)
         return SemanticVersion(major: major, minor: minor, patch: patch, buildMetadata: buildMetadata, prereleaseIdentifier: prereleaseIdentifier)
-    }
-
-    public func commonKeys() -> [String] {
-        return [ "CURRENT_PROJECT_VERSION", "CFBundleShortVersionString" ]
     }
 
     public static func parseFromString(string: String) throws -> SemanticVersion {

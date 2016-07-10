@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --try
+semver patch --file SemVerIntegrations/Fixtures/Sample.plist --try
 0.0.1
 
 Before:

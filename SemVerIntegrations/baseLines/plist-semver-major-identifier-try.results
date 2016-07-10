@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --try
+semver major --file SemVerIntegrations/Fixtures/Sample.plist --identifier some.prerelease-identifier.123 --try
 1.0.0-some.prerelease-identifier.123
 
 Before:

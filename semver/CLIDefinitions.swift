@@ -9,7 +9,7 @@
 import AppKit
 import Foundation
 
-enum Flag {
+enum Flag: CommandLineOption {
     case Usage
     case Version
     case Debug

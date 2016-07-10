@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString
+semver minor --file SemVerIntegrations/Fixtures/Sample.plist
 Updated CFBundleShortVersionString from 0.0.0 to 0.1.0 in SemVerIntegrations/Fixtures/Sample.plist
 
 Before:

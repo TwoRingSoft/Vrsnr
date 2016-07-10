@@ -10,7 +10,12 @@ import Foundation
 
 let errorDomain = "com.semver.dylib"
 
-public enum SemVerFlags: UInt8 {
+public protocol CommandLineOption {
+    var long: String { get }
+    var short: String { get }
+}
+
+public enum SemVerFlags: UInt8, CommandLineOption {
     case Key
     case File
     case Numeric

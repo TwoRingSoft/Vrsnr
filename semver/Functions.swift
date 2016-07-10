@@ -68,7 +68,7 @@ func getRevType() -> VersionBumpOptions {
     return revType
 }
 
-func getValue(flag: SemVerFlags) -> String {
+func getValue(flag: CommandLineOption) -> String {
     var optional = Args.parsed.flags[flag.long]
     if optional == nil {
         optional = Args.parsed.flags[flag.short]
@@ -80,21 +80,25 @@ func getValue(flag: SemVerFlags) -> String {
     return value
 }
 
-func printVersion() {
-    print("semver \(SemVerVersions.displayVersion()) build \(SemVerVersions.buildVersion())")
-}
-
-func isNumeric() -> Bool {
-    return Args.parsed.flags[SemVerFlags.Numeric.long] != nil || Args.parsed.flags[SemVerFlags.Numeric.short] != nil
-}
-
-func getValueForOptionalFlag(flag: Flag) -> String? {
+func getValueForOptionalFlag(flag: CommandLineOption) -> String? {
     let flags = Args.parsed.flags
     var optional = flags[flag.long]
     if optional == nil {
         optional = Args.parsed.flags[flag.short]
     }
     return optional
+}
+
+func printVersion() {
+    print("semver \(SemVerVersions.displayVersion()) build \(SemVerVersions.buildVersion())")
+}
+
+func getVersionType() -> VersionType {
+    if Args.parsed.flags[SemVerFlags.Numeric.long] != nil || Args.parsed.flags[SemVerFlags.Numeric.short] != nil {
+        return .Numeric
+    } else {
+        return .Semantic
+    }
 }
 
 func checkForHelp() {

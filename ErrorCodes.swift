@@ -21,6 +21,7 @@ enum ErrorCode: Int32 {
     case NoVersionFoundInFile
     case DynamicVersionFound
     case NSNumberFormatterCouldNotParse
+    case NoVersionInformationSource
 
     case UnknownError
 

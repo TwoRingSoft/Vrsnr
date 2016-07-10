@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig
 Updated DYLIB_CURRENT_VERSION from 0-some.prerelease.identifier+some.metadata to 1 in SemVerIntegrations/Fixtures/Sample.xcconfig
 
 Before:

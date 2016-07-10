@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --metadata some.meta-data.123
+semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --metadata some.meta-data.123
 Updated CURRENT_PROJECT_VERSION from 0.0.0-some.prerelease.identifier+some.metadata to 0.0.1+some.meta-data.123 in SemVerIntegrations/Fixtures/Sample.xcconfig
 
 Before:

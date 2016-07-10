@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --metadata some.meta-data.123 --try
+semver major --file SemVerIntegrations/Fixtures/Sample.plist --metadata some.meta-data.123 --try
 1.0.0+some.meta-data.123
 
 Before:

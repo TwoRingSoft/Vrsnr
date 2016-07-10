@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleVersion
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist
 Updated CFBundleVersion from 0 to 1 in SemVerIntegrations/Fixtures/Sample.plist
 
 Before:

@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --read
+semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --read
 0.0.0-some.prerelease.identifier+some.metadata
 
 Before:

@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION
+semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig
 Updated CURRENT_PROJECT_VERSION from 0.0.0-some.prerelease.identifier+some.metadata to 0.0.1 in SemVerIntegrations/Fixtures/Sample.xcconfig
 
 Before:

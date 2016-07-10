@@ -60,11 +60,9 @@
 		49A0F39F1D20FE97007C41AE /* StringStyleColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */; };
 		49A0F3A01D20FE97007C41AE /* TaskPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3841D20FE97007C41AE /* TaskPipe.swift */; };
 		49DDBDA21D22403600CF32BA /* SemVerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBDA11D22403600CF32BA /* SemVerTests.swift */; };
-		49DDBDA91D22407B00CF32BA /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */; };
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
 		49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D291D2C8B5A0068AC4F /* Version.swift */; };
-		49EF1D2E1D2E0B280068AC4F /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */; };
 		49EF1D2F1D2E0B280068AC4F /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D301D2E0B280068AC4F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49EF1D311D2E0B280068AC4F /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
@@ -73,12 +71,15 @@
 		49EF1D351D2E0B740068AC4F /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */; };
 		49EF1D361D2E0B7D0068AC4F /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */; };
 		49EF1D371D2E0B8C0068AC4F /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */; };
-		49EF1D381D2E0B920068AC4F /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */; };
 		49EF1D391D2E0B920068AC4F /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D3A1D2E0B920068AC4F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49EF1D3B1D2E0B920068AC4F /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
 		49EF1D3C1D2E0B920068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
 		49EF1D3D1D2E0B920068AC4F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D291D2C8B5A0068AC4F /* Version.swift */; };
+		49EF1D421D3192900068AC4F /* PlistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D411D3192900068AC4F /* PlistFile.swift */; };
+		49EF1D441D3192980068AC4F /* XcconfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D431D3192980068AC4F /* XcconfigFile.swift */; };
+		49EF1D451D31B35D0068AC4F /* PlistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D411D3192900068AC4F /* PlistFile.swift */; };
+		49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D431D3192980068AC4F /* XcconfigFile.swift */; };
 		49F046311D235E02005EE299 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49F046341D235E3C005EE299 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
 /* End PBXBuildFile section */
@@ -159,7 +160,6 @@
 		49A0F3821D20FE97007C41AE /* StringStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyle.swift; path = Swiftline/Source/StringStyle.swift; sourceTree = "<group>"; };
 		49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyleColorizer.swift; path = Swiftline/Source/StringStyleColorizer.swift; sourceTree = "<group>"; };
 		49A0F3841D20FE97007C41AE /* TaskPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPipe.swift; path = Swiftline/Source/TaskPipe.swift; sourceTree = "<group>"; };
-		49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedFunctions.swift; path = Shared/SharedFunctions.swift; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
 		49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedDefinitions.swift; path = Shared/SharedDefinitions.swift; sourceTree = "<group>"; };
@@ -173,6 +173,8 @@
 		49EF1D281D2601EC0068AC4F /* semver.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = semver.xcconfig; path = Config/semver.xcconfig; sourceTree = "<group>"; };
 		49EF1D291D2C8B5A0068AC4F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		49EF1D411D3192900068AC4F /* PlistFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistFile.swift; sourceTree = "<group>"; };
+		49EF1D431D3192980068AC4F /* XcconfigFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcconfigFile.swift; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
 		49F046611D238253005EE299 /* SemVerIntegrations.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SemVerIntegrations.sh; sourceTree = "<group>"; };
@@ -271,10 +273,11 @@
 			children = (
 				49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */,
 				49F0462F1D235DE3005EE299 /* File.swift */,
+				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
+				49EF1D411D3192900068AC4F /* PlistFile.swift */,
 				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
 				49F046321D235E30005EE299 /* SemanticVersion.swift */,
 				49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */,
-				49DDBCE51D22207C00CF32BA /* SharedFunctions.swift */,
 				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
 			);
 			name = Shared;
@@ -497,9 +500,10 @@
 			files = (
 				49EF1D321D2E0B280068AC4F /* NumericVersion.swift in Sources */,
 				49EF1D331D2E0B280068AC4F /* Version.swift in Sources */,
+				49EF1D441D3192980068AC4F /* XcconfigFile.swift in Sources */,
 				49EF1D2F1D2E0B280068AC4F /* SharedDefinitions.swift in Sources */,
+				49EF1D421D3192900068AC4F /* PlistFile.swift in Sources */,
 				49EF1D301D2E0B280068AC4F /* File.swift in Sources */,
-				49EF1D2E1D2E0B280068AC4F /* SharedFunctions.swift in Sources */,
 				49A0F27E1D20D7F3007C41AE /* ViewController.m in Sources */,
 				49EF1D311D2E0B280068AC4F /* SemanticVersion.swift in Sources */,
 				49EF1D351D2E0B740068AC4F /* ErrorCodes.swift in Sources */,
@@ -512,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */,
 				49A0F39C1D20FE97007C41AE /* StringBackgroundColorizer.swift in Sources */,
 				49A0F3991D20FE97007C41AE /* RunnerSettings.swift in Sources */,
 				49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */,
@@ -546,10 +551,10 @@
 				49A0F3881D20FE97007C41AE /* Args.swift in Sources */,
 				49A0F38E1D20FE97007C41AE /* Choose.swift in Sources */,
 				49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */,
-				49DDBDA91D22407B00CF32BA /* SharedFunctions.swift in Sources */,
 				49A0F3941D20FE97007C41AE /* ProcessInfo.swift in Sources */,
 				49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */,
 				49A0F3871D20FE97007C41AE /* ArgConvertible.swift in Sources */,
+				49EF1D451D31B35D0068AC4F /* PlistFile.swift in Sources */,
 				49A0F3891D20FE97007C41AE /* ArgsParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,7 +570,6 @@
 				49EF1D391D2E0B920068AC4F /* SharedDefinitions.swift in Sources */,
 				49EF1D361D2E0B7D0068AC4F /* ErrorCodes.swift in Sources */,
 				49EF1D3D1D2E0B920068AC4F /* Version.swift in Sources */,
-				49EF1D381D2E0B920068AC4F /* SharedFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

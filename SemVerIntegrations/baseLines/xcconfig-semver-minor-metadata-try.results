@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --metadata some.meta-data.123 --try
+semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --metadata some.meta-data.123 --try
 0.1.0+some.meta-data.123
 
 Before:

@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleVersion --metadata some.meta-data.123 --current-version 1 --try
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --metadata some.meta-data.123 --current-version 1 --try
 2+some.meta-data.123
 
 Before:

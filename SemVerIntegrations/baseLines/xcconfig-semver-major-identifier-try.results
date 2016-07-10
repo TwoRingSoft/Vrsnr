@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --identifier some.prerelease-identifier.123 --try
+semver major --file SemVerIntegrations/Fixtures/Sample.xcconfig --identifier some.prerelease-identifier.123 --try
 1.0.0-some.prerelease-identifier.123
 
 Before:

@@ -1,0 +1,37 @@
+semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION
+Updated CURRENT_PROJECT_VERSION from 0.0.0-some.prerelease.identifier+some.metadata to 0.0.1 in SemVerIntegrations/Fixtures/Sample.xcconfig
+
+Before:
+
+//
+//  Sample.xcconfig
+//  SemVer
+//
+//  Created by Andrew McKnight on 6/27/16.
+//  Copyright © 2016 Two Ring Software. All rights reserved.
+//
+
+CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
+
+DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
+
+After:
+
+//
+//  Sample.xcconfig
+//  SemVer
+//
+//  Created by Andrew McKnight on 6/27/16.
+//  Copyright © 2016 Two Ring Software. All rights reserved.
+//
+
+CURRENT_PROJECT_VERSION = 0.0.1 // some comment
+
+DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
+
+Difference:
+
+9c9
+< CURRENT_PROJECT_VERSION = 0.0.1 // some comment
+---
+> CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment

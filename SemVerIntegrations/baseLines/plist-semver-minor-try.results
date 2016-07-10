@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --try
+semver minor --file SemVerIntegrations/Fixtures/Sample.plist --try
 0.1.0
 
 Before:

@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleVersion --read
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --read
 0
 
 Before:

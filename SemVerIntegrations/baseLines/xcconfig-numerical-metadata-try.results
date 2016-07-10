@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --metadata some.meta-data.123 --try
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --metadata some.meta-data.123 --try
 1+some.meta-data.123
 
 Before:

@@ -54,45 +54,51 @@ let fileReadRequired = versionString == nil || readOnlyFromFile
 let fileWriteRequired = !dryRun
 if fileReadRequired || fileWriteRequired {
     path = getValue(SemVerFlags.File)
-    file = try! File(path: path!)
-    key = getValue(SemVerFlags.Key)
+    file = try! createFileForPath(path!)
+    key = getValueForOptionalFlag(SemVerFlags.Key)
 }
 
 // not required
 var identifier = getVersionSuffix(.PrereleaseIdentifier)
 var metadata = getVersionSuffix(.BuildMetadata)
 
-var original: String
-var new: String?
-if isNumeric() {
-    let originalVersion: NumericVersion
-    if let providedFile = file, let providedKey = key {
-        originalVersion = try! providedFile.getNumericVersionForKey(providedFile, key: providedKey)
-    } else {
-        originalVersion = try! NumericVersion.parseFromString(versionString!)
+// if no version override was specified with --current-version, get it from the file now
+let versionType = getVersionType()
+if versionString == nil {
+    guard let specifiedFile = file else {
+        print("Need to specify either a file containing version info or a value for \(SemVerFlags.CurrentVersion.short)/\(SemVerFlags.CurrentVersion.long).".f.Red)
+        exit(ErrorCode.NoVersionInformationSource.rawValue)
     }
-    original = originalVersion.description
+
+    versionString = specifiedFile.versionStringForKey(key, versionType: versionType)
+}
+
+// extract the version from the file, optionally calculating the next version according to arguments
+var original: Version
+var new: Version?
+switch(versionType) {
+case .Numeric:
+    original = try! NumericVersion.parseFromString(versionString!)
     if !readOnlyFromFile {
-        new = originalVersion.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata).description
+        new = original.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata)
     }
-} else {
-    let originalVersion: SemanticVersion
-    if let providedFile = file, let providedKey = key {
-        originalVersion = try! providedFile.getSemanticVersionForKey(providedFile, key: providedKey)
-    } else {
-        originalVersion = try! SemanticVersion.parseFromString(versionString!)
-    }
-    original = originalVersion.description
+case .Semantic:
+    original = try! SemanticVersion.parseFromString(versionString!)
     if !readOnlyFromFile {
-        new = originalVersion.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata).description
+        new = original.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata)
     }
 }
 
+// output or replace new version in file
 if dryRun {
-    print(NSString(format: "%@", new!))
+    print(NSString(format: "%@", new!.description))
 } else if readOnlyFromFile {
-    print(NSString(format: "%@", original))
+    print(NSString(format: "%@", original.description))
 } else {
-    try! replaceVersionString(original, new: new!, key: key!, file: file!)
-    print(NSString(format: "Updated %@ from %@ to %@ in %@", key!, original, new!, path!))
+
+    try! file!.replaceVersionString(original, new: new!, key: key)
+    if key == nil {
+        key = file?.defaultKeyForVersionType(versionType)
+    }
+    print(NSString(format: "Updated %@ from %@ to %@ in %@", key!, original.description, new!.description, path!))
 }

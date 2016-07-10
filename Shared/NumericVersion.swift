@@ -24,14 +24,20 @@ public struct NumericVersion {
 
 extension NumericVersion: Version {
 
-    public typealias T = NumericVersion
+    public static var statictype: VersionType {
+        get {
+            return .Numeric
+        }
+    }
+
+    public var type: VersionType {
+        get {
+            return .Numeric
+        }
+    }
 
     public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> NumericVersion {
         return NumericVersion(version: self.version + 1, prereleaseIdentifier: prereleaseIdentifier, buildMetadata: buildMetadata)
-    }
-
-    public func commonKeys() -> [String] {
-        return [ "DYLIB_CURRENT_VERSION", "CFBundleVersion" ]
     }
 
     public static func parseFromString(string: String) throws -> NumericVersion {

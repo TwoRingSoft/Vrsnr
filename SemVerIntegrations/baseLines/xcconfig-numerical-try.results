@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --try
+semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --try
 1
 
 Before:
