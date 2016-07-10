@@ -64,6 +64,10 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "--numeric"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-h"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -96,7 +100,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--file &quot;${SOURCE_ROOT}/SemVerIntegrations/Fixtures/Sample.xcconfig&quot;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--key CURRENT_PROJECT_VERSION"

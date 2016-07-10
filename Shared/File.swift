@@ -10,8 +10,16 @@ import Cocoa
 import Foundation
 
 public enum FileType: String {
+    
     case Plist = "com.apple.property-list"
     case XCConfig = "com.apple.xcode.configsettings"
+
+    public static func allFileTypes() -> [FileType] {
+        return [
+            FileType.Plist,
+            FileType.XCConfig
+        ]
+    }
 
     public static func typeOfFileAtPath(path: String) throws -> FileType {
         let workspace = NSWorkspace.sharedWorkspace()
@@ -26,11 +34,31 @@ public enum FileType: String {
         }
     }
 
+    public func extensionString() -> String {
+        switch(self) {
+        case .Plist:
+            return "plist"
+        case .XCConfig:
+            return "xcconfig"
+        }
+    }
+
+    public func defaultKey(versionType: VersionType) -> String {
+        switch self {
+        case .Plist:
+            return PlistFile.defaultKeyForVersionType(versionType)
+        case .XCConfig:
+            return XcconfigFile.defaultKeyForVersionType(versionType)
+        }
+    }
+
 }
 
 public protocol File {
 
     func defaultKeyForVersionType(type: VersionType) -> String
+    static func defaultKeyForVersionType(type: VersionType) -> String
+    
     func versionStringForKey(key: String?, versionType: VersionType) -> String?
     func replaceVersionString(original: Version, new: Version, key: String?) throws
 

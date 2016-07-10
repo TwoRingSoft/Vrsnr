@@ -10,10 +10,17 @@ import Foundation
 
 public typealias VersionBumpOptions = UInt8
 
-public enum VersionType {
+public enum VersionType: String {
 
     case Numeric
     case Semantic
+
+    public static func allVersionTypes() -> [VersionType] {
+        return [
+            VersionType.Numeric,
+            VersionType.Semantic
+        ]
+    }
     
 }
 

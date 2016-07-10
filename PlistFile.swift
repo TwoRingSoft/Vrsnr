@@ -16,13 +16,17 @@ public struct PlistFile {
 
 extension PlistFile: File {
 
-    public func defaultKeyForVersionType(type: VersionType) -> String {
+    public static func defaultKeyForVersionType(type: VersionType) -> String {
         switch(type) {
         case .Numeric:
             return "CFBundleVersion"
         case .Semantic:
             return "CFBundleShortVersionString"
         }
+    }
+
+    public func defaultKeyForVersionType(type: VersionType) -> String {
+        return PlistFile.defaultKeyForVersionType(type)
     }
 
     public func versionStringForKey(key: String?, versionType: VersionType) -> String? {

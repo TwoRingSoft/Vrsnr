@@ -14,13 +14,17 @@ public struct XcconfigFile {
 
 extension XcconfigFile: File {
 
-    public func defaultKeyForVersionType(type: VersionType) -> String {
+    public static func defaultKeyForVersionType(type: VersionType) -> String {
         switch(type) {
         case .Numeric:
             return "DYLIB_CURRENT_VERSION"
         case .Semantic:
             return "CURRENT_PROJECT_VERSION"
         }
+    }
+
+    public func defaultKeyForVersionType(type: VersionType) -> String {
+        return XcconfigFile.defaultKeyForVersionType(type)
     }
 
     public func versionStringForKey(key: String?, versionType: VersionType) -> String? {

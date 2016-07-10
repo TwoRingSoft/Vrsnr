@@ -8,6 +8,16 @@
 
 import Foundation
 
+extension String {
+    func padLeftToWidth(width: Int) -> String {
+        if self.characters.count < width {
+            return String(count: width - self.characters.count, repeatedValue: Character(" ")).stringByAppendingString(self)
+        } else {
+            return self
+        }
+    }
+}
+
 func printUsage() {
     print("usage: semver COMPONENT FLAGS [OPTIONS]".s.Bold)
 
@@ -17,10 +27,28 @@ func printUsage() {
     print("\nFLAGS".s.Bold)
     print("\n\t-\(SemVerFlags.File.short), --\(SemVerFlags.File.long) <path>")
     print("\t\tPath to the file that contains the version data.")
-    print("\t-\(SemVerFlags.Key.short), --\(SemVerFlags.Key.long) <key>")
-    print("\t\tThe key that the version info is mapped to.")
 
     print("\nOPTIONS".s.Bold)
+    print("\t-\(SemVerFlags.Key.short), --\(SemVerFlags.Key.long) <key>")
+    print("\t\tThe key that the version info is mapped to. Each file type has a default value that is used for each version type if this option is omitted:")
+
+
+    let columnWidth = 30
+    var versionTypeHeaders = "\(String(count: columnWidth, repeatedValue: Character(" ")))"
+    for versionType in VersionType.allVersionTypes() {
+        versionTypeHeaders.appendContentsOf("\(versionType.rawValue.padLeftToWidth(columnWidth))")
+    }
+    print("\(versionTypeHeaders)")
+    print("\(String(count: columnWidth, repeatedValue: Character(" ")))\(String(count: (VersionType.allVersionTypes().count) * columnWidth, repeatedValue: Character("=")))")
+
+    for fileType in FileType.allFileTypes() {
+        var string = fileType.extensionString().padLeftToWidth(columnWidth)
+        for versionType in VersionType.allVersionTypes() {
+            string.appendContentsOf(fileType.defaultKey(versionType).padLeftToWidth(columnWidth))
+        }
+        print("\(string)")
+    }
+
     print("\t-\(SemVerFlags.ReadFromFile.short), --\(SemVerFlags.ReadFromFile.short)")
     print("\t\tRead the version from the file and print it. Ignores 'major', 'minor', 'patch', and --numeric, as well as --try option.")
     print("\t-\(VersionSuffix.PrereleaseIdentifier.short), --\(VersionSuffix.PrereleaseIdentifier.long)")
