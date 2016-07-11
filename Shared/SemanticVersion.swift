@@ -48,6 +48,18 @@ public struct SemanticVersion {
 
 }
 
+extension SemanticVersion: Equatable {}
+
+public func ==(lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
+    return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch && lhs.buildMetadata == rhs.buildMetadata && lhs.prereleaseIdentifier == rhs.prereleaseIdentifier
+}
+
+extension SemanticVersion: Comparable {}
+
+public func <(lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
+    return lhs.major < rhs.major && lhs.minor < rhs.minor && lhs.patch < rhs.patch && lhs.prereleaseIdentifier < rhs.buildMetadata && lhs.buildMetadata < rhs.buildMetadata
+}
+
 extension SemanticVersion: Version {
 
     public static var statictype: VersionType {

@@ -25,9 +25,13 @@ After:
 //  Copyright © 2016 Two Ring Software. All rights reserved.
 //
 
-CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
+CURRENT_PROJECT_VERSION = 1.2.4-some.prerelease-identifier.123+some.meta-data.123 // some comment
 
 DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
 
 Difference:
 
+9c9
+< CURRENT_PROJECT_VERSION = 1.2.4-some.prerelease-identifier.123+some.meta-data.123 // some comment
+---
+> CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment

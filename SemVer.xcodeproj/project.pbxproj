@@ -80,8 +80,13 @@
 		49EF1D441D3192980068AC4F /* XcconfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D431D3192980068AC4F /* XcconfigFile.swift */; };
 		49EF1D451D31B35D0068AC4F /* PlistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D411D3192900068AC4F /* PlistFile.swift */; };
 		49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D431D3192980068AC4F /* XcconfigFile.swift */; };
+		49EF1D4C1D33152B0068AC4F /* PodspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */; };
+		49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */; };
 		49F046311D235E02005EE299 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49F046341D235E3C005EE299 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
+		E69A30B41D3B1DBB005D7052 /* XcconfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D431D3192980068AC4F /* XcconfigFile.swift */; };
+		E69A30B51D3B1DBB005D7052 /* PlistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D411D3192900068AC4F /* PlistFile.swift */; };
+		E69A30B61D3B1DBB005D7052 /* PodspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +180,8 @@
 		49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
 		49EF1D411D3192900068AC4F /* PlistFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistFile.swift; sourceTree = "<group>"; };
 		49EF1D431D3192980068AC4F /* XcconfigFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcconfigFile.swift; sourceTree = "<group>"; };
+		49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodspecFile.swift; sourceTree = "<group>"; };
+		49EF1D4E1D3327830068AC4F /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
 		49F046611D238253005EE299 /* SemVerIntegrations.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SemVerIntegrations.sh; sourceTree = "<group>"; };
@@ -275,6 +282,7 @@
 				49F0462F1D235DE3005EE299 /* File.swift */,
 				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
 				49EF1D411D3192900068AC4F /* PlistFile.swift */,
+				49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */,
 				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
 				49F046321D235E30005EE299 /* SemanticVersion.swift */,
 				49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */,
@@ -323,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				49DDBD321D22213400CF32BA /* Sample.plist */,
+				49EF1D4E1D3327830068AC4F /* Sample.podspec */,
 				49DDBD331D22213400CF32BA /* Sample.xcconfig */,
 			);
 			path = Fixtures;
@@ -508,6 +517,7 @@
 				49EF1D311D2E0B280068AC4F /* SemanticVersion.swift in Sources */,
 				49EF1D351D2E0B740068AC4F /* ErrorCodes.swift in Sources */,
 				49A0F27B1D20D7F3007C41AE /* main.m in Sources */,
+				49EF1D4C1D33152B0068AC4F /* PodspecFile.swift in Sources */,
 				49A0F2781D20D7F3007C41AE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +532,7 @@
 				49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */,
 				49A0F3921D20FE97007C41AE /* Env.swift in Sources */,
 				49A0F39F1D20FE97007C41AE /* StringStyleColorizer.swift in Sources */,
+				49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */,
 				49A0F3861D20FE97007C41AE /* AgreeSettings.swift in Sources */,
 				49A0F38A1D20FE97007C41AE /* Argument.swift in Sources */,
 				49EF1D371D2E0B8C0068AC4F /* ErrorCodes.swift in Sources */,
@@ -567,8 +578,11 @@
 				49EF1D3B1D2E0B920068AC4F /* SemanticVersion.swift in Sources */,
 				49EF1D3A1D2E0B920068AC4F /* File.swift in Sources */,
 				49DDBDA21D22403600CF32BA /* SemVerTests.swift in Sources */,
+				E69A30B51D3B1DBB005D7052 /* PlistFile.swift in Sources */,
 				49EF1D391D2E0B920068AC4F /* SharedDefinitions.swift in Sources */,
+				E69A30B61D3B1DBB005D7052 /* PodspecFile.swift in Sources */,
 				49EF1D361D2E0B7D0068AC4F /* ErrorCodes.swift in Sources */,
+				E69A30B41D3B1DBB005D7052 /* XcconfigFile.swift in Sources */,
 				49EF1D3D1D2E0B920068AC4F /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
