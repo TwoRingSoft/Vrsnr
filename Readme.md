@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/TwoRingSoft/SemVer.svg?branch=master)](https://travis-ci.org/TwoRingSoft/SemVer)
-[![Semver](http://img.shields.io/SemVer/1.1.0.png)](http://semver.org/spec/v2.0.0.html)
-
-# SemVer
+# SemVer [![Build Status](https://travis-ci.org/TwoRingSoft/SemVer.svg?branch=master)] (https://travis-ci.org/TwoRingSoft/SemVer)
 
 Let's say you write software. Maybe you've dabbled with package managers. Such helpful little building blocks. They all come with versions. Lots of them, in all different schemes, systems, shapes, sizes. They're changing all the time, and no-one knows [why](http://sentimentalversioning.org). 
 
