@@ -5,13 +5,7 @@
 
 Let's say you write software. Maybe you've dabbled with package managers. Such helpful little building blocks. They all come with versions. Lots of them, in all different schemes, systems, shapes, sizes. They're changing all the time, and no-one knows [why](http://sentimentalversioning.org). 
 
-Semantic versioning is here to help. It helps producers and consumers of software, and end users too, by allowing everyone involved to communicate about how changes in the software might, in order of increasing precedence:
-
-- fix broken behavior
-- add new capabilities 
-- modify or remove existing capabilities.
-
-It helps us know that by upgrading LibraryX from 1.3.7 to 2.0.0, we may need to do work in our codebase to [adapt](http://xkcd.com/1172/) to the new API. Upgrading FrameworkY from 12.37.0 to 12.37.1 shouldn't need any change at all really, and by the way I'm glad they patched that vulnerability. Can't wait for that new flatmap flavor in 12.38.0. Word!
+Semantic versioning is here to help. It helps producers and consumers of software, and end users too, by allowing everyone involved to communicate about each how each release changes the product. For more on semantic versioning, see [semver.org](http://semver.org).
 
 ---
 
@@ -20,11 +14,9 @@ It helps us know that by upgrading LibraryX from 1.3.7 to 2.0.0, we may need to 
 It can do other neat things too, like:
 
 - understand plain integer version numbers, like for builds
-- translate cat-speak to english and back
+- translate cat-speak to english and back 
 
 ---
-
-For more on semantic versioning, see [semver.org](http://semver.org).
 
 ## Example
 
@@ -50,9 +42,20 @@ semver --numeric --file ~/MyProject/Config.xcconfig --key DYLIB_CURRENT_VERSION
 brew tap tworingsoft/formulae
 brew install semver
 
-\# don't forget to read the fine print!
+# or 
+
+brew install tworingsoft/formulae/semver
+
+# don't forget to read the fine print!
 
 semver --help
+```
+
+#### Upgrading
+
+```
+brew update
+brew upgrade [tworingsoft/formulae/]semver
 ```
 
 ## Building & testing
