@@ -137,50 +137,49 @@
 		49A0F35F1D20E48F007C41AE /* SemVerVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SemVerVersions.m; sourceTree = "<group>"; };
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
 		49A0F3641D20F8DD007C41AE /* SemVer.app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SemVer.app-Bridging-Header.h"; path = "SemVer-app/SemVer.app-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		49A0F3691D20FE97007C41AE /* Agree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Agree.swift; path = Swiftline/Source/Agree.swift; sourceTree = "<group>"; };
-		49A0F36A1D20FE97007C41AE /* AgreeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgreeSettings.swift; path = Swiftline/Source/AgreeSettings.swift; sourceTree = "<group>"; };
-		49A0F36B1D20FE97007C41AE /* ArgConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConvertible.swift; path = Swiftline/Source/ArgConvertible.swift; sourceTree = "<group>"; };
-		49A0F36C1D20FE97007C41AE /* Args.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Args.swift; path = Swiftline/Source/Args.swift; sourceTree = "<group>"; };
-		49A0F36D1D20FE97007C41AE /* ArgsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsParser.swift; path = Swiftline/Source/ArgsParser.swift; sourceTree = "<group>"; };
-		49A0F36E1D20FE97007C41AE /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = Swiftline/Source/Argument.swift; sourceTree = "<group>"; };
-		49A0F36F1D20FE97007C41AE /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ask.swift; path = Swiftline/Source/Ask.swift; sourceTree = "<group>"; };
-		49A0F3701D20FE97007C41AE /* AskerValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskerValidator.swift; path = Swiftline/Source/AskerValidator.swift; sourceTree = "<group>"; };
-		49A0F3711D20FE97007C41AE /* AskSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskSettings.swift; path = Swiftline/Source/AskSettings.swift; sourceTree = "<group>"; };
-		49A0F3721D20FE97007C41AE /* Choose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choose.swift; path = Swiftline/Source/Choose.swift; sourceTree = "<group>"; };
-		49A0F3731D20FE97007C41AE /* ChooseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseSettings.swift; path = Swiftline/Source/ChooseSettings.swift; sourceTree = "<group>"; };
-		49A0F3741D20FE97007C41AE /* Colorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colorizer.swift; path = Swiftline/Source/Colorizer.swift; sourceTree = "<group>"; };
-		49A0F3751D20FE97007C41AE /* CommandExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandExecutor.swift; path = Swiftline/Source/CommandExecutor.swift; sourceTree = "<group>"; };
-		49A0F3761D20FE97007C41AE /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Env.swift; path = Swiftline/Source/Env.swift; sourceTree = "<group>"; };
-		49A0F3771D20FE97007C41AE /* Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Glob.swift; path = Swiftline/Source/Glob.swift; sourceTree = "<group>"; };
-		49A0F3781D20FE97007C41AE /* ProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProcessInfo.swift; path = Swiftline/Source/ProcessInfo.swift; sourceTree = "<group>"; };
-		49A0F3791D20FE97007C41AE /* PromptPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptPrinter.swift; path = Swiftline/Source/PromptPrinter.swift; sourceTree = "<group>"; };
-		49A0F37A1D20FE97007C41AE /* PromptReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptReader.swift; path = Swiftline/Source/PromptReader.swift; sourceTree = "<group>"; };
-		49A0F37B1D20FE97007C41AE /* PromptSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptSettings.swift; path = Swiftline/Source/PromptSettings.swift; sourceTree = "<group>"; };
-		49A0F37C1D20FE97007C41AE /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Runner.swift; path = Swiftline/Source/Runner.swift; sourceTree = "<group>"; };
-		49A0F37D1D20FE97007C41AE /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunnerSettings.swift; path = Swiftline/Source/RunnerSettings.swift; sourceTree = "<group>"; };
-		49A0F37E1D20FE97007C41AE /* RunResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunResults.swift; path = Swiftline/Source/RunResults.swift; sourceTree = "<group>"; };
-		49A0F37F1D20FE97007C41AE /* ShortHandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortHandRunner.swift; path = Swiftline/Source/ShortHandRunner.swift; sourceTree = "<group>"; };
-		49A0F3801D20FE97007C41AE /* StringBackgroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringBackgroundColorizer.swift; path = Swiftline/Source/StringBackgroundColorizer.swift; sourceTree = "<group>"; };
-		49A0F3811D20FE97007C41AE /* StringForegroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringForegroundColorizer.swift; path = Swiftline/Source/StringForegroundColorizer.swift; sourceTree = "<group>"; };
-		49A0F3821D20FE97007C41AE /* StringStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyle.swift; path = Swiftline/Source/StringStyle.swift; sourceTree = "<group>"; };
-		49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyleColorizer.swift; path = Swiftline/Source/StringStyleColorizer.swift; sourceTree = "<group>"; };
-		49A0F3841D20FE97007C41AE /* TaskPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPipe.swift; path = Swiftline/Source/TaskPipe.swift; sourceTree = "<group>"; };
+		49A0F3691D20FE97007C41AE /* Agree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Agree.swift; path = Source/Agree.swift; sourceTree = "<group>"; };
+		49A0F36A1D20FE97007C41AE /* AgreeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgreeSettings.swift; path =     Source/AgreeSettings.swift; sourceTree = "<group>"; };
+		49A0F36B1D20FE97007C41AE /* ArgConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConvertible.swift; path =     Source/ArgConvertible.swift; sourceTree = "<group>"; };
+		49A0F36C1D20FE97007C41AE /* Args.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Args.swift; path =     Source/Args.swift; sourceTree = "<group>"; };
+		49A0F36D1D20FE97007C41AE /* ArgsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsParser.swift; path =     Source/ArgsParser.swift; sourceTree = "<group>"; };
+		49A0F36E1D20FE97007C41AE /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path =     Source/Argument.swift; sourceTree = "<group>"; };
+		49A0F36F1D20FE97007C41AE /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ask.swift; path =     Source/Ask.swift; sourceTree = "<group>"; };
+		49A0F3701D20FE97007C41AE /* AskerValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskerValidator.swift; path =     Source/AskerValidator.swift; sourceTree = "<group>"; };
+		49A0F3711D20FE97007C41AE /* AskSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskSettings.swift; path =     Source/AskSettings.swift; sourceTree = "<group>"; };
+		49A0F3721D20FE97007C41AE /* Choose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choose.swift; path =     Source/Choose.swift; sourceTree = "<group>"; };
+		49A0F3731D20FE97007C41AE /* ChooseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseSettings.swift; path =     Source/ChooseSettings.swift; sourceTree = "<group>"; };
+		49A0F3741D20FE97007C41AE /* Colorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colorizer.swift; path =     Source/Colorizer.swift; sourceTree = "<group>"; };
+		49A0F3751D20FE97007C41AE /* CommandExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandExecutor.swift; path =     Source/CommandExecutor.swift; sourceTree = "<group>"; };
+		49A0F3761D20FE97007C41AE /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Env.swift; path =     Source/Env.swift; sourceTree = "<group>"; };
+		49A0F3771D20FE97007C41AE /* Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Glob.swift; path =     Source/Glob.swift; sourceTree = "<group>"; };
+		49A0F3781D20FE97007C41AE /* ProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProcessInfo.swift; path =     Source/ProcessInfo.swift; sourceTree = "<group>"; };
+		49A0F3791D20FE97007C41AE /* PromptPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptPrinter.swift; path =     Source/PromptPrinter.swift; sourceTree = "<group>"; };
+		49A0F37A1D20FE97007C41AE /* PromptReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptReader.swift; path =     Source/PromptReader.swift; sourceTree = "<group>"; };
+		49A0F37B1D20FE97007C41AE /* PromptSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptSettings.swift; path =     Source/PromptSettings.swift; sourceTree = "<group>"; };
+		49A0F37C1D20FE97007C41AE /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Runner.swift; path =     Source/Runner.swift; sourceTree = "<group>"; };
+		49A0F37D1D20FE97007C41AE /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunnerSettings.swift; path =     Source/RunnerSettings.swift; sourceTree = "<group>"; };
+		49A0F37E1D20FE97007C41AE /* RunResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunResults.swift; path =     Source/RunResults.swift; sourceTree = "<group>"; };
+		49A0F37F1D20FE97007C41AE /* ShortHandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortHandRunner.swift; path =     Source/ShortHandRunner.swift; sourceTree = "<group>"; };
+		49A0F3801D20FE97007C41AE /* StringBackgroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringBackgroundColorizer.swift; path =     Source/StringBackgroundColorizer.swift; sourceTree = "<group>"; };
+		49A0F3811D20FE97007C41AE /* StringForegroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringForegroundColorizer.swift; path =     Source/StringForegroundColorizer.swift; sourceTree = "<group>"; };
+		49A0F3821D20FE97007C41AE /* StringStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyle.swift; path =     Source/StringStyle.swift; sourceTree = "<group>"; };
+		49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyleColorizer.swift; path =     Source/StringStyleColorizer.swift; sourceTree = "<group>"; };
+		49A0F3841D20FE97007C41AE /* TaskPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPipe.swift; path =     Source/TaskPipe.swift; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
 		49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedDefinitions.swift; path = Shared/SharedDefinitions.swift; sourceTree = "<group>"; };
-		49DDBD991D223F0B00CF32BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		49DDBD9F1D22403600CF32BA /* SemVerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SemVerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DDBDA11D22403600CF32BA /* SemVerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemVerTests.swift; sourceTree = "<group>"; };
 		49DDBDA31D22403600CF32BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EF1D221D24AF750068AC4F /* NumericVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumericVersion.swift; path = Shared/NumericVersion.swift; sourceTree = "<group>"; };
 		49EF1D251D2601420068AC4F /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = Config/Project.xcconfig; sourceTree = "<group>"; };
-		49EF1D261D2601C90068AC4F /* FABConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FABConfig; sourceTree = "<group>"; };
+		49EF1D261D2601C90068AC4F /* FABConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FABConfig; path = ../Vendor/FABConfig; sourceTree = "<group>"; };
 		49EF1D281D2601EC0068AC4F /* semver.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = semver.xcconfig; path = Config/semver.xcconfig; sourceTree = "<group>"; };
-		49EF1D291D2C8B5A0068AC4F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
-		49EF1D411D3192900068AC4F /* PlistFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistFile.swift; sourceTree = "<group>"; };
-		49EF1D431D3192980068AC4F /* XcconfigFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcconfigFile.swift; sourceTree = "<group>"; };
-		49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodspecFile.swift; sourceTree = "<group>"; };
+		49EF1D291D2C8B5A0068AC4F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Shared/Version.swift; sourceTree = "<group>"; };
+		49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorCodes.swift; path = Shared/ErrorCodes.swift; sourceTree = "<group>"; };
+		49EF1D411D3192900068AC4F /* PlistFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistFile.swift; path = Shared/PlistFile.swift; sourceTree = "<group>"; };
+		49EF1D431D3192980068AC4F /* XcconfigFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcconfigFile.swift; path = Shared/XcconfigFile.swift; sourceTree = "<group>"; };
+		49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PodspecFile.swift; path = Shared/PodspecFile.swift; sourceTree = "<group>"; };
 		49EF1D4E1D3327830068AC4F /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
@@ -215,7 +214,6 @@
 		49A0F26A1D20D7F3007C41AE = {
 			isa = PBXGroup;
 			children = (
-				49DDBD991D223F0B00CF32BA /* AppKit.framework */,
 				49EF1D271D2601CE0068AC4F /* Config */,
 				49A0F2741D20D7F3007C41AE /* Products */,
 				49A0F29D1D20D808007C41AE /* semver */,
@@ -280,13 +278,13 @@
 			children = (
 				49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */,
 				49F0462F1D235DE3005EE299 /* File.swift */,
-				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
+				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
 				49EF1D411D3192900068AC4F /* PlistFile.swift */,
 				49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */,
-				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
 				49F046321D235E30005EE299 /* SemanticVersion.swift */,
 				49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */,
 				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
+				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -324,7 +322,7 @@
 				49A0F3841D20FE97007C41AE /* TaskPipe.swift */,
 			);
 			name = Swiftline;
-			path = ..;
+			path = ../../Vendor/Swiftline;
 			sourceTree = "<group>";
 		};
 		49DDBD211D22213400CF32BA /* Fixtures */ = {

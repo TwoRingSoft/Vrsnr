@@ -6,7 +6,7 @@
 //  Copyright © 2016 Two Ring Software. All rights reserved.
 //
 
-#include "../FABConfig/Targets/Apps/OSX-App.xcconfig"
+#include "../Vendor/FABConfig/Targets/Apps/OSX-App.xcconfig"
 
 SWIFT_OBJC_BRIDGING_HEADER = semver/semver-Bridging-Header.h
 
