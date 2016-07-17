@@ -1,3 +1,5 @@
 - Taught `semver` to accept just `--try` and `--current-version` options to essentially calculate the next version and see what it will output.
 - Taught `semver` to only read the current version from specified file and print it to output with the `--read` option.
 - Fall back to a default key if none is specified on the command line with `--key`, defined per file type and version type.
+- Add CocoaPods podspec file type support, with a default key of `version`.
+- Fix bug where using `--current-version` could result in incorrect replacement of new version information.

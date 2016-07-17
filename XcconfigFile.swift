@@ -14,6 +14,10 @@ public struct XcconfigFile {
 
 extension XcconfigFile: File {
 
+    public func getPath() -> String {
+        return path
+    }
+
     public static func defaultKeyForVersionType(type: VersionType) -> String {
         switch(type) {
         case .Numeric:
@@ -27,43 +31,29 @@ extension XcconfigFile: File {
         return XcconfigFile.defaultKeyForVersionType(type)
     }
 
-    public func versionStringForKey(key: String?, versionType: VersionType) -> String? {
-        let data = try! NSString(contentsOfFile: self.path, encoding: NSUTF8StringEncoding)
-
-        // get each line that contains the key
+    public func versionStringForKey(key: String?, versionType: VersionType) throws -> String? {
         let workingKey = chooseWorkingKey(key, versionType: versionType)
-        let versionDefinitions = data.componentsSeparatedByString("\n").filter() { line in
-            line.containsString("\(workingKey) = ")
-        }
-
-        if versionDefinitions.count == 0 {
-            return nil
-        }
-
-        // if more than one line has the key on it, we just pick the first automatically for now (we only expect the key to appear once in xcconfigs and plists, but this may change when adding more support, e.g. xcodeprojs
-        if versionDefinitions.count > 1 {
-            print("More than one possible version definition: \(versionDefinitions), will pick first.")
-        }
-        let line = versionDefinitions.first!
-
-        // discard key assignment portion and any trailing comments, then trim whitespace
-        return line.componentsSeparatedByString("=").last!.componentsSeparatedByString("//").first!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return try extractVersionStringFromTextFile(self, versionType: versionType, key: workingKey)
     }
 
-    public func replaceVersionString(original: Version, new: Version, key: String?) throws {
-        let contents = try! NSString(contentsOfFile: self.path, encoding: NSUTF8StringEncoding)
-
+    public func replaceVersionString<V where V: Version>(original: V, new: V, key: String?) throws {
         let workingKey = chooseWorkingKey(key, versionType: new.type)
+        try replaceVersionStringInTextFile(self, originalVersion: original, newVersion: new, versionOverride: key == nil, key: workingKey)
+    }
 
-        let newContents = ((contents.componentsSeparatedByString("\n").map() { line in
-            if line.containsString(workingKey) {
-                return line.stringByReplacingOccurrencesOfString(original.description, withString: new.description)
-            } else {
-                return line
-            }
-        } as [String]) as NSArray).componentsJoinedByString("\n")
+}
 
-        try! newContents.writeToFile(self.path, atomically: true, encoding: NSUTF8StringEncoding)
+extension XcconfigFile: TextFile {
+
+    public static func versionStringFromLine(line: String) throws -> String {
+        let assignentExpressionComponents = line.componentsSeparatedByString("=")
+        if assignentExpressionComponents.count != 2 {
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.CouldNotParseVersion.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Could not find an assignment using ‘=’: \(line)" ])
+        }
+
+        return assignentExpressionComponents.last! // take right-hand side from assignment expression
+            .componentsSeparatedByString("//").first! // strip away any comments
+            .stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) // trim whitespace
     }
 
 }

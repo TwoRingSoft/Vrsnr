@@ -27,7 +27,11 @@ After:
 
 CURRENT_PROJECT_VERSION = 0.0.0-some.prerelease.identifier+some.metadata // some comment
 
-DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment
+DYLIB_CURRENT_VERSION = 2+some.meta-data.123 // some comment
 
 Difference:
 
+11c11
+< DYLIB_CURRENT_VERSION = 2+some.meta-data.123 // some comment
+---
+> DYLIB_CURRENT_VERSION = 0-some.prerelease.identifier+some.metadata // some comment

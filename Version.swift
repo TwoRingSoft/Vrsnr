@@ -21,6 +21,10 @@ public enum VersionType: String {
             VersionType.Semantic
         ]
     }
+
+    public func parseFromString<V where V: Version>(string: String) throws -> V {
+        return try V.parseFromString(string)
+    }
     
 }
 
@@ -49,7 +53,7 @@ public enum VersionSuffix: UInt8, CommandLineOption {
     
 }
 
-public protocol Version: CustomStringConvertible {
+public protocol Version: CustomStringConvertible, Comparable {
 
     static var statictype: VersionType { get }
     var type: VersionType { get }

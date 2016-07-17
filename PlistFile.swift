@@ -16,6 +16,10 @@ public struct PlistFile {
 
 extension PlistFile: File {
 
+    public func getPath() -> String {
+        return path
+    }
+
     public static func defaultKeyForVersionType(type: VersionType) -> String {
         switch(type) {
         case .Numeric:
@@ -41,7 +45,7 @@ extension PlistFile: File {
         }
     }
 
-    public func replaceVersionString(original: Version, new: Version, key: String?) throws {
+    public func replaceVersionString<V where V: Version>(original: V, new: V, key: String?) throws {
         guard let dictionary = NSDictionary(contentsOfFile: self.path) else {
             throw NSError(domain: errorDomain, code: Int(ErrorCode.CouldNotReadFile.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Failed to read current state of file for updating." ])
         }

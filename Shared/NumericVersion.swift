@@ -64,6 +64,18 @@ extension NumericVersion: Version {
     
 }
 
+extension NumericVersion: Comparable {}
+
+public func <(lhs: NumericVersion, rhs: NumericVersion) -> Bool {
+    return lhs.version < rhs.version && lhs.prereleaseIdentifier < rhs.prereleaseIdentifier && lhs.buildMetadata < rhs.buildMetadata
+}
+
+extension NumericVersion: Equatable {}
+
+public func ==(lhs: NumericVersion, rhs: NumericVersion) -> Bool {
+    return lhs.version == rhs.version && lhs.prereleaseIdentifier == rhs.prereleaseIdentifier && lhs.buildMetadata == rhs.buildMetadata
+}
+
 extension NumericVersion: CustomStringConvertible {
 
     public var description: String {

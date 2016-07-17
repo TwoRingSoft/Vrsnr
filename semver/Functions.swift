@@ -90,7 +90,7 @@ func getRevType() -> VersionBumpOptions {
     } else if Args.parsed.parameters.contains(SemverRevision.Patch.name) {
         revType = SemverRevision.Patch.rawValue
     } else {
-        printUsage()
+        print("".f.Red.s.Bold)
         exit(ErrorCode.MissingFlag.rawValue)
     }
     return revType

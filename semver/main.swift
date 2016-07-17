@@ -32,7 +32,7 @@ checkForVersion()
 
 // check for some options that affect requirement to read/write file later.
 //
-// precedence (high to low): --read, --try/--current-version
+// precedence: --read > --try == --current-version
 let readOnlyFromFile = isRead()
 var versionString: String?
 var dryRun = false
@@ -70,35 +70,56 @@ if versionString == nil {
         exit(ErrorCode.NoVersionInformationSource.rawValue)
     }
 
-    versionString = specifiedFile.versionStringForKey(key, versionType: versionType)
+    versionString = try! specifiedFile.versionStringForKey(key, versionType: versionType)
 }
 
-// extract the version from the file, optionally calculating the next version according to arguments
-var original: Version
-var new: Version?
-switch(versionType) {
+// FIXME: generics abuses incoming!
+
+func doWork<V where V: Version>() -> V {
+
+    // extract the version from the file, optionally calculating the next version according to arguments
+    let original = try! V.parseFromString(versionString!)
+
+    var new: V?
+    if !readOnlyFromFile {
+        switch(versionType) {
+        case .Numeric:
+            new = original.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata)
+        case .Semantic:
+            new = original.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata)
+        }
+    }
+
+    // output or replace new version in file
+    if dryRun {
+        print(NSString(format: "%@", new!.description))
+    } else if readOnlyFromFile {
+        print(NSString(format: "%@", original.description))
+    } else {
+        try! file!.replaceVersionString(original, new: new!, key: key)
+        if key == nil {
+            key = file?.defaultKeyForVersionType(versionType)
+        }
+        print(NSString(format: "Updated %@ from %@ to %@ in %@", key!, original.description, new!.description, path!))
+    }
+
+    return original
+}
+
+//
+// FIXME: vv generics abuses vv
+//
+// We have some generic functions that need to infer the template type, but I guess I haven't done so correctly yet, maybe using associatedType in the protocols with typealiases here? Will probably involve generic-izing the remainder of the protocol/shared functions etc
+//
+// So, for now we assign the result to a specific version type instead of something of type Version. This way the compiler infers the right type to use, and passes it back via the doWork()'s templated return type, which propogates to everything else from there.
+//
+switch versionType {
 case .Numeric:
-    original = try! NumericVersion.parseFromString(versionString!)
-    if !readOnlyFromFile {
-        new = original.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata)
-    }
+    let _: NumericVersion = doWork()
 case .Semantic:
-    original = try! SemanticVersion.parseFromString(versionString!)
-    if !readOnlyFromFile {
-        new = original.nextVersion(getRevType(), prereleaseIdentifier: identifier, buildMetadata: metadata)
-    }
+    let _: SemanticVersion = doWork()
 }
 
-// output or replace new version in file
-if dryRun {
-    print(NSString(format: "%@", new!.description))
-} else if readOnlyFromFile {
-    print(NSString(format: "%@", original.description))
-} else {
-
-    try! file!.replaceVersionString(original, new: new!, key: key)
-    if key == nil {
-        key = file?.defaultKeyForVersionType(versionType)
-    }
-    print(NSString(format: "Updated %@ from %@ to %@ in %@", key!, original.description, new!.description, path!))
-}
+//
+// FIXME: ^^ generics abuses ^^
+//
