@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "semver --numeric --file &quot;$(PROJECT_DIR)/SemVerIntegrations/Fixtures/Sample.podspec&quot; --current-version 1"
+            argument = "--help"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

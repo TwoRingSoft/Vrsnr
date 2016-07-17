@@ -15,7 +15,7 @@ It helps us know that by upgrading LibraryX from 1.3.7 to 2.0.0, we may need to 
 
 ---
 
-SemVer is a set of tools to help keep your library/app/whatever's version up to date. One `semver` command can increment the version by modifying the file containing its definition. 
+**SemVer** is a set of tools to help keep your library/app/whatever's version up to date. One `semver` command can increment the version by modifying the file containing its definition. 
 
 It can do other neat things too, like:
 
@@ -65,6 +65,7 @@ The command line application is built with the `semver` target and Mac app with 
 
 - .xcconfig
 - .plist
+- .podspec
 
 ## Contributing
 
@@ -77,7 +78,6 @@ Bugfixes, new file type support, and new feature requests are welcomed! Please d
 
 ## Future work
 
-- Defaults for semver/numeric keys per filetype
 - More filetypes
 - Git tagging
 - Caching
