@@ -1,0 +1,1 @@
+- Remove any single quotes from podspec files around version strings, as well as double quotes

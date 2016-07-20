@@ -54,6 +54,7 @@ extension PodspecFile: TextFile {
         return assignentExpressionComponents.last! // take right-hand side from assignment expression
             .componentsSeparatedByString("#").first! // strip away any comments
             .stringByReplacingOccurrencesOfString("\"", withString: "") // remove any surrounding double-quotes
+            .stringByReplacingOccurrencesOfString("\'", withString: "") // remove surrounding single-quotes
             .stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) // trim whitespace
     }
 
