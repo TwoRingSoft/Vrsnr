@@ -53,7 +53,7 @@ var key: String?
 let fileReadRequired = versionString == nil || readOnlyFromFile
 let fileWriteRequired = !dryRun
 if fileReadRequired || fileWriteRequired {
-    path = Flags.value(forOptionalFlag: SemVerFlags.File)
+    path = Flags.value(forNonoptionalFlag: SemVerFlags.File)
     file = try! createFileForPath(path!)
     key = Flags.value(forOptionalFlag: SemVerFlags.Key)
 }
