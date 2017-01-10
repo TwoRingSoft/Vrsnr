@@ -1,6 +1,25 @@
 set -eu pipefail
 
-xctool -project SemVer/SemVer.xcodeproj -scheme SemVerIntegrations clean build
+#
+# Integration tests
+#
+
+if [[ $SMVR_TRAVIS_BUILD -eq 1 ]]; then
+    echo "travis_fold:start:Integration tests"
+    echo "Integration tests:"
+    echo
+fi
+
+xcodebuild -project SemVer/SemVer.xcodeproj -scheme SemVerIntegrations clean build
+
+if [[ $SMVR_TRAVIS_BUILD -eq 1 ]]; then
+    echo "travis_fold:end:Integration tests"
+    echo
+fi
+
+#
+# Unit tests
+#
 
 if [[ $SMVR_TRAVIS_BUILD -eq 1 ]]; then
     echo "travis_fold:start:Unit tests"
