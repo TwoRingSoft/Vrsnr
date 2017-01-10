@@ -23,18 +23,15 @@ struct Arguments {
 struct Flags {
 
     static func value(forOptionalFlag flag: CommandLineOption) -> String? {
-        var value = NSUserDefaults.standardUserDefaults().stringForKey(flag.long)
+        var value = NSUserDefaults.standardUserDefaults().stringForKey("-\(flag.long)")
         if value == nil {
             value = NSUserDefaults.standardUserDefaults().stringForKey(flag.short)
         }
         return value
     }
 
-    func value(forNonoptionalFlag flag: CommandLineOption) -> String {
-        var optional = NSUserDefaults.standardUserDefaults().stringForKey(flag.long)
-        if optional == nil {
-            optional = NSUserDefaults.standardUserDefaults().stringForKey(flag.short)
-        }
+    static func value(forNonoptionalFlag flag: CommandLineOption) -> String {
+        let optional = self.value(forOptionalFlag: flag)
         guard let value = optional else {
             printUsage()
             exit(ErrorCode.MissingFlag.rawValue)
