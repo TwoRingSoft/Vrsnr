@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4903DB531E2466AA00533FB8 /* Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903DB521E2466AA00533FB8 /* Arguments.swift */; };
 		49A0F2781D20D7F3007C41AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F2771D20D7F3007C41AE /* AppDelegate.m */; };
 		49A0F27B1D20D7F3007C41AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F27A1D20D7F3007C41AE /* main.m */; };
 		49A0F27E1D20D7F3007C41AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F27D1D20D7F3007C41AE /* ViewController.m */; };
@@ -31,34 +32,6 @@
 		49A0F35A1D20DF56007C41AE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3591D20DF56007C41AE /* Functions.swift */; };
 		49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F35F1D20E48F007C41AE /* SemVerVersions.m */; };
 		49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */; };
-		49A0F3851D20FE97007C41AE /* Agree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3691D20FE97007C41AE /* Agree.swift */; };
-		49A0F3861D20FE97007C41AE /* AgreeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36A1D20FE97007C41AE /* AgreeSettings.swift */; };
-		49A0F3871D20FE97007C41AE /* ArgConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36B1D20FE97007C41AE /* ArgConvertible.swift */; };
-		49A0F3881D20FE97007C41AE /* Args.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36C1D20FE97007C41AE /* Args.swift */; };
-		49A0F3891D20FE97007C41AE /* ArgsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36D1D20FE97007C41AE /* ArgsParser.swift */; };
-		49A0F38A1D20FE97007C41AE /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36E1D20FE97007C41AE /* Argument.swift */; };
-		49A0F38B1D20FE97007C41AE /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F36F1D20FE97007C41AE /* Ask.swift */; };
-		49A0F38C1D20FE97007C41AE /* AskerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3701D20FE97007C41AE /* AskerValidator.swift */; };
-		49A0F38D1D20FE97007C41AE /* AskSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3711D20FE97007C41AE /* AskSettings.swift */; };
-		49A0F38E1D20FE97007C41AE /* Choose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3721D20FE97007C41AE /* Choose.swift */; };
-		49A0F38F1D20FE97007C41AE /* ChooseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3731D20FE97007C41AE /* ChooseSettings.swift */; };
-		49A0F3901D20FE97007C41AE /* Colorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3741D20FE97007C41AE /* Colorizer.swift */; };
-		49A0F3911D20FE97007C41AE /* CommandExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3751D20FE97007C41AE /* CommandExecutor.swift */; };
-		49A0F3921D20FE97007C41AE /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3761D20FE97007C41AE /* Env.swift */; };
-		49A0F3931D20FE97007C41AE /* Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3771D20FE97007C41AE /* Glob.swift */; };
-		49A0F3941D20FE97007C41AE /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3781D20FE97007C41AE /* ProcessInfo.swift */; };
-		49A0F3951D20FE97007C41AE /* PromptPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3791D20FE97007C41AE /* PromptPrinter.swift */; };
-		49A0F3961D20FE97007C41AE /* PromptReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37A1D20FE97007C41AE /* PromptReader.swift */; };
-		49A0F3971D20FE97007C41AE /* PromptSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37B1D20FE97007C41AE /* PromptSettings.swift */; };
-		49A0F3981D20FE97007C41AE /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37C1D20FE97007C41AE /* Runner.swift */; };
-		49A0F3991D20FE97007C41AE /* RunnerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37D1D20FE97007C41AE /* RunnerSettings.swift */; };
-		49A0F39A1D20FE97007C41AE /* RunResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37E1D20FE97007C41AE /* RunResults.swift */; };
-		49A0F39B1D20FE97007C41AE /* ShortHandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F37F1D20FE97007C41AE /* ShortHandRunner.swift */; };
-		49A0F39C1D20FE97007C41AE /* StringBackgroundColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3801D20FE97007C41AE /* StringBackgroundColorizer.swift */; };
-		49A0F39D1D20FE97007C41AE /* StringForegroundColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3811D20FE97007C41AE /* StringForegroundColorizer.swift */; };
-		49A0F39E1D20FE97007C41AE /* StringStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3821D20FE97007C41AE /* StringStyle.swift */; };
-		49A0F39F1D20FE97007C41AE /* StringStyleColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */; };
-		49A0F3A01D20FE97007C41AE /* TaskPipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3841D20FE97007C41AE /* TaskPipe.swift */; };
 		49DDBDA21D22403600CF32BA /* SemVerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBDA11D22403600CF32BA /* SemVerTests.swift */; };
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
@@ -120,6 +93,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4903DB521E2466AA00533FB8 /* Arguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arguments.swift; sourceTree = "<group>"; };
 		49A0F2731D20D7F3007C41AE /* SemVer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SemVer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0F2761D20D7F3007C41AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49A0F2771D20D7F3007C41AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,34 +111,6 @@
 		49A0F35F1D20E48F007C41AE /* SemVerVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SemVerVersions.m; sourceTree = "<group>"; };
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
 		49A0F3641D20F8DD007C41AE /* SemVer.app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SemVer.app-Bridging-Header.h"; path = "SemVer-app/SemVer.app-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		49A0F3691D20FE97007C41AE /* Agree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Agree.swift; path = Source/Agree.swift; sourceTree = "<group>"; };
-		49A0F36A1D20FE97007C41AE /* AgreeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgreeSettings.swift; path = Source/AgreeSettings.swift; sourceTree = "<group>"; };
-		49A0F36B1D20FE97007C41AE /* ArgConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgConvertible.swift; path = Source/ArgConvertible.swift; sourceTree = "<group>"; };
-		49A0F36C1D20FE97007C41AE /* Args.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Args.swift; path = Source/Args.swift; sourceTree = "<group>"; };
-		49A0F36D1D20FE97007C41AE /* ArgsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArgsParser.swift; path = Source/ArgsParser.swift; sourceTree = "<group>"; };
-		49A0F36E1D20FE97007C41AE /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = Source/Argument.swift; sourceTree = "<group>"; };
-		49A0F36F1D20FE97007C41AE /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ask.swift; path = Source/Ask.swift; sourceTree = "<group>"; };
-		49A0F3701D20FE97007C41AE /* AskerValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskerValidator.swift; path = Source/AskerValidator.swift; sourceTree = "<group>"; };
-		49A0F3711D20FE97007C41AE /* AskSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AskSettings.swift; path = Source/AskSettings.swift; sourceTree = "<group>"; };
-		49A0F3721D20FE97007C41AE /* Choose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choose.swift; path = Source/Choose.swift; sourceTree = "<group>"; };
-		49A0F3731D20FE97007C41AE /* ChooseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseSettings.swift; path = Source/ChooseSettings.swift; sourceTree = "<group>"; };
-		49A0F3741D20FE97007C41AE /* Colorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colorizer.swift; path = Source/Colorizer.swift; sourceTree = "<group>"; };
-		49A0F3751D20FE97007C41AE /* CommandExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandExecutor.swift; path = Source/CommandExecutor.swift; sourceTree = "<group>"; };
-		49A0F3761D20FE97007C41AE /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Env.swift; path = Source/Env.swift; sourceTree = "<group>"; };
-		49A0F3771D20FE97007C41AE /* Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Glob.swift; path = Source/Glob.swift; sourceTree = "<group>"; };
-		49A0F3781D20FE97007C41AE /* ProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProcessInfo.swift; path = Source/ProcessInfo.swift; sourceTree = "<group>"; };
-		49A0F3791D20FE97007C41AE /* PromptPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptPrinter.swift; path = Source/PromptPrinter.swift; sourceTree = "<group>"; };
-		49A0F37A1D20FE97007C41AE /* PromptReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptReader.swift; path = Source/PromptReader.swift; sourceTree = "<group>"; };
-		49A0F37B1D20FE97007C41AE /* PromptSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptSettings.swift; path = Source/PromptSettings.swift; sourceTree = "<group>"; };
-		49A0F37C1D20FE97007C41AE /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Runner.swift; path = Source/Runner.swift; sourceTree = "<group>"; };
-		49A0F37D1D20FE97007C41AE /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunnerSettings.swift; path = Source/RunnerSettings.swift; sourceTree = "<group>"; };
-		49A0F37E1D20FE97007C41AE /* RunResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunResults.swift; path = Source/RunResults.swift; sourceTree = "<group>"; };
-		49A0F37F1D20FE97007C41AE /* ShortHandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortHandRunner.swift; path = Source/ShortHandRunner.swift; sourceTree = "<group>"; };
-		49A0F3801D20FE97007C41AE /* StringBackgroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringBackgroundColorizer.swift; path = Source/StringBackgroundColorizer.swift; sourceTree = "<group>"; };
-		49A0F3811D20FE97007C41AE /* StringForegroundColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringForegroundColorizer.swift; path = Source/StringForegroundColorizer.swift; sourceTree = "<group>"; };
-		49A0F3821D20FE97007C41AE /* StringStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyle.swift; path = Source/StringStyle.swift; sourceTree = "<group>"; };
-		49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringStyleColorizer.swift; path = Source/StringStyleColorizer.swift; sourceTree = "<group>"; };
-		49A0F3841D20FE97007C41AE /* TaskPipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPipe.swift; path = Source/TaskPipe.swift; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
 		49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedDefinitions.swift; path = Shared/SharedDefinitions.swift; sourceTree = "<group>"; };
@@ -268,7 +214,7 @@
 				49A0F35D1D20E48E007C41AE /* semver-Bridging-Header.h */,
 				49A0F35E1D20E48F007C41AE /* SemVerVersions.h */,
 				49A0F35F1D20E48F007C41AE /* SemVerVersions.m */,
-				49A0F3681D20FE87007C41AE /* Swiftline */,
+				4903DB521E2466AA00533FB8 /* Arguments.swift */,
 			);
 			path = semver;
 			sourceTree = "<group>";
@@ -287,42 +233,6 @@
 				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
 			);
 			name = Shared;
-			sourceTree = "<group>";
-		};
-		49A0F3681D20FE87007C41AE /* Swiftline */ = {
-			isa = PBXGroup;
-			children = (
-				49A0F3691D20FE97007C41AE /* Agree.swift */,
-				49A0F36A1D20FE97007C41AE /* AgreeSettings.swift */,
-				49A0F36B1D20FE97007C41AE /* ArgConvertible.swift */,
-				49A0F36C1D20FE97007C41AE /* Args.swift */,
-				49A0F36D1D20FE97007C41AE /* ArgsParser.swift */,
-				49A0F36E1D20FE97007C41AE /* Argument.swift */,
-				49A0F36F1D20FE97007C41AE /* Ask.swift */,
-				49A0F3701D20FE97007C41AE /* AskerValidator.swift */,
-				49A0F3711D20FE97007C41AE /* AskSettings.swift */,
-				49A0F3721D20FE97007C41AE /* Choose.swift */,
-				49A0F3731D20FE97007C41AE /* ChooseSettings.swift */,
-				49A0F3741D20FE97007C41AE /* Colorizer.swift */,
-				49A0F3751D20FE97007C41AE /* CommandExecutor.swift */,
-				49A0F3761D20FE97007C41AE /* Env.swift */,
-				49A0F3771D20FE97007C41AE /* Glob.swift */,
-				49A0F3781D20FE97007C41AE /* ProcessInfo.swift */,
-				49A0F3791D20FE97007C41AE /* PromptPrinter.swift */,
-				49A0F37A1D20FE97007C41AE /* PromptReader.swift */,
-				49A0F37B1D20FE97007C41AE /* PromptSettings.swift */,
-				49A0F37C1D20FE97007C41AE /* Runner.swift */,
-				49A0F37D1D20FE97007C41AE /* RunnerSettings.swift */,
-				49A0F37E1D20FE97007C41AE /* RunResults.swift */,
-				49A0F37F1D20FE97007C41AE /* ShortHandRunner.swift */,
-				49A0F3801D20FE97007C41AE /* StringBackgroundColorizer.swift */,
-				49A0F3811D20FE97007C41AE /* StringForegroundColorizer.swift */,
-				49A0F3821D20FE97007C41AE /* StringStyle.swift */,
-				49A0F3831D20FE97007C41AE /* StringStyleColorizer.swift */,
-				49A0F3841D20FE97007C41AE /* TaskPipe.swift */,
-			);
-			name = Swiftline;
-			path = ../../Vendor/Swiftline;
 			sourceTree = "<group>";
 		};
 		49DDBD211D22213400CF32BA /* Fixtures */ = {
@@ -525,46 +435,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */,
-				49A0F39C1D20FE97007C41AE /* StringBackgroundColorizer.swift in Sources */,
-				49A0F3991D20FE97007C41AE /* RunnerSettings.swift in Sources */,
 				49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */,
-				49A0F3921D20FE97007C41AE /* Env.swift in Sources */,
-				49A0F39F1D20FE97007C41AE /* StringStyleColorizer.swift in Sources */,
 				49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */,
-				49A0F3861D20FE97007C41AE /* AgreeSettings.swift in Sources */,
-				49A0F38A1D20FE97007C41AE /* Argument.swift in Sources */,
 				49EF1D371D2E0B8C0068AC4F /* ErrorCodes.swift in Sources */,
-				49A0F39E1D20FE97007C41AE /* StringStyle.swift in Sources */,
-				49A0F3851D20FE97007C41AE /* Agree.swift in Sources */,
-				49A0F3951D20FE97007C41AE /* PromptPrinter.swift in Sources */,
 				49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */,
-				49A0F39B1D20FE97007C41AE /* ShortHandRunner.swift in Sources */,
 				49F046341D235E3C005EE299 /* SemanticVersion.swift in Sources */,
-				49A0F38C1D20FE97007C41AE /* AskerValidator.swift in Sources */,
-				49A0F3901D20FE97007C41AE /* Colorizer.swift in Sources */,
-				49A0F39D1D20FE97007C41AE /* StringForegroundColorizer.swift in Sources */,
-				49A0F3931D20FE97007C41AE /* Glob.swift in Sources */,
 				49A0F29F1D20D808007C41AE /* main.swift in Sources */,
-				49A0F3A01D20FE97007C41AE /* TaskPipe.swift in Sources */,
-				49A0F38B1D20FE97007C41AE /* Ask.swift in Sources */,
-				49A0F38F1D20FE97007C41AE /* ChooseSettings.swift in Sources */,
 				49A0F35A1D20DF56007C41AE /* Functions.swift in Sources */,
-				49A0F38D1D20FE97007C41AE /* AskSettings.swift in Sources */,
 				49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */,
-				49A0F3971D20FE97007C41AE /* PromptSettings.swift in Sources */,
-				49A0F3961D20FE97007C41AE /* PromptReader.swift in Sources */,
 				49F046311D235E02005EE299 /* File.swift in Sources */,
-				49A0F39A1D20FE97007C41AE /* RunResults.swift in Sources */,
-				49A0F3911D20FE97007C41AE /* CommandExecutor.swift in Sources */,
-				49A0F3981D20FE97007C41AE /* Runner.swift in Sources */,
-				49A0F3881D20FE97007C41AE /* Args.swift in Sources */,
-				49A0F38E1D20FE97007C41AE /* Choose.swift in Sources */,
+				4903DB531E2466AA00533FB8 /* Arguments.swift in Sources */,
 				49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */,
-				49A0F3941D20FE97007C41AE /* ProcessInfo.swift in Sources */,
 				49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */,
-				49A0F3871D20FE97007C41AE /* ArgConvertible.swift in Sources */,
 				49EF1D451D31B35D0068AC4F /* PlistFile.swift in Sources */,
-				49A0F3891D20FE97007C41AE /* ArgsParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

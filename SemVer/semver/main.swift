@@ -37,7 +37,7 @@ let readOnlyFromFile = isRead()
 var versionString: String?
 var dryRun = false
 if !readOnlyFromFile {
-    versionString = versionFromCommandLine()
+    versionString = Flags.value(forOptionalFlag: SemVerFlags.CurrentVersion)
     dryRun = isDryRun()
 }
 
@@ -53,20 +53,20 @@ var key: String?
 let fileReadRequired = versionString == nil || readOnlyFromFile
 let fileWriteRequired = !dryRun
 if fileReadRequired || fileWriteRequired {
-    path = getValue(SemVerFlags.File)
+    path = Flags.value(forOptionalFlag: SemVerFlags.File)
     file = try! createFileForPath(path!)
-    key = getValueForOptionalFlag(SemVerFlags.Key)
+    key = Flags.value(forOptionalFlag: SemVerFlags.Key)
 }
 
 // not required
-var identifier = getVersionSuffix(.PrereleaseIdentifier)
-var metadata = getVersionSuffix(.BuildMetadata)
+var identifier = Flags.value(forOptionalFlag: VersionSuffix.PrereleaseIdentifier)
+var metadata = Flags.value(forOptionalFlag: VersionSuffix.BuildMetadata)
 
 // if no version override was specified with --current-version, get it from the file now
 let versionType = getVersionType()
 if versionString == nil {
     guard let specifiedFile = file else {
-        print("Need to specify either a file containing version info or a value for \(SemVerFlags.CurrentVersion.short)/\(SemVerFlags.CurrentVersion.long).".f.Red)
+        print("Need to specify either a file containing version info or a value for \(SemVerFlags.CurrentVersion.short)/\(SemVerFlags.CurrentVersion.long).")
         exit(ErrorCode.NoVersionInformationSource.rawValue)
     }
 

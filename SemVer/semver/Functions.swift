@@ -19,16 +19,16 @@ extension String {
 }
 
 func printUsage() {
-    print("usage: semver COMPONENT FLAGS [OPTIONS]".s.Bold)
+    print("usage: semver COMPONENT FLAGS [OPTIONS]")
 
-    print("\nCOMPONENT".s.Bold)
+    print("\nCOMPONENT")
     print("\n\tThe semantic version component to revision. Either “major”, “minor” or “patch”.")
 
-    print("\nFLAGS".s.Bold)
+    print("\nFLAGS")
     print("\n\t-\(SemVerFlags.File.short), --\(SemVerFlags.File.long) <path>")
     print("\t\tPath to the file that contains the version data.")
 
-    print("\nOPTIONS".s.Bold)
+    print("\nOPTIONS")
     print("\t-\(SemVerFlags.Key.short), --\(SemVerFlags.Key.long) <key>")
     print("\t\tThe key that the version info is mapped to. Each file type has a default value that is used for each version type if this option is omitted:")
 
@@ -67,54 +67,25 @@ func printUsage() {
     print("\t-\(Flag.Version.short), --\(Flag.Version.long)")
     print("\t\tPrint version information for this application.")
 
-    print("\n\nFor questions or suggestions, email two.ring.soft+semver@gmail.com or visit https://github.com/TwoRingSoft/semver.".s.Bold)
+    print("\n\nFor questions or suggestions, email two.ring.soft+semver@gmail.com or visit https://github.com/TwoRingSoft/semver.")
 
     print()
     printVersion()
 }
 
-func getVersionSuffix(type: VersionSuffix) -> String? {
-    var value = Args.parsed.flags[type.long]
-    if value == nil {
-        value = Args.parsed.flags[type.short]
-    }
-    return value
-}
-
 func getRevType() -> VersionBumpOptions {
     var revType: VersionBumpOptions
-    if Args.parsed.parameters.contains(SemverRevision.Major.name) {
+    if Arguments.contains(SemverRevision.Major.name) {
         revType = SemverRevision.Major.rawValue
-    } else if Args.parsed.parameters.contains(SemverRevision.Minor.name) {
+    } else if Arguments.contains(SemverRevision.Minor.name) {
         revType = SemverRevision.Minor.rawValue
-    } else if Args.parsed.parameters.contains(SemverRevision.Patch.name) {
+    } else if Arguments.contains(SemverRevision.Patch.name) {
         revType = SemverRevision.Patch.rawValue
     } else {
-        print("".f.Red.s.Bold)
+        print("")
         exit(ErrorCode.MissingFlag.rawValue)
     }
     return revType
-}
-
-func getValue(flag: CommandLineOption) -> String {
-    var optional = Args.parsed.flags[flag.long]
-    if optional == nil {
-        optional = Args.parsed.flags[flag.short]
-    }
-    guard let value = optional else {
-        printUsage()
-        exit(ErrorCode.MissingFlag.rawValue)
-    }
-    return value
-}
-
-func getValueForOptionalFlag(flag: CommandLineOption) -> String? {
-    let flags = Args.parsed.flags
-    var optional = flags[flag.long]
-    if optional == nil {
-        optional = Args.parsed.flags[flag.short]
-    }
-    return optional
 }
 
 func printVersion() {
@@ -122,7 +93,7 @@ func printVersion() {
 }
 
 func getVersionType() -> VersionType {
-    if Args.parsed.flags[SemVerFlags.Numeric.long] != nil || Args.parsed.flags[SemVerFlags.Numeric.short] != nil {
+    if Arguments.contains(SemVerFlags.Numeric) {
         return .Numeric
     } else {
         return .Semantic
@@ -130,48 +101,33 @@ func getVersionType() -> VersionType {
 }
 
 func checkForHelp() {
-    let flags = Args.parsed.flags
-
     // see if user wants usage printed by providing -h/--help
-    if flags.keys.contains(Flag.Usage.short) || flags.keys.contains(Flag.Usage.long) {
+    if Arguments.contains(Flag.Usage) {
         printUsage()
         exit(ErrorCode.Normal.rawValue)
     }
 }
 
 func checkForVersion() {
-    let flags = Args.parsed.flags
-
     // see if user wants usage printed by providing -v/--version
-    if flags.keys.contains(Flag.Version.short) || flags.keys.contains(Flag.Version.long) {
+    if Arguments.contains(Flag.Version) {
         printVersion()
         exit(ErrorCode.Normal.rawValue)
     }
 }
 
 func checkForDebugMode() {
-    let flags = Args.parsed.flags
-
-    if flags.keys.contains(Flag.Debug.short) || flags.keys.contains(Flag.Debug.long) {
+    if Arguments.contains(Flag.Debug) {
         printVersion()
         print("\nArguments:")
-        print("debug mode enabled".s.Bold)
+        print("debug mode enabled")
     }
-}
-
-func versionFromCommandLine() -> String? {
-    var version = Args.parsed.flags[SemVerFlags.CurrentVersion.long]
-    if version == nil {
-        version = Args.parsed.flags[SemVerFlags.CurrentVersion.short]
-    }
-
-    return version
 }
 
 func isRead() -> Bool {
-    return Args.parsed.flags.keys.contains(SemVerFlags.ReadFromFile.long) || Args.parsed.flags.keys.contains(SemVerFlags.ReadFromFile.short)
+    return Arguments.contains(SemVerFlags.ReadFromFile)
 }
 
 func isDryRun() -> Bool {
-    return Args.parsed.flags.keys.contains(Flag.DryRun.long) || Args.parsed.flags.keys.contains(Flag.DryRun.short)
+    return Arguments.contains(Flag.DryRun)
 }
