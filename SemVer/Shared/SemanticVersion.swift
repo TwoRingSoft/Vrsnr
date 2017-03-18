@@ -101,22 +101,24 @@ extension SemanticVersion: Version {
 
         let definitionComponents = string.components(separatedBy: CharacterSet(charactersIn: "-+"))
         if definitionComponents.count < 1 || definitionComponents.count > 3 {
-            throw NSError(domain: errorDomain, code: ErrorCode.malformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may  contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: ErrorCode.malformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may contain '-' or '+' characters."])
         }
 
         let versionComponents = definitionComponents[0].components(separatedBy: ".")
-        if versionComponents.count != 3 {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.malformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
+        if versionComponents.count < 1 || versionComponents.count > 3 {
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.malformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M[.m[.p[-<prereleaseID>[+<metadata>]]]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
         }
 
         let numberFormatter = NumberFormatter()
 
-        guard
-            let major = numberFormatter.number(from: versionComponents[0])?.uintValue,
-            let minor = numberFormatter.number(from: versionComponents[1])?.uintValue,
-            let patch = numberFormatter.number(from: versionComponents[2])?.uintValue
-            else {
-                throw NSError(domain: errorDomain, code: ErrorCode.nsNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
+        let major = numberFormatter.number(from: versionComponents[0])?.uintValue ?? 0
+        var minor: UInt = 0
+        var patch: UInt = 0
+        if versionComponents.count > 1 {
+            minor = numberFormatter.number(from: versionComponents[1])?.uintValue ?? 0
+        }
+        if versionComponents.count > 2 {
+            patch = numberFormatter.number(from: versionComponents[2])?.uintValue ?? 0
         }
 
         let suffixes = getPrereleaseIdentifierAndBuildMetadata(string)

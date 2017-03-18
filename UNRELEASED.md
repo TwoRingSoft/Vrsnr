@@ -1,0 +1,1 @@
+- Learned how to parse semantic version strings with patch or minor revision omitted.
