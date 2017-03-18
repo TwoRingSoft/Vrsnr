@@ -1,6 +1,23 @@
 set -e
 
 #
+# Build vrsn
+#
+
+if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
+    echo "travis_fold:start:Build vrsn"
+    echo "Integration tests:"
+    echo
+fi
+
+xcodebuild -project Vrsnr/Vrsnr.xcodeproj -scheme vrsn clean build | xcpretty
+
+if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
+    echo "travis_fold:end:Build vrsn"
+    echo
+fi
+
+#
 # Integration tests
 #
 
@@ -10,8 +27,7 @@ if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
     echo
 fi
 
-xcodebuild -project Vrsnr/Vrsnr.xcodeproj -scheme vrsn clean build | xcpretty
-xcodebuild -project Vrsnr/Vrsnr.xcodeproj -scheme vrsnTests -quiet build
+xcodebuild -project Vrsnr/Vrsnr.xcodeproj -scheme vrsnTests build
 
 if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
     echo "travis_fold:end:Integration tests"

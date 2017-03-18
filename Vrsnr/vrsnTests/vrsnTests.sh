@@ -51,12 +51,12 @@ function runTest() {
     # compare new results to baseline results; they should be identical unless intentionally changing something
     diff "${VRSN_TEST_BASELINE_RESULTS_FILE}" "${VRSN_TEST_RESULTS_FILE}" > /dev/null
     if [[ $? == 0 ]]; then
-        printf '\e[1;32m✓'
+        printf '\e[1;32m✓' # print a green checkmark
         rm "${VRSN_TEST_RESULTS_FILE}" # don't save results output for cases that pass
     else
         diff "${VRSN_TEST_BASELINE_RESULTS_FILE}" "${VRSN_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
 		VRSN_FAILED=1
-	    printf '\e[1;31m𐄂'
+	    printf '\e[1;31m𐄂' # print a red x
     fi
 
     # reset the file back to its original state
