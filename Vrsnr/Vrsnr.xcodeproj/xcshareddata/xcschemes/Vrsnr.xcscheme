@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49A0F2721D20D7F3007C41AE"
-               BuildableName = "SemVer.app"
+               BuildableName = "Vrsnr.app"
                BlueprintName = "Vrsnr"
                ReferencedContainer = "container:Vrsnr.xcodeproj">
             </BuildableReference>
@@ -73,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49A0F2721D20D7F3007C41AE"
-            BuildableName = "SemVer.app"
+            BuildableName = "Vrsnr.app"
             BlueprintName = "Vrsnr"
             ReferencedContainer = "container:Vrsnr.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49A0F2721D20D7F3007C41AE"
-            BuildableName = "SemVer.app"
+            BuildableName = "Vrsnr.app"
             BlueprintName = "Vrsnr"
             ReferencedContainer = "container:Vrsnr.xcodeproj">
          </BuildableReference>
@@ -115,7 +115,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49A0F2721D20D7F3007C41AE"
-            BuildableName = "SemVer.app"
+            BuildableName = "Vrsnr.app"
             BlueprintName = "Vrsnr"
             ReferencedContainer = "container:Vrsnr.xcodeproj">
          </BuildableReference>

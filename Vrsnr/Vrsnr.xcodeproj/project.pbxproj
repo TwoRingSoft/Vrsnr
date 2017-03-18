@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 49F0465B1D238228005EE299 /* Build configuration list for PBXAggregateTarget "vrsnTests" */;
 			buildPhases = (
-				49F046601D238235005EE299 /* Run Integration Tests */,
+				49F046601D238235005EE299 /* Run Tests */,
 			);
 			dependencies = (
 				49F0465F1D238231005EE299 /* PBXTargetDependency */,
@@ -30,7 +30,7 @@
 		49A0F2831D20D7F4007C41AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A0F2811D20D7F4007C41AE /* Main.storyboard */; };
 		49A0F29F1D20D808007C41AE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F29E1D20D808007C41AE /* main.swift */; };
 		49A0F35A1D20DF56007C41AE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3591D20DF56007C41AE /* Functions.swift */; };
-		49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F35F1D20E48F007C41AE /* SemVerVersions.m */; };
+		49A0F3601D20E48F007C41AE /* VrsnrVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */; };
 		49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */; };
 		49DDBDA21D22403600CF32BA /* VrsnrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBDA11D22403600CF32BA /* VrsnrTests.swift */; };
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
@@ -106,11 +106,11 @@
 		49A0F29C1D20D808007C41AE /* vrsn */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vrsn; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A0F29E1D20D808007C41AE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		49A0F3591D20DF56007C41AE /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		49A0F35D1D20E48E007C41AE /* semver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "semver-Bridging-Header.h"; sourceTree = "<group>"; };
-		49A0F35E1D20E48F007C41AE /* SemVerVersions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SemVerVersions.h; sourceTree = "<group>"; };
-		49A0F35F1D20E48F007C41AE /* SemVerVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SemVerVersions.m; sourceTree = "<group>"; };
+		49A0F35D1D20E48E007C41AE /* vrsn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vrsn-Bridging-Header.h"; sourceTree = "<group>"; };
+		49A0F35E1D20E48F007C41AE /* VrsnrVersions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VrsnrVersions.h; sourceTree = "<group>"; };
+		49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VrsnrVersions.m; sourceTree = "<group>"; };
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
-		49A0F3641D20F8DD007C41AE /* Vrsnr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Vrsnr-Bridging-Header.h"; path = "SemVer-app/Vrsnr-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		49A0F3641D20F8DD007C41AE /* Vrsnr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Vrsnr-Bridging-Header.h"; path = "Vrsnr/Vrsnr-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
 		49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedDefinitions.swift; path = Shared/SharedDefinitions.swift; sourceTree = "<group>"; };
@@ -189,8 +189,7 @@
 				49A0F27D1D20D7F3007C41AE /* ViewController.m */,
 				49A0F2791D20D7F3007C41AE /* Supporting Files */,
 			);
-			name = Vrsnr;
-			path = "SemVer-app";
+			path = Vrsnr;
 			sourceTree = "<group>";
 		};
 		49A0F2791D20D7F3007C41AE /* Supporting Files */ = {
@@ -212,12 +211,11 @@
 				49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */,
 				49A0F3591D20DF56007C41AE /* Functions.swift */,
 				49A0F29E1D20D808007C41AE /* main.swift */,
-				49A0F35D1D20E48E007C41AE /* semver-Bridging-Header.h */,
-				49A0F35E1D20E48F007C41AE /* SemVerVersions.h */,
-				49A0F35F1D20E48F007C41AE /* SemVerVersions.m */,
+				49A0F35D1D20E48E007C41AE /* vrsn-Bridging-Header.h */,
+				49A0F35E1D20E48F007C41AE /* VrsnrVersions.h */,
+				49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */,
 			);
-			name = vrsn;
-			path = semver;
+			path = vrsn;
 			sourceTree = "<group>";
 		};
 		49A0F3611D20E9F2007C41AE /* Shared */ = {
@@ -252,8 +250,7 @@
 				49DDBDA31D22403600CF32BA /* Info.plist */,
 				49DDBDA11D22403600CF32BA /* VrsnrTests.swift */,
 			);
-			name = VrsnrTests;
-			path = SemVerTests;
+			path = VrsnrTests;
 			sourceTree = "<group>";
 		};
 		49EF1D271D2601CE0068AC4F /* Config */ = {
@@ -272,8 +269,7 @@
 				49DDBD211D22213400CF32BA /* Fixtures */,
 				49F046611D238253005EE299 /* vrsnTests.sh */,
 			);
-			name = vrsnTests;
-			path = SemVerIntegrations;
+			path = vrsnTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,18 +394,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49F046601D238235005EE299 /* Run Integration Tests */ = {
+		49F046601D238235005EE299 /* Run Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Integration Tests";
+			name = "Run Tests";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/bin/sh SemVerIntegrations/SemVerIntegrations.sh \"${BUILT_PRODUCTS_DIR}\"";
+			shellPath = "/bin/sh vrsnTests/vrsnTests.sh \"${BUILT_PRODUCTS_DIR}\"";
 			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -439,7 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */,
-				49A0F3601D20E48F007C41AE /* SemVerVersions.m in Sources */,
+				49A0F3601D20E48F007C41AE /* VrsnrVersions.m in Sources */,
 				49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */,
 				49EF1D371D2E0B8C0068AC4F /* ErrorCodes.swift in Sources */,
 				49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */,
@@ -503,7 +499,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49EF1D251D2601420068AC4F /* Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -511,7 +506,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49EF1D251D2601420068AC4F /* Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -528,6 +522,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Vrsnr/Vrsnr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -543,6 +538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.armcknight.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Vrsnr/Vrsnr-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -572,6 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.armcknight.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vrsnr.app/Contents/MacOS/Vrsnr";
 			};
 			name = Debug;
@@ -585,6 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.armcknight.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vrsnr.app/Contents/MacOS/Vrsnr";
 			};
 			name = Release;

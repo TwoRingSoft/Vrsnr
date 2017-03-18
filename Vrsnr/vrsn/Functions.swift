@@ -75,12 +75,12 @@ func printUsage() {
 
 func getRevType() -> VersionBumpOptions {
     var revType: VersionBumpOptions
-    if Arguments.contains(SemverRevision.major.name) {
-        revType = SemverRevision.major.rawValue
-    } else if Arguments.contains(SemverRevision.minor.name) {
-        revType = SemverRevision.minor.rawValue
-    } else if Arguments.contains(SemverRevision.patch.name) {
-        revType = SemverRevision.patch.rawValue
+    if Arguments.contains(SemanticVersionRevision.major.name) {
+        revType = SemanticVersionRevision.major.rawValue
+    } else if Arguments.contains(SemanticVersionRevision.minor.name) {
+        revType = SemanticVersionRevision.minor.rawValue
+    } else if Arguments.contains(SemanticVersionRevision.patch.name) {
+        revType = SemanticVersionRevision.patch.rawValue
     } else {
         print("")
         exit(ErrorCode.missingFlag.rawValue)
@@ -89,7 +89,7 @@ func getRevType() -> VersionBumpOptions {
 }
 
 func printVersion() {
-    print("semver \(VrsnrVersions.displayVersion()) build \(VrsnrVersions.buildVersion())")
+    print("vrsn \(VrsnrVersions.displayVersion()) build \(VrsnrVersions.buildVersion())")
 }
 
 func getVersionType() -> VersionType {

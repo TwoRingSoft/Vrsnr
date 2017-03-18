@@ -21,9 +21,9 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-public typealias SemverBumpOptions = VersionBumpOptions
+public typealias SemanticVersionBumpOptions = VersionBumpOptions
 
-public enum SemverRevision: SemverBumpOptions {
+public enum SemanticVersionRevision: SemanticVersionBumpOptions {
 
     case major
     case minor
@@ -88,9 +88,9 @@ extension SemanticVersion: Version {
     }
 
     public func nextVersion(_ options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
-        let major = self.major + (options == SemverRevision.major.rawValue ? 1 : 0)
-        let minor = self.minor + (options == SemverRevision.minor.rawValue ? 1 : 0)
-        let patch = self.patch + (options == SemverRevision.patch.rawValue ? 1 : 0)
+        let major = self.major + (options == SemanticVersionRevision.major.rawValue ? 1 : 0)
+        let minor = self.minor + (options == SemanticVersionRevision.minor.rawValue ? 1 : 0)
+        let patch = self.patch + (options == SemanticVersionRevision.patch.rawValue ? 1 : 0)
         return SemanticVersion(major: major, minor: minor, patch: patch, buildMetadata: buildMetadata, prereleaseIdentifier: prereleaseIdentifier)
     }
 

@@ -26,7 +26,7 @@ function endTestCaseOutput() {
 function runTest() {
     VRSN_TEST_NAME="${1}"
     VRSN_TEST_FILE="${2}"
-    VRSN_TEST_SEMVER_COMPONENT="${3}"
+    VRSN_TEST_SEMANTIC_VERSION_COMPONENT="${3}"
     VRSN_TEST_OPTIONS="${4}"
 
     VRSN_BACKUP_TEST_FILE="${VRSN_TEST_FILE}.orig"
@@ -43,7 +43,7 @@ function runTest() {
     cp "${VRSN_TEST_FILE}" "${VRSN_BACKUP_TEST_FILE}"
 
     # perform the command
-    VRSN_CMD="vrsn ${VRSN_TEST_SEMVER_COMPONENT} --file ${VRSN_TEST_FILE} ${VRSN_TEST_OPTIONS}"
+    VRSN_CMD="vrsn ${VRSN_TEST_SEMANTIC_VERSION_COMPONENT} --file ${VRSN_TEST_FILE} ${VRSN_TEST_OPTIONS}"
 
     echo "| ${VRSN_TEST_NAME}"
     echo "|"
@@ -105,9 +105,9 @@ function runTestFlavor() {
     runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "${VRSN_TEST_FLAVOR_OPTIONS}"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "${VRSN_TEST_FLAVOR_OPTIONS}"
 
-    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
-    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
-    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
+    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
+    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
+    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-custom-key"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "--key ${VRSN_FILE_NUMERIC_KEY} ${VRSN_TEST_FLAVOR_OPTIONS}"
 
     runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "${VRSN_TEST_FLAVOR_OPTIONS} --try"
@@ -115,9 +115,9 @@ function runTestFlavor() {
     runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "${VRSN_TEST_FLAVOR_OPTIONS} --try"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-try"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "${VRSN_TEST_FLAVOR_OPTIONS} --try"
 
-    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
-    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
-    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-custom-key-try"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "--key ${VRSN_FILE_NUMERIC_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --try"
 
     runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
@@ -125,9 +125,9 @@ function runTestFlavor() {
     runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-current-version-override"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1"
 
-    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
-    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
-    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
+    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "--key ${VRSN_FILE_NUMERIC_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1"
 
     runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
@@ -135,15 +135,15 @@ function runTestFlavor() {
     runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-current-version-override-try"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1 --try"
 
-    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
-    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
-    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMVER_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
+    runTest "${VRSN_FILE_TYPE}-vrsn-patch${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "patch"     "--key ${VRSN_FILE_SEMANTIC_VERSION_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1.2.3 --try"
     runTest "${VRSN_FILE_TYPE}-numerical${VRSN_FLAVOR_SUFFIX}-custom-key-current-version-override-try"    "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "--numeric" "--key ${VRSN_FILE_NUMERIC_KEY} ${VRSN_TEST_FLAVOR_OPTIONS} --current-version 1 --try"
 }
 
 function runTestsForFileType() {
     VRSN_FILE_TYPE="${1}"
-    VRSN_FILE_SEMVER_KEY="${2}"
+    VRSN_FILE_SEMANTIC_VERSION_KEY="${2}"
     VRSN_FILE_NUMERIC_KEY="${3}"
 
     if [[ $VRSN_TRAVIS_BUILD -eq 1 ]]; then
