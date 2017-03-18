@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface VrsnrVersions : NSObject
 
 + (NSString *)buildVersion;
 + (NSString *)displayVersion;
 
 @end
+
+NS_ASSUME_NONNULL_END
