@@ -173,6 +173,6 @@ runTestsForFileType "plist" "CFBundleShortVersionString" "CFBundleVersion"
 runTestsForFileType "xcconfig" "CURRENT_PROJECT_VERSION" "DYLIB_CURRENT_VERSION"
 runTestsForFileType "podspec" "version" "version"
 
-if [[ SMVR_FAILED -eq 1 ]]; then
+if [[ $SMVR_FAILED -eq 1 ]]; then
 	exit 1
 fi
