@@ -31,11 +31,11 @@ function runTest() {
 
     VRSN_BACKUP_TEST_FILE="${VRSN_TEST_FILE}.orig"
 
-    VRSN_TEST_RESULTS_DIR="VrsnrIntegrations/results"
+    VRSN_TEST_RESULTS_DIR="vrsnTests/results"
     mkdir -p "${VRSN_TEST_RESULTS_DIR}"
 
     VRSN_TEST_RESULTS_FILE="${VRSN_TEST_RESULTS_DIR}/${VRSN_TEST_NAME}.results"
-    VRSN_TEST_BASELINE_RESULTS_FILE="VrsnrIntegrations/baseLines/${VRSN_TEST_NAME}.results"
+    VRSN_TEST_BASELINE_RESULTS_FILE="vrsnTests/baseLines/${VRSN_TEST_NAME}.results"
 
     startTestCaseOutput
 
@@ -98,7 +98,7 @@ function runTestFlavor() {
         VRSN_FLAVOR_SUFFIX="-${VRSN_TEST_FLAVOR}"
     fi
 
-    VRSN_FIXTURE_DIR="VrsnrIntegrations/Fixtures"
+    VRSN_FIXTURE_DIR="vrsnTests/Fixtures"
 
     runTest "${VRSN_FILE_TYPE}-vrsn-major${VRSN_FLAVOR_SUFFIX}" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "major"     "${VRSN_TEST_FLAVOR_OPTIONS}"
     runTest "${VRSN_FILE_TYPE}-vrsn-minor${VRSN_FLAVOR_SUFFIX}" "${VRSN_FIXTURE_DIR}/Sample.${VRSN_FILE_TYPE}" "minor"     "${VRSN_TEST_FLAVOR_OPTIONS}"
