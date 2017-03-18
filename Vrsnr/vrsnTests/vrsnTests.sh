@@ -10,19 +10,6 @@
 
 VRSN_LOCATION="${1}" # path to the 'vrsn' executable to use
 
-function startTestCaseOutput() {
-    echo "|---------------------------------------------------------"
-    echo "|"
-}
-
-function endTestCaseOutput() {
-    echo "|"
-    echo "|---------------------------------------------------------"
-    echo
-    echo
-    echo
-}
-
 function runTest() {
     VRSN_TEST_NAME="${1}"
     VRSN_TEST_FILE="${2}"
@@ -36,21 +23,14 @@ function runTest() {
 
     VRSN_TEST_RESULTS_FILE="${VRSN_TEST_RESULTS_DIR}/${VRSN_TEST_NAME}.results"
     VRSN_TEST_BASELINE_RESULTS_FILE="vrsnTests/baseLines/${VRSN_TEST_NAME}.results"
-
-    startTestCaseOutput
-
     # make copy of original file
     cp "${VRSN_TEST_FILE}" "${VRSN_BACKUP_TEST_FILE}"
 
     # perform the command
     VRSN_CMD="vrsn ${VRSN_TEST_SEMANTIC_VERSION_COMPONENT} --file ${VRSN_TEST_FILE} ${VRSN_TEST_OPTIONS}"
 
-    echo "| ${VRSN_TEST_NAME}"
-    echo "|"
-    echo "| ${VRSN_CMD}"
-    echo "|"
     echo $VRSN_CMD > "${VRSN_TEST_RESULTS_FILE}"
-    eval "${VRSN_LOCATION}/${VRSN_CMD}" | tee -a "${VRSN_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
+    eval "${VRSN_LOCATION}/${VRSN_CMD}" >> "${VRSN_TEST_RESULTS_FILE}"
 
     echo >> "${VRSN_TEST_RESULTS_FILE}"
     echo "Before:" >> "${VRSN_TEST_RESULTS_FILE}"
@@ -71,17 +51,13 @@ function runTest() {
     # compare new results to baseline results; they should be identical unless intentionally changing something
     diff "${VRSN_TEST_BASELINE_RESULTS_FILE}" "${VRSN_TEST_RESULTS_FILE}" > /dev/null
     if [[ $? == 0 ]]; then
-	    echo "|"
-        echo "| Passed :D"
+        printf '\e[1;32m✓'
         rm "${VRSN_TEST_RESULTS_FILE}" # don't save results output for cases that pass
     else
         diff "${VRSN_TEST_BASELINE_RESULTS_FILE}" "${VRSN_TEST_RESULTS_FILE}" | awk '{print "| " $0}'
 		VRSN_FAILED=1
-	    echo "|"
-        echo "| Failed D:"
+	    printf '\e[1;31m𐄂'
     fi
-
-    endTestCaseOutput
 
     # reset the file back to its original state
     rm "${VRSN_TEST_FILE}"
