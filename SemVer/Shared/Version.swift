@@ -79,7 +79,7 @@ func getPrereleaseIdentifierAndBuildMetadata(_ string: String) -> (prereleaseIde
 
     if remainingString.contains("-") {
         let firstHyphenIdx = remainingString.range(of: "-")!
-        prereleaseID = remainingString.substring(from: firstHyphenIdx.lowerBound)
+        prereleaseID = remainingString.substring(from: remainingString.index(after: firstHyphenIdx.lowerBound))
     }
 
 
