@@ -67,7 +67,7 @@ func printUsage() {
     print("\t-\(Flag.version.short), --\(Flag.version.long)")
     print("\t\tPrint version information for this application.")
 
-    print("\n\nFor questions or suggestions, email two.ring.soft+semver@gmail.com or visit https://github.com/TwoRingSoft/semver.")
+    print("\n\nFor questions or suggestions, email two.ring.soft+vrsnr@gmail.com or visit https://github.com/TwoRingSoft/Vrsnr.")
 
     print()
     printVersion()
