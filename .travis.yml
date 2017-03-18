@@ -1,5 +1,5 @@
 language: objective-c
 osx_image: xcode8.2
 env:
-- SMVR_TRAVIS_BUILD=1
+- VRSN_TRAVIS_BUILD=1
 script: Scripts/test.sh
