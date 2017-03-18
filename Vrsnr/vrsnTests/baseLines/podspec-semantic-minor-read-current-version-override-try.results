@@ -1,4 +1,10 @@
 vrsn minor --file vrsnTests/Fixtures/Sample.podspec --read --current-version 1.2.3 --try
+More than one possible version definition: 
+
+	  s.version          = "0.0.0"
+	  s.version          = "0"
+
+Will pick first valid one found (0.0.0).
 0.0.0
 
 Before:

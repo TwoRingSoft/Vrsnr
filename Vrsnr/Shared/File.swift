@@ -125,7 +125,7 @@ public func extractVersionStringFromTextFile<T>(_ file: T, versionType: VersionT
 
         if validVersions.count > 1 {
             let first = validVersions.first!
-            print("More than one possible version definition: \(versionDefinitions), will pick first valid one found \(first).")
+            print("More than one possible version definition: \n\n\t\(validLines.joined(separator: "\n\t"))\n\nWill pick first valid one found (\(first)).")
             return first
         } else if validLines.count == 1 {
             return validVersions.first!

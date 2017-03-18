@@ -1,4 +1,10 @@
 vrsn major --file vrsnTests/Fixtures/Sample.podspec --identifier some.prerelease-identifier.123 --metadata some.meta-data.123
+More than one possible version definition: 
+
+	  s.version          = "0.0.0"
+	  s.version          = "0"
+
+Will pick first valid one found (0.0.0).
 Updated version from 0.0.0 to 1.0.0-some.prerelease-identifier.123+some.meta-data.123 in vrsnTests/Fixtures/Sample.podspec
 
 Before:
