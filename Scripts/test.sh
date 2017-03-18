@@ -6,7 +6,7 @@ set -e
 
 if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
     echo "travis_fold:start:Build vrsn"
-    echo "Integration tests:"
+    echo "Build vrsn:"
     echo
 fi
 
@@ -18,19 +18,19 @@ if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
 fi
 
 #
-# Integration tests
+# CLI tests
 #
 
 if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
-    echo "travis_fold:start:Integration tests"
-    echo "Integration tests:"
+    echo "travis_fold:start:CLI tests"
+    echo "CLI tests:"
     echo
 fi
 
 xcodebuild -project Vrsnr/Vrsnr.xcodeproj -scheme vrsnTests build
 
 if [[ ${VRSN_TRAVIS_BUILD:=0} -eq 1 ]]; then
-    echo "travis_fold:end:Integration tests"
+    echo "travis_fold:end:CLI tests"
     echo
 fi
 
