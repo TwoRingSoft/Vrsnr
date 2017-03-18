@@ -37,7 +37,7 @@ let readOnlyFromFile = isRead()
 var versionString: String?
 var dryRun = false
 if !readOnlyFromFile {
-    versionString = Flags.value(forOptionalFlag: SemVerFlags.CurrentVersion)
+    versionString = Flags.value(forOptionalFlag: SemVerFlags.currentVersion)
     dryRun = isDryRun()
 }
 
@@ -53,21 +53,21 @@ var key: String?
 let fileReadRequired = versionString == nil || readOnlyFromFile
 let fileWriteRequired = !dryRun
 if fileReadRequired || fileWriteRequired {
-    path = Flags.value(forNonoptionalFlag: SemVerFlags.File)
+    path = Flags.value(forNonoptionalFlag: SemVerFlags.file)
     file = try! createFileForPath(path!)
-    key = Flags.value(forOptionalFlag: SemVerFlags.Key)
+    key = Flags.value(forOptionalFlag: SemVerFlags.key)
 }
 
 // not required
-var identifier = Flags.value(forOptionalFlag: VersionSuffix.PrereleaseIdentifier)
-var metadata = Flags.value(forOptionalFlag: VersionSuffix.BuildMetadata)
+var identifier = Flags.value(forOptionalFlag: VersionSuffix.prereleaseIdentifier)
+var metadata = Flags.value(forOptionalFlag: VersionSuffix.buildMetadata)
 
 // if no version override was specified with --current-version, get it from the file now
 let versionType = getVersionType()
 if versionString == nil {
     guard let specifiedFile = file else {
-        print("Need to specify either a file containing version info or a value for \(SemVerFlags.CurrentVersion.short)/\(SemVerFlags.CurrentVersion.long).")
-        exit(ErrorCode.NoVersionInformationSource.rawValue)
+        print("Need to specify either a file containing version info or a value for \(SemVerFlags.currentVersion.short)/\(SemVerFlags.currentVersion.long).")
+        exit(ErrorCode.noVersionInformationSource.rawValue)
     }
 
     versionString = try! specifiedFile.versionStringForKey(key, versionType: versionType)
@@ -75,7 +75,7 @@ if versionString == nil {
 
 // FIXME: generics abuses incoming!
 
-func doWork<V where V: Version>() -> V {
+func doWork<V>() -> V where V: Version {
 
     // extract the version from the file, optionally calculating the next version according to arguments
     let original = try! V.parseFromString(versionString!)

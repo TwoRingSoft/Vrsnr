@@ -18,7 +18,7 @@ extension XcconfigFile: File {
         return path
     }
 
-    public static func defaultKeyForVersionType(type: VersionType) -> String {
+    public static func defaultKeyForVersionType(_ type: VersionType) -> String {
         switch(type) {
         case .Numeric:
             return "DYLIB_CURRENT_VERSION"
@@ -27,16 +27,16 @@ extension XcconfigFile: File {
         }
     }
 
-    public func defaultKeyForVersionType(type: VersionType) -> String {
+    public func defaultKeyForVersionType(_ type: VersionType) -> String {
         return XcconfigFile.defaultKeyForVersionType(type)
     }
 
-    public func versionStringForKey(key: String?, versionType: VersionType) throws -> String? {
+    public func versionStringForKey(_ key: String?, versionType: VersionType) throws -> String? {
         let workingKey = chooseWorkingKey(key, versionType: versionType)
         return try extractVersionStringFromTextFile(self, versionType: versionType, key: workingKey)
     }
 
-    public func replaceVersionString<V where V: Version>(original: V, new: V, key: String?) throws {
+    public func replaceVersionString<V>(_ original: V, new: V, key: String?) throws where V: Version {
         let workingKey = chooseWorkingKey(key, versionType: new.type)
         try replaceVersionStringInTextFile(self, originalVersion: original, newVersion: new, versionOverride: key == nil, key: workingKey)
     }
@@ -45,22 +45,22 @@ extension XcconfigFile: File {
 
 extension XcconfigFile: TextFile {
 
-    public static func versionStringFromLine(line: String) throws -> String {
-        let assignentExpressionComponents = line.componentsSeparatedByString("=")
+    public static func versionStringFromLine(_ line: String) throws -> String {
+        let assignentExpressionComponents = line.components(separatedBy: "=")
         if assignentExpressionComponents.count != 2 {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.CouldNotParseVersion.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Could not find an assignment using ‘=’: \(line)" ])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.couldNotParseVersion.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Could not find an assignment using ‘=’: \(line)" ])
         }
 
         return assignentExpressionComponents.last! // take right-hand side from assignment expression
-            .componentsSeparatedByString("//").first! // strip away any comments
-            .stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) // trim whitespace
+            .components(separatedBy: "//").first! // strip away any comments
+            .trimmingCharacters(in: CharacterSet.whitespaces) // trim whitespace
     }
 
 }
 
 extension XcconfigFile {
 
-    private func chooseWorkingKey(key: String?, versionType: VersionType) -> String {
+    fileprivate func chooseWorkingKey(_ key: String?, versionType: VersionType) -> String {
         if key == nil {
             return defaultKeyForVersionType(versionType)
         } else {

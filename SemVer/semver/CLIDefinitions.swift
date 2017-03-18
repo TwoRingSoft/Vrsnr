@@ -10,33 +10,33 @@ import AppKit
 import Foundation
 
 enum Flag: CommandLineOption {
-    case Usage
-    case Version
-    case Debug
-    case DryRun
+    case usage
+    case version
+    case debug
+    case dryRun
 
     var short: String {
         switch self {
-        case .Usage:
+        case .usage:
             return "h"
-        case .Version:
+        case .version:
             return "v"
-        case .Debug:
+        case .debug:
             return "d"
-        case .DryRun:
+        case .dryRun:
             return "t"
         }
     }
 
     var long: String {
         switch self {
-        case .Usage:
+        case .usage:
             return "help"
-        case .Version:
+        case .version:
             return "version"
-        case .Debug:
+        case .debug:
             return "debug"
-        case .DryRun:
+        case .dryRun:
             return "try"
         }
     }

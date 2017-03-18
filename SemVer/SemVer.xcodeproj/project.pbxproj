@@ -343,6 +343,7 @@
 					};
 					49A0F29B1D20D808007C41AE = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 					49DDBD9E1D22403600CF32BA = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -546,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49EF1D281D2601EC0068AC4F /* semver.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -553,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49EF1D281D2601EC0068AC4F /* semver.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

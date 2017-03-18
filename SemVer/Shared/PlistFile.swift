@@ -20,7 +20,7 @@ extension PlistFile: File {
         return path
     }
 
-    public static func defaultKeyForVersionType(type: VersionType) -> String {
+    public static func defaultKeyForVersionType(_ type: VersionType) -> String {
         switch(type) {
         case .Numeric:
             return "CFBundleVersion"
@@ -29,11 +29,11 @@ extension PlistFile: File {
         }
     }
 
-    public func defaultKeyForVersionType(type: VersionType) -> String {
+    public func defaultKeyForVersionType(_ type: VersionType) -> String {
         return PlistFile.defaultKeyForVersionType(type)
     }
 
-    public func versionStringForKey(key: String?, versionType: VersionType) -> String? {
+    public func versionStringForKey(_ key: String?, versionType: VersionType) -> String? {
         guard let data = NSDictionary(contentsOfFile: self.path) else {
             return nil
         }
@@ -45,9 +45,9 @@ extension PlistFile: File {
         }
     }
 
-    public func replaceVersionString<V where V: Version>(original: V, new: V, key: String?) throws {
+    public func replaceVersionString<V>(_ original: V, new: V, key: String?) throws where V: Version {
         guard let dictionary = NSDictionary(contentsOfFile: self.path) else {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.CouldNotReadFile.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Failed to read current state of file for updating." ])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.couldNotReadFile.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Failed to read current state of file for updating." ])
         }
 
         if key == nil {
@@ -56,8 +56,8 @@ extension PlistFile: File {
             dictionary.setValue(new.description, forKey: key!)
         }
 
-        if !dictionary.writeToFile(self.path, atomically: true) {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.UnwritableFile.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Failed to write updated version to file" ])
+        if !dictionary.write(toFile: self.path, atomically: true) {
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.unwritableFile.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Failed to write updated version to file" ])
         }
     }
 

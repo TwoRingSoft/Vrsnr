@@ -7,6 +7,19 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 public struct NumericVersion {
 
@@ -36,30 +49,30 @@ extension NumericVersion: Version {
         }
     }
 
-    public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> NumericVersion {
+    public func nextVersion(_ options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> NumericVersion {
         return NumericVersion(version: self.version + 1, prereleaseIdentifier: prereleaseIdentifier, buildMetadata: buildMetadata)
     }
 
-    public static func parseFromString(string: String) throws -> NumericVersion {
+    public static func parseFromString(_ string: String) throws -> NumericVersion {
         if string == "$(DYLIB_CURRENT_VERSION)" {
-            throw NSError(domain: errorDomain, code: ErrorCode.DynamicVersionFound.valueAsInt(), userInfo: [NSLocalizedDescriptionKey:"Dynamic value found: \(string). Rerun this script pointed at the file that defines DYLIB_CURRENT_VERSION."])
+            throw NSError(domain: errorDomain, code: ErrorCode.dynamicVersionFound.valueAsInt(), userInfo: [NSLocalizedDescriptionKey:"Dynamic value found: \(string). Rerun this script pointed at the file that defines DYLIB_CURRENT_VERSION."])
         } else if string == "" {
-            throw NSError(domain: errorDomain, code: ErrorCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Key was found but definition is blank."])
+            throw NSError(domain: errorDomain, code: ErrorCode.malformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Key was found but definition is blank."])
         }
 
-        let definitionComponents = string.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "-+"))
+        let definitionComponents = string.components(separatedBy: CharacterSet(charactersIn: "-+"))
         if definitionComponents.count < 1 || definitionComponents.count > 3 {
-            throw NSError(domain: errorDomain, code: ErrorCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting <build-umber>[-<prereleaseID>[+<metadata>]]. <build-number> may only contain numberals, and neither <prereleaseID> nor <metadata> may contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: ErrorCode.malformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting <build-umber>[-<prereleaseID>[+<metadata>]]. <build-number> may only contain numberals, and neither <prereleaseID> nor <metadata> may contain '-' or '+' characters."])
         }
 
-        let numberFormatter = NSNumberFormatter()
-        guard let versionNumber = numberFormatter.numberFromString(definitionComponents[0]) else {
-            throw NSError(domain: errorDomain, code: ErrorCode.NSNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
+        let numberFormatter = NumberFormatter()
+        guard let versionNumber = numberFormatter.number(from: definitionComponents[0]) else {
+            throw NSError(domain: errorDomain, code: ErrorCode.nsNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
         }
 
         let suffixes = getPrereleaseIdentifierAndBuildMetadata(string)
 
-        return NumericVersion(version: versionNumber.unsignedIntegerValue, prereleaseIdentifier: suffixes.prereleaseIdentifier, buildMetadata: suffixes.buildMetadata)
+        return NumericVersion(version: versionNumber.uintValue, prereleaseIdentifier: suffixes.prereleaseIdentifier, buildMetadata: suffixes.buildMetadata)
     }
     
 }
@@ -81,10 +94,10 @@ extension NumericVersion: CustomStringConvertible {
     public var description: String {
         var string = "\(version)"
         if let prereleaseID = prereleaseIdentifier {
-            string.appendContentsOf("-\(prereleaseID)")
+            string.append("-\(prereleaseID)")
         }
         if let metadata = buildMetadata {
-            string.appendContentsOf("+\(metadata)")
+            string.append("+\(metadata)")
         }
         return string
     }

@@ -9,21 +9,21 @@
 import Foundation
 
 enum ErrorCode: Int32 {
-    case Normal = 0
+    case normal = 0
 
-    case MissingFlag
+    case missingFlag
 
-    case CouldNotParseVersion
-    case CouldNotReadFile
-    case UnwritableFile
-    case UnsupportedFileType
-    case MalformedVersionValue
-    case NoVersionFoundInFile
-    case DynamicVersionFound
-    case NSNumberFormatterCouldNotParse
-    case NoVersionInformationSource
+    case couldNotParseVersion
+    case couldNotReadFile
+    case unwritableFile
+    case unsupportedFileType
+    case malformedVersionValue
+    case noVersionFoundInFile
+    case dynamicVersionFound
+    case nsNumberFormatterCouldNotParse
+    case noVersionInformationSource
 
-    case UnknownError
+    case unknownError
 
     func valueAsInt() -> Int {
         return Int(self.rawValue)

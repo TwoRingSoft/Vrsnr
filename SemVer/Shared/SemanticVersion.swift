@@ -7,22 +7,35 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 public typealias SemverBumpOptions = VersionBumpOptions
 
 public enum SemverRevision: SemverBumpOptions {
 
-    case Major
-    case Minor
-    case Patch
+    case major
+    case minor
+    case patch
 
     public var name: String {
         switch self {
-        case .Major:
+        case .major:
             return "major"
-        case .Minor:
+        case .minor:
             return "minor"
-        case .Patch:
+        case .patch:
             return "patch"
         }
     }
@@ -74,36 +87,36 @@ extension SemanticVersion: Version {
         }
     }
 
-    public func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
-        let major = self.major + (options == SemverRevision.Major.rawValue ? 1 : 0)
-        let minor = self.minor + (options == SemverRevision.Minor.rawValue ? 1 : 0)
-        let patch = self.patch + (options == SemverRevision.Patch.rawValue ? 1 : 0)
+    public func nextVersion(_ options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
+        let major = self.major + (options == SemverRevision.major.rawValue ? 1 : 0)
+        let minor = self.minor + (options == SemverRevision.minor.rawValue ? 1 : 0)
+        let patch = self.patch + (options == SemverRevision.patch.rawValue ? 1 : 0)
         return SemanticVersion(major: major, minor: minor, patch: patch, buildMetadata: buildMetadata, prereleaseIdentifier: prereleaseIdentifier)
     }
 
-    public static func parseFromString(string: String) throws -> SemanticVersion {
+    public static func parseFromString(_ string: String) throws -> SemanticVersion {
         if string == "$(CURRENT_PROJECT_VERSION)" {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.DynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found: \(string). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.dynamicVersionFound.rawValue), userInfo: [NSLocalizedDescriptionKey: "Dynamic value found: \(string). Rerun this script pointed at the file that defines CURRENT_PROJECT_VERSION, with the appropriate --key."])
         }
 
-        let definitionComponents = string.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "-+"))
+        let definitionComponents = string.components(separatedBy: CharacterSet(charactersIn: "-+"))
         if definitionComponents.count < 1 || definitionComponents.count > 3 {
-            throw NSError(domain: errorDomain, code: ErrorCode.MalformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may  contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: ErrorCode.malformedVersionValue.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. M, m and p may only contain numerals, and neither <prereleaseID> nor <metadata> may  contain '-' or '+' characters."])
         }
 
-        let versionComponents = definitionComponents[0].componentsSeparatedByString(".")
+        let versionComponents = definitionComponents[0].components(separatedBy: ".")
         if versionComponents.count != 3 {
-            throw NSError(domain: errorDomain, code: Int(ErrorCode.MalformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
+            throw NSError(domain: errorDomain, code: Int(ErrorCode.malformedVersionValue.rawValue), userInfo: [NSLocalizedDescriptionKey: "Malformed definition (“\(string)”). Expecting M.m.p[-<prereleaseID>[+<metadata>]]. <prereleaseID> and <metadata> may not contain '-' or '+' characters."])
         }
 
-        let numberFormatter = NSNumberFormatter()
+        let numberFormatter = NumberFormatter()
 
         guard
-            let major = numberFormatter.numberFromString(versionComponents[0])?.unsignedIntegerValue,
-            let minor = numberFormatter.numberFromString(versionComponents[1])?.unsignedIntegerValue,
-            let patch = numberFormatter.numberFromString(versionComponents[2])?.unsignedIntegerValue
+            let major = numberFormatter.number(from: versionComponents[0])?.uintValue,
+            let minor = numberFormatter.number(from: versionComponents[1])?.uintValue,
+            let patch = numberFormatter.number(from: versionComponents[2])?.uintValue
             else {
-                throw NSError(domain: errorDomain, code: ErrorCode.NSNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
+                throw NSError(domain: errorDomain, code: ErrorCode.nsNumberFormatterCouldNotParse.valueAsInt(), userInfo: [NSLocalizedDescriptionKey: "Could not parse number from string."])
         }
 
         let suffixes = getPrereleaseIdentifierAndBuildMetadata(string)
@@ -118,10 +131,10 @@ extension SemanticVersion: CustomStringConvertible {
     public var description: String {
         var string = "\(major).\(minor).\(patch)"
         if let prereleaseID = self.prereleaseIdentifier {
-            string.appendContentsOf("-\(prereleaseID)")
+            string.append("-\(prereleaseID)")
         }
         if let metadata = self.buildMetadata {
-            string.appendContentsOf("+\(metadata)")
+            string.append("+\(metadata)")
         }
         return string
     }

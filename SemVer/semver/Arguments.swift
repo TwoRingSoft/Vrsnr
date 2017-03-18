@@ -10,12 +10,12 @@ import Foundation
 
 struct Arguments {
 
-    static func contains(flag: CommandLineOption) -> Bool {
+    static func contains(_ flag: CommandLineOption) -> Bool {
         return self.contains("-\(flag.short)") || self.contains("--\(flag.long)")
     }
 
-    static func contains(string: String) -> Bool {
-        return NSProcessInfo.processInfo().arguments.contains(string)
+    static func contains(_ string: String) -> Bool {
+        return ProcessInfo.processInfo.arguments.contains(string)
     }
 
 }
@@ -23,9 +23,9 @@ struct Arguments {
 struct Flags {
 
     static func value(forOptionalFlag flag: CommandLineOption) -> String? {
-        var value = NSUserDefaults.standardUserDefaults().stringForKey("-\(flag.long)")
+        var value = UserDefaults.standard.string(forKey: "-\(flag.long)")
         if value == nil {
-            value = NSUserDefaults.standardUserDefaults().stringForKey(flag.short)
+            value = UserDefaults.standard.string(forKey: flag.short)
         }
         return value
     }
@@ -34,7 +34,7 @@ struct Flags {
         let optional = self.value(forOptionalFlag: flag)
         guard let value = optional else {
             printUsage()
-            exit(ErrorCode.MissingFlag.rawValue)
+            exit(ErrorCode.missingFlag.rawValue)
         }
         return value
     }

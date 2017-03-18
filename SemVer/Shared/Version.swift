@@ -22,7 +22,7 @@ public enum VersionType: String {
         ]
     }
 
-    public func parseFromString<V where V: Version>(string: String) throws -> V {
+    public func parseFromString<V>(_ string: String) throws -> V where V: Version {
         return try V.parseFromString(string)
     }
     
@@ -30,23 +30,23 @@ public enum VersionType: String {
 
 public enum VersionSuffix: UInt8, CommandLineOption {
 
-    case BuildMetadata
-    case PrereleaseIdentifier
+    case buildMetadata
+    case prereleaseIdentifier
 
     public var long: String {
         switch self {
-        case .BuildMetadata:
+        case .buildMetadata:
             return "metadata"
-        case .PrereleaseIdentifier:
+        case .prereleaseIdentifier:
             return "identifier"
         }
     }
 
     public var short: String {
         switch self {
-        case .BuildMetadata:
+        case .buildMetadata:
             return "m"
-        case .PrereleaseIdentifier:
+        case .prereleaseIdentifier:
             return "i"
         }
     }
@@ -59,27 +59,27 @@ public protocol Version: CustomStringConvertible, Comparable {
     var type: VersionType { get }
 
     /// Return a new version representing the next version after this one, according to any options passed in
-    func nextVersion(options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> Self
+    func nextVersion(_ options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> Self
 
     /// Try to parse a version from a String, or throw an error describing why it can't be done.
-    static func parseFromString(string: String) throws -> Self
+    static func parseFromString(_ string: String) throws -> Self
 
 }
 
-func getPrereleaseIdentifierAndBuildMetadata(string: String) -> (prereleaseIdentifier: String?, buildMetadata: String?) {
+func getPrereleaseIdentifierAndBuildMetadata(_ string: String) -> (prereleaseIdentifier: String?, buildMetadata: String?) {
     var metadata: String?
     var prereleaseID: String?
 
     var remainingString = string
-    if string.containsString("+") {
-        let components = string.componentsSeparatedByString("+")
+    if string.contains("+") {
+        let components = string.components(separatedBy: "+")
         metadata = components.last
         remainingString = components.first!
     }
 
-    if remainingString.containsString("-") {
-        let firstHyphenIdx = remainingString.rangeOfString("-")!
-        prereleaseID = remainingString.substringFromIndex(firstHyphenIdx.startIndex.advancedBy(1))
+    if remainingString.contains("-") {
+        let firstHyphenIdx = remainingString.range(of: "-")!
+        prereleaseID = remainingString.substring(from: firstHyphenIdx.lowerBound)
     }
 
 

@@ -16,23 +16,23 @@ public protocol CommandLineOption {
 }
 
 public enum SemVerFlags: UInt8, CommandLineOption {
-    case Key
-    case File
-    case Numeric
-    case CurrentVersion
-    case ReadFromFile
+    case key
+    case file
+    case numeric
+    case currentVersion
+    case readFromFile
 
     public var long: String {
         switch self {
-        case .Key:
+        case .key:
             return "key"
-        case .File:
+        case .file:
             return "file"
-        case .Numeric:
+        case .numeric:
             return "numeric"
-        case .CurrentVersion:
+        case .currentVersion:
             return "current-version"
-        case .ReadFromFile:
+        case .readFromFile:
             return "read"
         }
 
@@ -40,15 +40,15 @@ public enum SemVerFlags: UInt8, CommandLineOption {
 
     public var short: String {
         switch self {
-        case .Key:
+        case .key:
             return "k"
-        case .File:
+        case .file:
             return "f"
-        case .Numeric:
+        case .numeric:
             return "n"
-        case .CurrentVersion:
+        case .currentVersion:
             return "c"
-        case .ReadFromFile:
+        case .readFromFile:
             return "r"
         }
     }
