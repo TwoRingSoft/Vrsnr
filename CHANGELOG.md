@@ -1,7 +1,12 @@
+# 2.0.0 2017/3/18
+
+- Rebranded to Vrsnr (with the `vrsn` CLI).
+- Learned how to parse semantic version strings with patch or minor revision omitted.
+
 # 1.2.2 2017/1/9
 
-- Remove any single quotes from podspec files around version strings, as well as double quotes
-- Xcode 8.2 support, building legacy Swift
+- Remove any single quotes from podspec files around version strings, as well as double quotes.
+- Xcode 8.2 support, building legacy Swift.
 
 # 1.2.0 2016/7/16
 
