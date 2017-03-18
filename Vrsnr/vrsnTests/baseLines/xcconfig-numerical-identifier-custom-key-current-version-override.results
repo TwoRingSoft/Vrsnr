@@ -1,11 +1,11 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --identifier some.prerelease-identifier.123 --current-version 1
-Updated DYLIB_CURRENT_VERSION from 1 to 2-some.prerelease-identifier.123 in SemVerIntegrations/Fixtures/Sample.xcconfig
+vrsn --numeric --file vrsnTests/Fixtures/Sample.xcconfig --key DYLIB_CURRENT_VERSION --identifier some.prerelease-identifier.123 --current-version 1
+Updated DYLIB_CURRENT_VERSION from 1 to 2-some.prerelease-identifier.123 in vrsnTests/Fixtures/Sample.xcconfig
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

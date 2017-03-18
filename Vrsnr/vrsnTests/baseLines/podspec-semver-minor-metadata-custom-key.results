@@ -1,5 +1,5 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.podspec --key version --metadata some.meta-data.123
-Updated version from 0.0.0 to 0.1.0+some.meta-data.123 in SemVerIntegrations/Fixtures/Sample.podspec
+vrsn minor --file vrsnTests/Fixtures/Sample.podspec --key version --metadata some.meta-data.123
+Updated version from 0.0.0 to 0.1.0+some.meta-data.123 in vrsnTests/Fixtures/Sample.podspec
 
 Before:
 

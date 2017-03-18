@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.podspec --key version --read
+vrsn --numeric --file vrsnTests/Fixtures/Sample.podspec --key version --read
 0
 
 Before:

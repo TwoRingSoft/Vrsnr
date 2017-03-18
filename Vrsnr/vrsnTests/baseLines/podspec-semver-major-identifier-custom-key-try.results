@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --try
+vrsn major --file vrsnTests/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --try
 1.0.0-some.prerelease-identifier.123
 
 Before:

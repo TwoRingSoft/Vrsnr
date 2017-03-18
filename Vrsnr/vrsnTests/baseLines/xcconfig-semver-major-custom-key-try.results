@@ -1,11 +1,11 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --try
+vrsn major --file vrsnTests/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --try
 1.0.0
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

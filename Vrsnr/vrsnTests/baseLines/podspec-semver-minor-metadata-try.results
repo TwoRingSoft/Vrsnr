@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.podspec --metadata some.meta-data.123 --try
+vrsn minor --file vrsnTests/Fixtures/Sample.podspec --metadata some.meta-data.123 --try
 0.1.0+some.meta-data.123
 
 Before:

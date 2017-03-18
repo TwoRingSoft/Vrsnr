@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --read --current-version 1.2.3
+vrsn minor --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --read --current-version 1.2.3
 0.0.0
 
 Before:

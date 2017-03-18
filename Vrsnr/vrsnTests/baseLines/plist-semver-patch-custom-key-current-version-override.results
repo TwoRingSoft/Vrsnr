@@ -1,5 +1,5 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --current-version 1.2.3
-Updated CFBundleShortVersionString from 1.2.3 to 1.2.4 in SemVerIntegrations/Fixtures/Sample.plist
+vrsn patch --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --current-version 1.2.3
+Updated CFBundleShortVersionString from 1.2.3 to 1.2.4 in vrsnTests/Fixtures/Sample.plist
 
 Before:
 

@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.plist --identifier some.prerelease-identifier.123 --current-version 1.2.3 --try
+vrsn major --file vrsnTests/Fixtures/Sample.plist --identifier some.prerelease-identifier.123 --current-version 1.2.3 --try
 2.2.3-some.prerelease-identifier.123
 
 Before:

@@ -1,5 +1,5 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.podspec --current-version 1
-Updated version from 1 to 2 in SemVerIntegrations/Fixtures/Sample.podspec
+vrsn --numeric --file vrsnTests/Fixtures/Sample.podspec --current-version 1
+Updated version from 1 to 2 in vrsnTests/Fixtures/Sample.podspec
 
 Before:
 

@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.podspec --key version --try
+vrsn minor --file vrsnTests/Fixtures/Sample.podspec --key version --try
 0.1.0
 
 Before:

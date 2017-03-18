@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.plist --current-version 1.2.3 --try
+vrsn major --file vrsnTests/Fixtures/Sample.plist --current-version 1.2.3 --try
 2.2.3
 
 Before:

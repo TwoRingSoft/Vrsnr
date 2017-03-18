@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --try
+vrsn --numeric --file vrsnTests/Fixtures/Sample.plist --try
 1
 
 Before:

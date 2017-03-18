@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --try
+vrsn minor --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --try
 0.1.0-some.prerelease-identifier.123+some.meta-data.123
 
 Before:

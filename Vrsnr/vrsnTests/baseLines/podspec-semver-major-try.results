@@ -1,4 +1,4 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.podspec --try
+vrsn major --file vrsnTests/Fixtures/Sample.podspec --try
 1.0.0
 
 Before:

@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.podspec --read --current-version 1 --try
+vrsn --numeric --file vrsnTests/Fixtures/Sample.podspec --read --current-version 1 --try
 0
 
 Before:

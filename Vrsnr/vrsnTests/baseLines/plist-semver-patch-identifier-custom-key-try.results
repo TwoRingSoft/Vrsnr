@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --try
+vrsn patch --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --try
 0.0.1-some.prerelease-identifier.123
 
 Before:

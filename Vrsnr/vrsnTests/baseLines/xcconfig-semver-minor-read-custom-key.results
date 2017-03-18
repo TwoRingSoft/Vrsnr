@@ -1,11 +1,11 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --read
+vrsn minor --file vrsnTests/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --read
 0.0.0-some.prerelease.identifier+some.metadata
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

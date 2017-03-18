@@ -1,5 +1,5 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --current-version 1
-Updated CFBundleVersion from 1 to 2 in SemVerIntegrations/Fixtures/Sample.plist
+vrsn --numeric --file vrsnTests/Fixtures/Sample.plist --current-version 1
+Updated CFBundleVersion from 1 to 2 in vrsnTests/Fixtures/Sample.plist
 
 Before:
 

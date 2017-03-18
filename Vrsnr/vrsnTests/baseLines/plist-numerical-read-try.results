@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.plist --read --try
+vrsn --numeric --file vrsnTests/Fixtures/Sample.plist --read --try
 0
 
 Before:

@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.plist --key CFBundleShortVersionString --read
+vrsn patch --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --read
 0.0.0
 
 Before:

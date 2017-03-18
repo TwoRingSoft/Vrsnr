@@ -1,4 +1,4 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --try
+vrsn --numeric --file vrsnTests/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --try
 1-some.prerelease-identifier.123
 
 Before:

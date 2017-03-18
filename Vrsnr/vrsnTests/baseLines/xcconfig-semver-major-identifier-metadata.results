@@ -1,11 +1,11 @@
-semver major --file SemVerIntegrations/Fixtures/Sample.xcconfig --identifier some.prerelease-identifier.123 --metadata some.meta-data.123
-Updated CURRENT_PROJECT_VERSION from 0.0.0-some.prerelease.identifier+some.metadata to 1.0.0-some.prerelease-identifier.123+some.meta-data.123 in SemVerIntegrations/Fixtures/Sample.xcconfig
+vrsn major --file vrsnTests/Fixtures/Sample.xcconfig --identifier some.prerelease-identifier.123 --metadata some.meta-data.123
+Updated CURRENT_PROJECT_VERSION from 0.0.0-some.prerelease.identifier+some.metadata to 1.0.0-some.prerelease-identifier.123+some.meta-data.123 in vrsnTests/Fixtures/Sample.xcconfig
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

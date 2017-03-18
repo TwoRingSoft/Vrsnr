@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.podspec --key version --read --current-version 1.2.3
+vrsn patch --file vrsnTests/Fixtures/Sample.podspec --key version --read --current-version 1.2.3
 0.0.0
 
 Before:

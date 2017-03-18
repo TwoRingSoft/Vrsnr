@@ -1,11 +1,11 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --identifier some.prerelease-identifier.123 --current-version 1.2.3
-Updated CURRENT_PROJECT_VERSION from 1.2.3 to 1.2.4-some.prerelease-identifier.123 in SemVerIntegrations/Fixtures/Sample.xcconfig
+vrsn patch --file vrsnTests/Fixtures/Sample.xcconfig --key CURRENT_PROJECT_VERSION --identifier some.prerelease-identifier.123 --current-version 1.2.3
+Updated CURRENT_PROJECT_VERSION from 1.2.3 to 1.2.4-some.prerelease-identifier.123 in vrsnTests/Fixtures/Sample.xcconfig
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

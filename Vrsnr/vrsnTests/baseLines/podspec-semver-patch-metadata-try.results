@@ -1,4 +1,4 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.podspec --metadata some.meta-data.123 --try
+vrsn patch --file vrsnTests/Fixtures/Sample.podspec --metadata some.meta-data.123 --try
 0.0.1+some.meta-data.123
 
 Before:

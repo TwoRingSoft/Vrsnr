@@ -1,11 +1,11 @@
-semver patch --file SemVerIntegrations/Fixtures/Sample.xcconfig --try
+vrsn patch --file vrsnTests/Fixtures/Sample.xcconfig --try
 0.0.1
 
 Before:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.
@@ -19,7 +19,7 @@ After:
 
 //
 //  Sample.xcconfig
-//  SemVer
+//  Vrsnr
 //
 //  Created by Andrew McKnight on 6/27/16.
 //  Copyright © 2016 Two Ring Software. All rights reserved.

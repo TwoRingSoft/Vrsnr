@@ -1,4 +1,4 @@
-semver minor --file SemVerIntegrations/Fixtures/Sample.podspec --read
+vrsn minor --file vrsnTests/Fixtures/Sample.podspec --read
 0.0.0
 
 Before:

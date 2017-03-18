@@ -1,5 +1,5 @@
-semver --numeric --file SemVerIntegrations/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --current-version 1
-Updated version from 1 to 2-some.prerelease-identifier.123 in SemVerIntegrations/Fixtures/Sample.podspec
+vrsn --numeric --file vrsnTests/Fixtures/Sample.podspec --key version --identifier some.prerelease-identifier.123 --current-version 1
+Updated version from 1 to 2-some.prerelease-identifier.123 in vrsnTests/Fixtures/Sample.podspec
 
 Before:
 
