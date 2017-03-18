@@ -58,6 +58,8 @@ brew upgrade [tworingsoft/formulae/]vrsn
 
 The command line application is built with the `vrsn` target and Mac app with `Vrsnr`. App tests are run via `VrsnrTests` and CLI tests via `vrsnTests`. Travis runs both test schemes using Scripts/test.sh.
 
+If you make a change that breaks `vrsnTests` because the baseline output needs to be updated, run `rake update_baselines`. Don't check in `vrsnTests/rsults`.
+
 ## Supported file formats
 
 `vrsn` currently knows how to parse the value of a given key from the following file types:
