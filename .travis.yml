@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode8.2
 env:
 - VRSN_TRAVIS_BUILD=1
-script: Scripts/test.sh
+script: rake test
