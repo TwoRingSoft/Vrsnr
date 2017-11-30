@@ -1,3 +1,7 @@
+# 2.0.1 2017/11/29
+
+- Fix bug that did not reset lower-precedence semantic version components when bumping ones with higher precedence.
+
 # 2.0.0 2017/3/18
 
 - Rebranded to Vrsnr (with the `vrsn` CLI).
