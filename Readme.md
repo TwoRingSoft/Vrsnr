@@ -8,10 +8,7 @@ Semantic versioning is here to help. It helps producers and consumers of softwar
 
 **Vrsnr** is a set of tools to help keep your library/app/whatever's version up to date. One `vrsn` command can increment the version by modifying the file containing its definition. 
 
-It can do other neat things too, like:
-
-- understand plain integer version numbers, like for builds
-- translate all cat languages in the basic multifeline plane
+It can do other neat things too, like understand plain integer version numbers, like for builds. An it's extensible!
 
 ---
 
