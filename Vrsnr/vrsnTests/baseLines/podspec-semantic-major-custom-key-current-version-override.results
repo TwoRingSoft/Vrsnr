@@ -1,5 +1,5 @@
 vrsn major --file vrsnTests/Fixtures/Sample.podspec --key version --current-version 1.2.3
-Updated version from 1.2.3 to 2.2.3 in vrsnTests/Fixtures/Sample.podspec
+Updated version from 1.2.3 to 2.0.0 in vrsnTests/Fixtures/Sample.podspec
 
 Before:
 

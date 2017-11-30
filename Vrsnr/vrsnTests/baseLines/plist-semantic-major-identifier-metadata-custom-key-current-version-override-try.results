@@ -1,5 +1,5 @@
 vrsn major --file vrsnTests/Fixtures/Sample.plist --key CFBundleShortVersionString --identifier some.prerelease-identifier.123 --metadata some.meta-data.123 --current-version 1.2.3 --try
-2.2.3-some.prerelease-identifier.123+some.meta-data.123
+2.0.0-some.prerelease-identifier.123+some.meta-data.123
 
 Before:
 

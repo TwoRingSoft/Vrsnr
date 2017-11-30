@@ -88,9 +88,12 @@ extension SemanticVersion: Version {
     }
 
     public func nextVersion(_ options: VersionBumpOptions, prereleaseIdentifier: String?, buildMetadata: String?) -> SemanticVersion {
-        let major = self.major + (options == SemanticVersionRevision.major.rawValue ? 1 : 0)
-        let minor = self.minor + (options == SemanticVersionRevision.minor.rawValue ? 1 : 0)
-        let patch = self.patch + (options == SemanticVersionRevision.patch.rawValue ? 1 : 0)
+        let bumpMajor = options == SemanticVersionRevision.major.rawValue
+        let bumpMinor = options == SemanticVersionRevision.minor.rawValue
+        let bumpPatch = options == SemanticVersionRevision.patch.rawValue
+        let major = self.major + (bumpMajor ? 1 : 0)
+        let minor = bumpMajor ? 0 : self.minor + (bumpMinor ? 1 : 0)
+        let patch = bumpMajor || bumpMinor ? 0 : self.patch + (bumpPatch ? 1 : 0)
         return SemanticVersion(major: major, minor: minor, patch: patch, buildMetadata: buildMetadata, prereleaseIdentifier: prereleaseIdentifier)
     }
 
