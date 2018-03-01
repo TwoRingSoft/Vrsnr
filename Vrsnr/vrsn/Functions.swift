@@ -10,8 +10,8 @@ import Foundation
 
 extension String {
     func padLeftToWidth(_ width: Int) -> String {
-        if self.characters.count < width {
-            return String(repeating: " ", count: width - self.characters.count) + self
+        if self.count < width {
+            return String(repeating: " ", count: width - self.count) + self
         } else {
             return self
         }
