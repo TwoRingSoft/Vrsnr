@@ -111,6 +111,8 @@
 		49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VrsnrVersions.m; sourceTree = "<group>"; };
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
 		49A0F3641D20F8DD007C41AE /* Vrsnr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Vrsnr-Bridging-Header.h"; path = "Vrsnr/Vrsnr-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		49DA3414208A941A002DC24C /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
+		49DA3415208A9480002DC24C /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
 		49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedDefinitions.swift; path = Shared/SharedDefinitions.swift; sourceTree = "<group>"; };
@@ -126,7 +128,6 @@
 		49EF1D411D3192900068AC4F /* PlistFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistFile.swift; path = Shared/PlistFile.swift; sourceTree = "<group>"; };
 		49EF1D431D3192980068AC4F /* XcconfigFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcconfigFile.swift; path = Shared/XcconfigFile.swift; sourceTree = "<group>"; };
 		49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PodspecFile.swift; path = Shared/PodspecFile.swift; sourceTree = "<group>"; };
-		49EF1D4E1D3327830068AC4F /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Shared/File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticVersion.swift; path = Shared/SemanticVersion.swift; sourceTree = "<group>"; };
 		49F046611D238253005EE299 /* vrsnTests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = vrsnTests.sh; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 		49A0F26A1D20D7F3007C41AE = {
 			isa = PBXGroup;
 			children = (
+				49DA3413208A941A002DC24C /* Scripts */,
 				49EF1D271D2601CE0068AC4F /* Config */,
 				49A0F2741D20D7F3007C41AE /* Products */,
 				49A0F3611D20E9F2007C41AE /* Shared */,
@@ -234,11 +236,20 @@
 			name = Shared;
 			sourceTree = "<group>";
 		};
+		49DA3413208A941A002DC24C /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				49DA3414208A941A002DC24C /* test.sh */,
+			);
+			name = Scripts;
+			path = ../Scripts;
+			sourceTree = "<group>";
+		};
 		49DDBD211D22213400CF32BA /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
 				49DDBD321D22213400CF32BA /* Sample.plist */,
-				49EF1D4E1D3327830068AC4F /* Sample.podspec */,
+				49DA3415208A9480002DC24C /* Sample.podspec */,
 				49DDBD331D22213400CF32BA /* Sample.xcconfig */,
 			);
 			path = Fixtures;

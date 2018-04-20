@@ -94,13 +94,19 @@ public func createFileForPath(_ path: String) throws -> File {
     }
 }
 
+extension String {
+    func contains(key: String) -> Bool {
+        // tokenize the line into words, and compare those words == key
+        let splitCharacters = CharacterSet(charactersIn: ". ") // podspecs use ruby, so also separate by dot operator
+        return components(separatedBy: splitCharacters).filter({$0 == key}).count > 0
+    }
+}
+
 public func extractVersionStringFromTextFile<T>(_ file: T, versionType: VersionType, key: String) throws -> String where T: File, T: TextFile {
     let data = try NSString(contentsOfFile: file.getPath(), encoding: String.Encoding.utf8.rawValue)
 
-    // get each line that contains the key\
-    let versionDefinitions = data.components(separatedBy: "\n").filter() { line in
-        line.contains("\(key)")
-    }
+    // get each line that contains the key
+    let versionDefinitions = data.components(separatedBy: "\n").filter() { $0.contains(key: key) }
 
     // if more than one line has the key on it, for now we just automatically pick the first line with a valid version definition
     var validVersions = [String]()
@@ -143,7 +149,7 @@ public func replaceVersionStringInTextFile<T, V>(_ file: T, originalVersion: V, 
     let contents = try NSString(contentsOfFile: file.getPath(), encoding: String.Encoding.utf8.rawValue)
 
     let newContents = ((contents.components(separatedBy: "\n").map() { line in
-        if line.contains(key) {
+        if line.contains(key: key) {
             do {
                 let versionString = try T.versionStringFromLine(line)
                 let version = try V.parseFromString(versionString)
