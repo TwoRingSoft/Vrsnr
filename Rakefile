@@ -1,13 +1,3 @@
-desc 'Run tests'
-task :test do
-	sh 'Scripts/test.sh'
-end
-
-desc 'Move new test outputs to the baseline directory to overwrite new correct results.'
-task :update_baselines do
-    sh 'find Vrsnr/vrsnTests/results/ -name "*.results" | xargs -I @ mv @ Vrsnr/vrsnTests/baseLines/'
-end
-
 desc 'Bump either major, minor, patch or build, e.g. rake bump[major].'
 task :bump,[:component] do |t, args|
     component = args[:component]

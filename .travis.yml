@@ -1,5 +1,3 @@
 language: objective-c
 osx_image: xcode10
-env:
-- VRSN_TRAVIS_BUILD=1
-script: rake test
+script: make test
