@@ -14,17 +14,12 @@ public enum FileType: String {
     case Plist = "com.apple.property-list"
     case XCConfig = "com.apple.xcode.configsettings"
     case Podspec = "podspec"
+    case Gemspec = "gemspec"
 
-    public static func allFileTypes() -> [FileType] {
-        return [
-            FileType.Plist,
-            FileType.XCConfig,
-            FileType.Podspec
-        ]
-    }
+    public static func allFileTypes() -> [FileType] { return [.Plist, .XCConfig, .Podspec, .Gemspec] }
 
     public static func typeOfFileAtPath(_ path: String) throws -> FileType {
-        let workspace = NSWorkspace.shared()
+        let workspace = NSWorkspace.shared
         let type = try workspace.type(ofFile: path)
 
         if UTTypeConformsTo(type as CFString, FileType.Plist.rawValue as CFString) {
@@ -36,6 +31,8 @@ public enum FileType: String {
             // there is no UTI for podspec files, so just look at the extension
             if let extensionString = path.components(separatedBy: ".").last, extensionString == FileType.Podspec.extensionString() {
                 return .Podspec
+            } else if let extensionString = path.components(separatedBy: ".").last, extensionString == FileType.Gemspec.extensionString() {
+                return .Gemspec
             }
 
             throw NSError(domain: errorDomain, code: Int(ErrorCode.unsupportedFileType.rawValue), userInfo: [ NSLocalizedDescriptionKey: "Unsupported file type." ])
@@ -44,23 +41,19 @@ public enum FileType: String {
 
     public func extensionString() -> String {
         switch(self) {
-        case .Plist:
-            return "plist"
-        case .XCConfig:
-            return "xcconfig"
-        case .Podspec:
-            return "podspec"
+        case .Plist: return "plist"
+        case .XCConfig: return "xcconfig"
+        case .Podspec: return "podspec"
+        case .Gemspec: return "gemspec"
         }
     }
 
     public func defaultKey(_ versionType: VersionType) -> String {
         switch self {
-        case .Plist:
-            return PlistFile.defaultKeyForVersionType(versionType)
-        case .XCConfig:
-            return XcconfigFile.defaultKeyForVersionType(versionType)
-        case .Podspec:
-            return PodspecFile.defaultKeyForVersionType(versionType)
+        case .Plist: return PlistFile.defaultKeyForVersionType(versionType)
+        case .XCConfig: return XcconfigFile.defaultKeyForVersionType(versionType)
+        case .Podspec: return PodspecFile.defaultKeyForVersionType(versionType)
+        case .Gemspec: return GemspecFile.defaultKeyForVersionType(versionType)
         }
     }
 
@@ -85,12 +78,10 @@ public protocol TextFile {
 public func createFileForPath(_ path: String) throws -> File {
     let type: FileType = try FileType.typeOfFileAtPath(path)
     switch(type) {
-    case .Plist:
-        return PlistFile(path: path)
-    case .XCConfig:
-        return XcconfigFile(path: path)
-    case .Podspec:
-        return PodspecFile(path: path)
+    case .Plist: return PlistFile(path: path)
+    case .XCConfig: return XcconfigFile(path: path)
+    case .Podspec: return PodspecFile(path: path)
+    case .Gemspec: return GemspecFile(path: path)
     }
 }
 

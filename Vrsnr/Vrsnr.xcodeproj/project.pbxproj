@@ -33,6 +33,7 @@
 		49A0F3601D20E48F007C41AE /* VrsnrVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */; };
 		49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */; };
 		49DDBDA21D22403600CF32BA /* VrsnrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBDA11D22403600CF32BA /* VrsnrTests.swift */; };
+		49D0A9E121804FEC00DBB0F6 /* GemspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */; };
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
 		49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D291D2C8B5A0068AC4F /* Version.swift */; };
@@ -111,6 +112,8 @@
 		49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VrsnrVersions.m; sourceTree = "<group>"; };
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
 		49A0F3641D20F8DD007C41AE /* Vrsnr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Vrsnr-Bridging-Header.h"; path = "Vrsnr/Vrsnr-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemspecFile.swift; sourceTree = "<group>"; };
+		49D0A9E3218051CE00DBB0F6 /* Sample.gemspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.gemspec; sourceTree = "<group>"; };
 		49DA3414208A941A002DC24C /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
 		49DA3415208A9480002DC24C /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 				49EF1D341D2E0B740068AC4F /* ErrorCodes.swift */,
 				49F0462F1D235DE3005EE299 /* File.swift */,
 				49EF1D221D24AF750068AC4F /* NumericVersion.swift */,
+				49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */,
 				49EF1D411D3192900068AC4F /* PlistFile.swift */,
 				49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */,
 				49F046321D235E30005EE299 /* SemanticVersion.swift */,
@@ -251,6 +255,7 @@
 				49DDBD321D22213400CF32BA /* Sample.plist */,
 				49DA3415208A9480002DC24C /* Sample.podspec */,
 				49DDBD331D22213400CF32BA /* Sample.xcconfig */,
+				49D0A9E3218051CE00DBB0F6 /* Sample.gemspec */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				49F046311D235E02005EE299 /* File.swift in Sources */,
 				4903DB531E2466AA00533FB8 /* Arguments.swift in Sources */,
 				49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */,
+				49D0A9E121804FEC00DBB0F6 /* GemspecFile.swift in Sources */,
 				49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */,
 				49EF1D451D31B35D0068AC4F /* PlistFile.swift in Sources */,
 			);

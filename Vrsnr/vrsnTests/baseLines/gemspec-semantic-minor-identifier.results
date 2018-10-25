@@ -1,0 +1,47 @@
+vrsn minor --file vrsnTests/Fixtures/Sample.gemspec --identifier some.prerelease-identifier.123
+Updated version from 0.0.0 to 0.1.0-some.prerelease-identifier.123 in vrsnTests/Fixtures/Sample.gemspec
+
+Before:
+
+Gem::Specification.new do |s|
+    s.name        = 'Sample'
+    s.version     = '0.0.0'
+    s.date        = '2018-10-23'
+    s.summary     = 'A sample gemspec file.'
+    s.description = <<-DESC
+        Description of a sample gemspec file.
+    DESC
+    s.files       = [
+        'lib/a',
+        'lib/b.rb'
+    ]
+    s.homepage    = 'https://github.com/my/repo'
+    s.license     = 'MIT'
+    s.add_runtime_dependency 'json', '~> 2.1'
+end
+
+After:
+
+Gem::Specification.new do |s|
+    s.name        = 'Sample'
+    s.version     = '0.1.0-some.prerelease-identifier.123'
+    s.date        = '2018-10-23'
+    s.summary     = 'A sample gemspec file.'
+    s.description = <<-DESC
+        Description of a sample gemspec file.
+    DESC
+    s.files       = [
+        'lib/a',
+        'lib/b.rb'
+    ]
+    s.homepage    = 'https://github.com/my/repo'
+    s.license     = 'MIT'
+    s.add_runtime_dependency 'json', '~> 2.1'
+end
+
+Difference:
+
+3c3
+<     s.version     = '0.1.0-some.prerelease-identifier.123'
+---
+>     s.version     = '0.0.0'
