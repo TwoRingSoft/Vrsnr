@@ -66,6 +66,14 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--help"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--custom 6.6.6"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--file /Users/andrewmcknight/Work/tworingsoft/vrsnr/Vrsnr/vrsnTests/Fixtures/Sample.plist"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
