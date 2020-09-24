@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### Added
+
+- `--custom` flag to allow specifying the exact version that will be written (respecting `--numeric`).
+
 ---
 
 ## [2.1.0] 2018/10/24

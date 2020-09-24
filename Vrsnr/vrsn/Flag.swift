@@ -21,6 +21,7 @@ enum Flag: CommandLineOption, CaseIterable {
     case readFromFile
     case buildMetadata
     case prereleaseIdentifier
+    case custom
 
     var optional: Bool {
         switch self {
@@ -35,6 +36,7 @@ enum Flag: CommandLineOption, CaseIterable {
         case .readFromFile: return true
         case .buildMetadata: return true
         case .prereleaseIdentifier: return true
+        case .custom: return true
         }
     }
 
@@ -51,6 +53,7 @@ enum Flag: CommandLineOption, CaseIterable {
         case .readFromFile: return "r"
         case .buildMetadata: return "m"
         case .prereleaseIdentifier: return "i"
+        case .custom: return "u"
         }
     }
 
@@ -67,6 +70,7 @@ enum Flag: CommandLineOption, CaseIterable {
         case .readFromFile: return "read"
         case .buildMetadata: return "metadata"
         case .prereleaseIdentifier: return "identifier"
+        case .custom: return "custom"
         }
     }
 
@@ -101,6 +105,7 @@ enum Flag: CommandLineOption, CaseIterable {
         case .readFromFile: return "Read the version from the file and print it. Ignores 'major', 'minor', 'patch', and --numeric, as well as --try option."
         case .buildMetadata: return "Add build metadata string. See http://semver.org/#spec-item-10 for more on build metadata."
         case .prereleaseIdentifier: return "Add a prerelease identifier. See http://semver.org/#spec-item-9 for more on prerelease identifiers."
+        case .custom: return "Provide a version to write into the semantic (or build number for --numeric) without modification by any versioning math."
         }
     }
 }

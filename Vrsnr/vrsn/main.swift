@@ -37,7 +37,7 @@ let readOnlyFromFile = isRead()
 var versionString: String?
 var dryRun = false
 if !readOnlyFromFile {
-    versionString = Flags.value(forOptionalFlag: Flag.currentVersion)
+    versionString = Flags.value(forOptionalFlag: Flag.custom) ?? Flags.value(forOptionalFlag: Flag.currentVersion)
     dryRun = isDryRun()
 }
 
@@ -81,7 +81,9 @@ func doWork<V>() -> V where V: Version {
     let original = try! V.parseFromString(versionString!)
 
     var new: V?
-    if !readOnlyFromFile {
+    if Arguments.contains(Flag.custom) {
+        new = original
+    } else if !readOnlyFromFile {
         switch(versionType) {
         case .Numeric:
             new = original.nextVersion(0, prereleaseIdentifier: identifier, buildMetadata: metadata)
