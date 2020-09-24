@@ -1,0 +1,3 @@
+[submodule "homebrew-formulae"]
+	path = submodules/tworingsoft/homebrew-formulae
+	url = git@github.com:tworingsoft/homebrew-formulae.git
