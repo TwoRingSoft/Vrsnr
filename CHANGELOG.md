@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [2.2.0] 2020-09-24
+
 ### Added
 
 - `--custom` flag to allow specifying the exact version that will be written (respecting `--numeric`).
