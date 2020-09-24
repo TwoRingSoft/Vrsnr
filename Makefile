@@ -24,15 +24,10 @@ update_baselines:
 
 bump:
 	rbenv exec bundle exec bumpr $(COMPONENT) Vrsnr/Config/Project.xcconfig
-	rbenv exec bundle exec migrate-changelog CHANGELOG.md $(vrsn --read --file Vrsnr/Config/Project.xcconfig)
+	rbenv exec bundle exec migrate-changelog CHANGELOG.md $$(vrsn --read --file Vrsnr/Config/Project.xcconfig)
 
 release:
-	git tag $(vrsn --file Vrsnr/Config/Project.xcconfig --read)
+	git tag $$(vrsn --file Vrsnr/Config/Project.xcconfig --read)
 	git push && git push --tags
 	git submodule update --init --recursive submodules/tworingsoft/homebrew-formulae
-	pushd submodules/tworingsoft/homebrew-formulae \
-		&& git fetch \
-		&& git reset --hard origin/master \
-		&& vrsn --key sha256 --file Formula/vrsn.rb --custom $(brew fetch tworingsoft/homebrew-formulae/vrsn --HEAD --build-from-source | grep SHA256 | awk '{print $2};') \
-		&& make release SPEC=vrsn VERSION=$(vrsn --read --file ../../../Vrsnr/Config/Project.xcconfig) \
-		&& popd
+	./scripts/release-homebrew-formula.sh
