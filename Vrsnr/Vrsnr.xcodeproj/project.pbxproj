@@ -60,7 +60,6 @@
 		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
 		49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemspecFile.swift; sourceTree = "<group>"; };
 		49D0A9E3218051CE00DBB0F6 /* Sample.gemspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.gemspec; sourceTree = "<group>"; };
-		49DA3414208A941A002DC24C /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
 		49DA3415208A9480002DC24C /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
 		49DDBD321D22213400CF32BA /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample.plist; sourceTree = "<group>"; };
 		49DDBD331D22213400CF32BA /* Sample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Sample.xcconfig; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		49A0F26A1D20D7F3007C41AE = {
 			isa = PBXGroup;
 			children = (
-				49DA3413208A941A002DC24C /* Scripts */,
 				49EF1D271D2601CE0068AC4F /* Config */,
 				49A0F2741D20D7F3007C41AE /* Products */,
 				49A0F3611D20E9F2007C41AE /* Shared */,
@@ -155,15 +153,6 @@
 				49EF1D291D2C8B5A0068AC4F /* Version.swift */,
 			);
 			path = "Version Types";
-			sourceTree = "<group>";
-		};
-		49DA3413208A941A002DC24C /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				49DA3414208A941A002DC24C /* test.sh */,
-			);
-			name = Scripts;
-			path = ../Scripts;
 			sourceTree = "<group>";
 		};
 		49DDBD211D22213400CF32BA /* Fixtures */ = {
