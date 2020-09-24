@@ -26,7 +26,7 @@
 		49A0F29F1D20D808007C41AE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F29E1D20D808007C41AE /* main.swift */; };
 		49A0F35A1D20DF56007C41AE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3591D20DF56007C41AE /* Functions.swift */; };
 		49A0F3601D20E48F007C41AE /* VrsnrVersions.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */; };
-		49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */; };
+		49A0F3631D20EE59007C41AE /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0F3621D20EE59007C41AE /* Flag.swift */; };
 		49D0A9E121804FEC00DBB0F6 /* GemspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */; };
 		49DDBDAA1D22407B00CF32BA /* SharedDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDBD4D1D22233D00CF32BA /* SharedDefinitions.swift */; };
 		49EF1D241D24AF7A0068AC4F /* NumericVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D221D24AF750068AC4F /* NumericVersion.swift */; };
@@ -57,7 +57,7 @@
 		49A0F35D1D20E48E007C41AE /* vrsn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vrsn-Bridging-Header.h"; sourceTree = "<group>"; };
 		49A0F35E1D20E48F007C41AE /* VrsnrVersions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VrsnrVersions.h; sourceTree = "<group>"; };
 		49A0F35F1D20E48F007C41AE /* VrsnrVersions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VrsnrVersions.m; sourceTree = "<group>"; };
-		49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLIDefinitions.swift; sourceTree = "<group>"; };
+		49A0F3621D20EE59007C41AE /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		49D0A9DF21804FE500DBB0F6 /* GemspecFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemspecFile.swift; sourceTree = "<group>"; };
 		49D0A9E3218051CE00DBB0F6 /* Sample.gemspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.gemspec; sourceTree = "<group>"; };
 		49DA3415208A9480002DC24C /* Sample.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sample.podspec; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4903DB521E2466AA00533FB8 /* Arguments.swift */,
-				49A0F3621D20EE59007C41AE /* CLIDefinitions.swift */,
+				49A0F3621D20EE59007C41AE /* Flag.swift */,
 				49A0F3591D20DF56007C41AE /* Functions.swift */,
 				49A0F29E1D20D808007C41AE /* main.swift */,
 				49A0F35D1D20E48E007C41AE /* vrsn-Bridging-Header.h */,
@@ -273,7 +273,7 @@
 				49F046341D235E3C005EE299 /* SemanticVersion.swift in Sources */,
 				49A0F29F1D20D808007C41AE /* main.swift in Sources */,
 				49A0F35A1D20DF56007C41AE /* Functions.swift in Sources */,
-				49A0F3631D20EE59007C41AE /* CLIDefinitions.swift in Sources */,
+				49A0F3631D20EE59007C41AE /* Flag.swift in Sources */,
 				49F046311D235E02005EE299 /* File.swift in Sources */,
 				4903DB531E2466AA00533FB8 /* Arguments.swift in Sources */,
 				49EF1D2B1D2C8CF10068AC4F /* Version.swift in Sources */,

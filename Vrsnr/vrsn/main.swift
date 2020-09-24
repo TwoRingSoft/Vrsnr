@@ -37,7 +37,7 @@ let readOnlyFromFile = isRead()
 var versionString: String?
 var dryRun = false
 if !readOnlyFromFile {
-    versionString = Flags.value(forOptionalFlag: VrsnrFlags.currentVersion)
+    versionString = Flags.value(forOptionalFlag: Flag.currentVersion)
     dryRun = isDryRun()
 }
 
@@ -53,20 +53,20 @@ var key: String?
 let fileReadRequired = versionString == nil || readOnlyFromFile
 let fileWriteRequired = !dryRun
 if fileReadRequired || fileWriteRequired {
-    path = Flags.value(forNonoptionalFlag: VrsnrFlags.file)
+    path = Flags.value(forNonoptionalFlag: Flag.file)
     file = try! createFileForPath(path!)
-    key = Flags.value(forOptionalFlag: VrsnrFlags.key)
+    key = Flags.value(forOptionalFlag: Flag.key)
 }
 
 // not required
-var identifier = Flags.value(forOptionalFlag: VersionSuffix.prereleaseIdentifier)
-var metadata = Flags.value(forOptionalFlag: VersionSuffix.buildMetadata)
+var identifier = Flags.value(forOptionalFlag: Flag.prereleaseIdentifier)
+var metadata = Flags.value(forOptionalFlag: Flag.buildMetadata)
 
 // if no version override was specified with --current-version, get it from the file now
 let versionType = getVersionType()
 if versionString == nil {
     guard let specifiedFile = file else {
-        print("Need to specify either a file containing version info or a value for \(VrsnrFlags.currentVersion.short)/\(VrsnrFlags.currentVersion.long).")
+        print("Need to specify either a file containing version info or a value for \(Flag.currentVersion.short)/\(Flag.currentVersion.long).")
         exit(ErrorCode.noVersionInformationSource.rawValue)
     }
 

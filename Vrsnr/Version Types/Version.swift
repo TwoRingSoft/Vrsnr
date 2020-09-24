@@ -28,31 +28,6 @@ public enum VersionType: String {
     
 }
 
-public enum VersionSuffix: UInt8, CommandLineOption {
-
-    case buildMetadata
-    case prereleaseIdentifier
-
-    public var long: String {
-        switch self {
-        case .buildMetadata:
-            return "metadata"
-        case .prereleaseIdentifier:
-            return "identifier"
-        }
-    }
-
-    public var short: String {
-        switch self {
-        case .buildMetadata:
-            return "m"
-        case .prereleaseIdentifier:
-            return "i"
-        }
-    }
-    
-}
-
 public protocol Version: CustomStringConvertible, Comparable {
 
     static var statictype: VersionType { get }
