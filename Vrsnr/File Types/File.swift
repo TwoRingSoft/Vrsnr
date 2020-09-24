@@ -15,8 +15,9 @@ public enum FileType: String {
     case XCConfig = "com.apple.xcode.configsettings"
     case Podspec = "podspec"
     case Gemspec = "gemspec"
+    case Homebrew_Spec = "homebrewspec"
 
-    public static func allFileTypes() -> [FileType] { return [.Plist, .XCConfig, .Podspec, .Gemspec] }
+    public static func allFileTypes() -> [FileType] { return [.Plist, .XCConfig, .Podspec, .Gemspec, .Homebrew_Spec] }
 
     public static func typeOfFileAtPath(_ path: String) throws -> FileType {
         let workspace = NSWorkspace.shared
@@ -45,6 +46,7 @@ public enum FileType: String {
         case .XCConfig: return "xcconfig"
         case .Podspec: return "podspec"
         case .Gemspec: return "gemspec"
+        case .Homebrew_Spec: return "rb"
         }
     }
 
@@ -54,6 +56,7 @@ public enum FileType: String {
         case .XCConfig: return XcconfigFile.defaultKeyForVersionType(versionType)
         case .Podspec: return PodspecFile.defaultKeyForVersionType(versionType)
         case .Gemspec: return GemspecFile.defaultKeyForVersionType(versionType)
+        case .Homebrew_Spec: return HomebrewSpec.defaultKeyForVersionType(versionType)
         }
     }
 
@@ -82,6 +85,7 @@ public func createFileForPath(_ path: String) throws -> File {
     case .XCConfig: return XcconfigFile(path: path)
     case .Podspec: return PodspecFile(path: path)
     case .Gemspec: return GemspecFile(path: path)
+    case .Homebrew_Spec: return HomebrewSpec(path: path)
     }
 }
 

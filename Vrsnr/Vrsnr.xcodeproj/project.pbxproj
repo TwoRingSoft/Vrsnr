@@ -37,6 +37,7 @@
 		49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */; };
 		49F046311D235E02005EE299 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0462F1D235DE3005EE299 /* File.swift */; };
 		49F046341D235E3C005EE299 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F046321D235E30005EE299 /* SemanticVersion.swift */; };
+		84092C88251C7AFC00EE8ED2 /* HomebrewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84092C87251C7AFC00EE8ED2 /* HomebrewSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		49F0462F1D235DE3005EE299 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		49F046321D235E30005EE299 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		49F046611D238253005EE299 /* vrsnTests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = vrsnTests.sh; sourceTree = "<group>"; };
+		84092C87251C7AFC00EE8ED2 /* HomebrewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomebrewSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				49EF1D411D3192900068AC4F /* PlistFile.swift */,
 				49EF1D4B1D33152B0068AC4F /* PodspecFile.swift */,
 				49EF1D431D3192980068AC4F /* XcconfigFile.swift */,
+				84092C87251C7AFC00EE8ED2 /* HomebrewSpec.swift */,
 			);
 			path = "File Types";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EF1D461D31B35F0068AC4F /* XcconfigFile.swift in Sources */,
+				84092C88251C7AFC00EE8ED2 /* HomebrewSpec.swift in Sources */,
 				49A0F3601D20E48F007C41AE /* VrsnrVersions.m in Sources */,
 				49EF1D4D1D33170F0068AC4F /* PodspecFile.swift in Sources */,
 				49EF1D371D2E0B8C0068AC4F /* ErrorCodes.swift in Sources */,
